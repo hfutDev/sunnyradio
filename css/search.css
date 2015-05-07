@@ -40,7 +40,7 @@
 .container{
     position:relative;
     width:920px;
-    height:375px;
+    height:405px;
     margin:100px auto 0 auto;
     padding:30px 50px;
     background: white;
@@ -49,22 +49,18 @@
     font-size: 20px;
     margin-bottom: 20px;
 }
-.music{
-    /*width:200px;
-    height:125px;*/
-}
 .music-pic{
     float:left;
     width:200px;
     height:150px;
-    margin:0 40px 25px 0;
+    margin:0 40px 40px 0;
 }
 .music-li-four{
     margin-right:0;
 }
 .music-pic img{
     width:200px;
-    height:100px;
+    height:120px;
 }
 .music-pic p{
     /*font-size: 13px;*/
