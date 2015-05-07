@@ -8,9 +8,9 @@
 .container{
     position:relative;
     width:920px;
-    height:400px;
+    /*height:400px;*/
     margin:-185px auto 0 auto;
-    padding:40px 50px;
+    padding:40px 50px 20px 50px;
     background: white;
 }
 .title{
@@ -20,12 +20,69 @@
     font-weight:600;
     /*list-style: none;*/
 }
-.title > li{
+.title li{
     float: left;
     width:200px;
     padding-bottom:10px;
     border-bottom: 3px solid red;
 }
 .list{
-    margin:20px 0;
+    width:920px;
+    margin:15px 0;
+    table-layout: fixed;
+}
+.list tr td{
+    padding:5px 0;
+}
+.list-two{
+    margin: 20px 0 0 0;
+}
+.song-no{
+    width:40px;
+    text-align: center;
+}
+.song-name{
+    width:280px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.songer{
+    width:180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.song-play{
+    width:140px;
+}
+.song-seach{
+    width:140px;
+}
+.song-ctrl{
+    width:140px;
+}
+.icon{
+    float: left;
+    width: 18px;
+    height: 18px;
+    margin-left: 12px;
+    cursor: pointer;
+}
+.icon-play{
+    background: url('../images/icon.png') -263px -229px;
+}
+.icon-plus{
+    background: url('../images/icon.png') -293px -230px;
+}
+.icon-love{
+    background: url('../images/icon.png') -321px -230px;
+}
+.icon-download{
+    background: url('../images/icon.png') -353px -230px;
+}
+.td-nowrap{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
