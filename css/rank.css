@@ -23,6 +23,7 @@
     width:200px;
     padding-bottom:10px;
     border-bottom: 3px solid rgb(255, 145, 0);
+    color:rgb(94, 86, 86);
     cursor: pointer;
 }
 .title .title-color{
@@ -33,6 +34,9 @@
     width:920px;
     margin:15px 0;
     table-layout: fixed;
+}
+.list tr:nth-child(odd){
+    background: rgb(242, 242, 242);
 }
 .list tr td{
     padding:5px 0;
@@ -54,15 +58,18 @@
 }
 .songer{
     width:180px;
+    color:rgb(50, 42, 42);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 .song-play{
     width:140px;
+    color:rgb(148, 144, 144);
 }
 .song-seach{
     width:140px;
+    color:rgb(148, 144, 144);
 }
 .song-ctrl{
     width:140px;
