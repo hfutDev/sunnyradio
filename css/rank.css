@@ -8,7 +8,6 @@
 .container{
     position:relative;
     width:920px;
-    /*height:400px;*/
     margin:-185px auto 0 auto;
     padding:40px 50px 20px 50px;
     background: white;
@@ -18,13 +17,17 @@
     height:40px;
     font-size: 20px;
     font-weight:600;
-    /*list-style: none;*/
 }
 .title li{
     float: left;
     width:200px;
     padding-bottom:10px;
-    border-bottom: 3px solid red;
+    border-bottom: 3px solid rgb(255, 145, 0);
+    cursor: pointer;
+}
+.title .title-color{
+    color:rgb(148, 144, 144);
+    border-color:rgb(148, 144, 144);
 }
 .list{
     width:920px;
@@ -40,12 +43,14 @@
 .song-no{
     width:40px;
     text-align: center;
+    color:rgb(255, 145, 0);
 }
 .song-name{
     width:280px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color:rgb(255, 145, 0);
 }
 .songer{
     width:180px;
