@@ -48,17 +48,24 @@
     text-overflow: ellipsis;
 }
 .music-name{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color:rgb(255, 145, 0);
 }
 .box-right{
     float:left;
-    /*width:300px;*/
+    width:250px;
     margin-left:50px;
 }
 .music-hot{
     float:left;
-    width:200px;
+    /*width:250px;*/
     /*margin-left: 20px;*/
+}
+.pic-hot{
+    width:250px;
+    margin-bottom:30px;
 }
 .pic-hot img{
     width:100px;
@@ -66,7 +73,13 @@
     margin:0;
 }
 .hot-song {
-    float:left;
+    float:right;
+    width:130px;
+    margin-left:20px;
+    margin-top: 29px;
+}
+.hot-number{
+    margin-top: 10px;
 }
 .icon{
     float: left;
