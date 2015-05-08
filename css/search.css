@@ -39,10 +39,13 @@
 }
 .container{
     position:relative;
-    width:920px;
-    height:405px;
+    width:1020px;
     margin:100px auto 0 auto;
-    padding:30px 50px;
+}
+.content{
+    float:left;
+    width:920px;
+    padding:30px 50px 15px 50px;
     background: white;
 }
 .search-result{
