@@ -22,10 +22,7 @@
 }
 .box-left{
     float:left;
-    width:620px;
-}
-.music-new{
-    width:620px;
+    width:590px;
 }
 .music-pic{
     float:left;
@@ -53,8 +50,13 @@
     text-overflow: ellipsis;
     color:rgb(255, 145, 0);
 }
-.box-right{
+.paging{
     float:left;
+    height:30px;
+    cursor: pointer;
+}
+.box-right{
+    float:right;
     width:250px;
     margin-left:50px;
 }
