@@ -68,6 +68,9 @@
 .music-pic p{
     /*font-size: 13px;*/
     margin:-bottom:10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .music-name{
     color:rgb(255, 145, 0);
