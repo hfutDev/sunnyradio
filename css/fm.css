@@ -32,7 +32,13 @@
 }
 .album-info{
 	float: left;
-	margin-left: 28px;
+	width:252px;
+	margin: 0 10px 0 28px;
+}
+.album-info p{
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .music-name{
 	margin-top: 20px;
