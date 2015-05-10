@@ -4,7 +4,7 @@ if (S.Config.debug) {
 	S.config({
 		packages: [{
 			name: "gallery",
-			path: srcPath, 
+			path: srcPath,
 			charset: "utf-8",
 			ignorePackageNameInUri: true
 		}]
@@ -31,7 +31,7 @@ S.use('gallery/musicPlayer/2.0/index', function(S, MusicPlayer) {
 			"path": "http://m1.file.xiami.com/368/1269130368/1973540058/1772013035_10411522_l.mp3"
 		}]
 	});
-	
+
 
 	musicPlayer.on("error", function(ev) {
 		S.log(['error', ev.msg]);
@@ -87,9 +87,9 @@ S.use('gallery/musicPlayer/2.0/index', function(S, MusicPlayer) {
 	// 	var _in dex = S.one(ev.target).index();
 	// 	musicPlayer.play(_index);
 	// });
-	
+
 	/**
-	  *设置播放语与暂停按钮切换 
+	  *设置播放语与暂停按钮切换
 	  */
 	S.one("#play-control").on('click', function(e) {
 		e.halt();
@@ -121,6 +121,6 @@ S.use('gallery/musicPlayer/2.0/index', function(S, MusicPlayer) {
 			DOM.css(_self,"background","url('../../images/icon-play.png') -249px -6px");
 		}
 	})
-	
+
 });
 
