@@ -1,6 +1,7 @@
  'use strict';
 
 // Declare app level module which depends on filters, and services
+//
 var app = angular.module('app', [
     'ngRoute',
     'app.filters',
@@ -16,19 +17,19 @@ app.config(
         function ($routeProvider, $locationProvider) {
             $routeProvider
                 .when('/', {
-                    templateUrl: 'tpl/blog_list.html'
+                    templateUrl: 'tpl/home.html'
                 })
-                .when('/:slug', {
-                    templateUrl: 'tpl/blog_detail.html'
+                .when('/play', {
+                    templateUrl: 'tpl/play.html'
                 })
-                .when('/tag/:tag', {
-                    templateUrl: 'tpl/blog_list.html'
+                .when('/rank', {
+                    templateUrl: 'tpl/rank.html'
                 })
-                .when('/author/:author', {
-                    templateUrl: 'tpl/blog_list.html'
+                .when('/search', {
+                    templateUrl: 'tpl/search.html'
                 })
-                .when('/category/:category', {
-                    templateUrl: 'tpl/blog_list.html'
+                .when('/talk', {
+                    templateUrl: 'tpl/talk.html'
                 })
                 .otherwise({
                     redirectTo: '/'

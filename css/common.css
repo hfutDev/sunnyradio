@@ -1,12 +1,12 @@
 body{
-	font-family: '微软雅黑';	
+	font-family: '微软雅黑';
 	margin: 0 auto;
 	width: 100%;
 	background: #f0f0f0;
 }
 #header{
 	position: relative;
-	margin:11px auto 0; 
+	margin:11px auto 0;
 	width: 944px;
 	height: 54px;
 	background:url('../images/nav_bg.png') repeat;
@@ -109,3 +109,6 @@ body{
 .footer-links a:hover{
 	text-decoration: underline;
 }
+
+
+

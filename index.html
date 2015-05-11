@@ -1,13 +1,20 @@
 <!DOCTYPE html>
-<html lang="zh-CN" xmlns:html5="http://www.w3.org/1999/xhtml">
+<html ng-app="app" lang="zh-CN" xmlns:html5="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>SUNNY RADIO</title>
 	<meta name="Keywords" content="sunny radio">
 	<meta name="Description" content="合肥工业大学-工大学子音乐台">
+
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/common.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/play.css">
+	<link rel="stylesheet" type="text/css" href="css/rank.css">
+	<link rel="stylesheet" type="text/css" href="css/search.css">
+	<link rel="stylesheet" type="text/css" href="css/talk.css">
+
+
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -15,25 +22,25 @@
 		<div class="nav">
 			<ul class="site-nav">
 				<li>
-					<a href="#">作品上传</a>
+					<a href="#!/">作品上传</a>
 				</li>
 				<li>
-					<a href="#">客户端</a>
+					<a href="#!/">客户端</a>
 				</li>
 				<li>
-					<a href="talk.html">音乐心情</a>
+					<a href="#!/talk">音乐心情</a>
 				</li>
 				<li>
-					<a href="fm.html">正在播放</a>
+					<a href="#!/play">正在播放</a>
 				</li>
 				<li id="logo-x">
-					<a href="index.html"></a>
+					<a href="#/"></a>
 				</li>
 				<li>
-					<a href="#">点歌</a>
+					<a href="#!/">点歌</a>
 				</li>
 				<li>
-					<a href="rank.html">风云榜</a>
+					<a href="#!/rank">风云榜</a>
 				</li>
 				<li>
 					<a href="#">登陆/注册</a>
@@ -47,221 +54,11 @@
 			</div>
 		</div>
 	</div>
-	<div id="main">
-		<div class="banner">
-			<div class="banner-msg"></div>
-		</div>
-		<div class="main-container">
-			<div class="left-container">
-				<p class="headline">
-					<span class="music-title"></span>
-					<span class="more">/更多</span>
-				</p>
-				<div class="rotating-content-container">
-					<ul class="rotating-content">
-						<li class="new-music">
-							<img src="images/release.jpg" alt="">
-							<p class="music-info ellipsis">
-								<span class="music-name">尚好的青春</span>
-								<span>-</span>
-								<span class="music-singer">孙燕姿</span>
-							</p>
-							<div id="comment" class="music-comment">
-								<p>
-									<span>飞天小莫</span>
-									<span>:</span>
-									<span>这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂</span>
-								</p>
-							</div>
-						</li>
-						<li class="new-music">
-							<img src="images/release.jpg" alt="">
-							<p class="music-info line-ellipsis">
-								<span class="music-name">尚好的青春</span>
-								<span>-</span>
-								<span class="music-singer">孙燕姿</span>
-							</p>
-							<div class="music-comment">
-								<p>
-									<span>飞天小莫</span>
-									<span>：</span>
-									<span>这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂</span>
-								</p>
-							</div>
-						</li>
-						<li class="new-music">
-							<img src="images/release.jpg" alt="">
-							<p class="music-info ellipsis">
-								<span class="music-name">尚好的青春</span>
-								<span>-</span>
-								<span class="music-singer">孙燕姿</span>
-							</p>
-							<div class="music-comment">
-								<p>
-									<span>飞天小莫</span>
-									<span>：</span>
-									<span>这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂</span>
-								</p>
-							</div>
-						</li>
-					</ul>
-					<ul class="rotating-content">
-						<li class="new-music">
-							<img src="images/release.jpg" alt="">
-							<p class="music-info ellipsis">
-								<span class="music-name">尚好的青春</span>
-								<span>-</span>
-								<span class="music-singer">孙燕姿</span>
-							</p>
-							<div class="music-comment">
-								<p>
-									<span>飞天小莫</span>
-									<span>：</span>
-									<span>这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂</span>
-								</p>
-							</div>
-						</li>
-						<li class="new-music">
-							<img src="images/release.jpg" alt="">
-							<p class="music-info ellipsis">
-								<span class="music-name">尚好的青春</span>
-								<span>-</span>
-								<span class="music-singer">孙燕姿</span>
-							</p>
-							<div class="music-comment">
-								<p>
-									<span>飞天小莫</span>
-									<span>：</span>
-									<span>这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂</span>
-								</p>
-							</div>
-						</li>
-						<li class="new-music">
-							<img src="images/release.jpg" alt="">
-							<p class="music-info ellipsis">
-								<span class="music-name">尚好的青春</span>
-								<span>-</span>
-								<span class="music-singer">孙燕姿</span>
-							</p>
-							<div class="music-comment">
-								<p>
-									<span>飞天小莫</span>
-									<span>：</span>
-									<span>这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂</span>
-								</p>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="right-container">
-				<p class="headline">
-					<span class="music-title"></span>
-					<span class="more">/更多</span>
-				</p>
-				<div class="music-top-container">
-					<ul class="song-list">
-						<li class="song-list-l first">
-							<img src="images/album.gif" alt="">
-							<p class="song-list-info ellipsis">
-								<span class="num">01.</span>
-								<span class="music-name">最炫名族风</span>
-								<span>-</span>
-								<span class="music-singer">凤凰传奇</span>
-							</p>
-							<p class="song-list-num">
-								<span>播放</span>
-								<span>2379</span>
-								<span class="find">扒歌</span>
-								<span>13</span>
-							</p>
-							<p class="fun-icon">
-								<span class="icon-play icon"></span>
-								<span class="icon-plus icon"></span>
-								<span class="icon-love icon"></span>
-								<span class="icon-download icon"></span>
-							</p>
-						</li>
-						<li class="song-list-l">
-							<img src="images/album.gif" alt="">
-							<p class="song-list-info ellipsis">
-								<span class="num">02.</span>
-								<span class="music-name">最炫名族风</span>
-								<span>-</span>
-								<span class="music-singer">凤凰传奇</span>
-							</p>
-							<p class="song-list-num">
-								<span>播放</span>
-								<span>2379</span>
-								<span class="find">扒歌</span>
-								<span>13</span>
-							</p>
-						</li>
-						<li class="song-list-l">
-							<img src="images/album.gif" alt="">
-							<p class="song-list-info ellipsis">
-								<span class="num">03.</span>
-								<span class="music-name">最炫名族风</span>
-								<span>-</span>
-								<span class="music-singer">凤凰传奇</span>
-							</p>
-							<p class="song-list-num">
-								<span>播放</span>
-								<span>2379</span>
-								<span class="find">扒歌</span>
-								<span>13</span>
-							</p>
-						</li>
-						<li class="song-list-l">
-							<img src="images/album.gif" alt="">
-							<p class="song-list-info ellipsis">
-								<span class="num">04.</span>
-								<span class="music-name">最炫名族风</span>
-								<span>-</span>
-								<span class="music-singer">凤凰传奇</span>
-							</p>
-							<p class="song-list-num">
-								<span>播放</span>
-								<span>2379</span>
-								<span class="find">扒歌</span>
-								<span>13</span>
-							</p>
-						</li>
-						<li class="song-list-l">
-							<img src="images/album.gif" alt="">
-							<p class="song-list-info ellipsis">
-								<span class="num">05.</span>
-								<span class="music-name">最炫名族风</span>
-								<span>-</span>
-								<span class="music-singer">凤凰传奇</span>
-							</p>
-							<p class="song-list-num">
-								<span>播放</span>
-								<span>2379</span>
-								<span class="find">扒歌</span>
-								<span>13</span>
-							</p>
-						</li>
-						<li class="song-list-l">
-							<img src="images/album.gif" alt="">
-							<p class="song-list-info ellipsis">
-								<span class="num">06.</span>
-								<span class="music-name">最炫名族风</span>
-								<span>-</span>
-								<span class="music-singer">凤凰传奇</span>
-							</p>
-							<p class="song-list-num">
-								<span>播放</span>
-								<span>2379</span>
-								<span class="find">扒歌</span>
-								<span>13</span>
-							</p>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+
+
+	<div ng-view></div>
+
+
 	<div id="footer">
 		<div class="footer-logo"></div>
 		<div class="footer-container">
@@ -279,5 +76,13 @@
 	</div>
 </body>
 <script type="text/javascript" src="js/libs/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/libs/angular-1.2.28.min.js"></script>
+<script type="text/javascript" src="js/libs/angular-route.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/controllers.js"></script>
+<script type="text/javascript" src="js/services.js"></script>
+<script type="text/javascript" src="js/directives.js"></script>
+<script type="text/javascript" src="js/filters.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
+
 </html>
