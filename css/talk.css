@@ -5,12 +5,12 @@
     margin: -66px auto 0;
     background: url(../images/rank.jpg) no-repeat;
 }
-.container{
+.talk-container{
     position:relative;
     width:1020px;
     margin:-180px auto 0 auto;
 }
-.content{
+.talk-content{
     float:left;
     width:920px;
     padding:30px 50px 15px 50px;
@@ -25,7 +25,7 @@
     width:590px;
     text-align: center;
 }
-.music-pic{
+.talk-music-pic{
     float:left;
     width:170px;
     height:135px;
@@ -34,11 +34,11 @@
 .music-li-three{
     margin-right:0;
 }
-.music-pic img{
+.talk-music-pic img{
     width:170px;
     height:100px;
 }
-.music-pic p{
+.talk-music-pic p{
     margin-bottom:10px;
     text-align: left;
     white-space: nowrap;

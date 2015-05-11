@@ -10,8 +10,6 @@
     margin:-180px auto 0 auto;
     width:370px;
     height:40px;
-    /*padding:1px 10px;*/
-    /*border:6px solid rgb(159, 159, 163);*/
     border-top:7px;
     border-bottom:7px;
     border-left:12px;
@@ -20,14 +18,14 @@
     border-color:rgb(177, 177, 179);
     opacity: 0.7;
 }
-.search-input{
+.search .search-input{
     width:96%;
     height:100%;
     padding:0 2%;
     border:0;
     font-size: 20px;
 }
-.search-icon{
+.search .search-icon{
     position:relative;
     width:18px;
     height:18px;
@@ -66,13 +64,12 @@
     height:120px;
 }
 .music-pic p{
-    /*font-size: 13px;*/
     margin:-bottom:10px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.music-name{
+.music-color{
     color:rgb(255, 145, 0);
 }
 .icon{
