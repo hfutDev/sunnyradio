@@ -3,6 +3,7 @@
 
 body{
 	font-family: '微软雅黑';
+    font-size: 14px;
 	margin: 0 auto;
 	width: 100%;
 	background: #f0f0f0;
@@ -158,10 +159,7 @@ body{
 	width: 178px;
 	padding-top: 8px;
 	line-height: 24px;
-	font-size: 14px;
-}
-.music-name{
-	color: #ffa800;
+	font-size: 18px;
 }
 .music-singer{
 	color: #555555;
@@ -207,7 +205,7 @@ body{
 	margin-left: 12px;
 }
 .song-list-info{
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 24px;
 }
 .song-list-info .num{
@@ -228,24 +226,24 @@ body{
 .fun-icon{
 	padding-top: 5px;
 }
-.fun-icon .icon{
+.icon{
 	float: left;
 	width: 18px;
 	height: 18px;
 	margin-left: 12px;
 	cursor: pointer;
 }
-.fun-icon .icon-play{
+.icon-play{
 	margin-left: 0px;
 	background: url('../images/icon.png') -263px -229px;
 }
-.fun-icon .icon-plus{
+.icon-plus{
 	background: url('../images/icon.png') -293px -230px;
 }
-.fun-icon .icon-love{
+.icon-love{
 	background: url('../images/icon.png') -321px -230px;
 }
-.fun-icon .icon-download{
+.icon-download{
 	background: url('../images/icon.png') -353px -230px;
 }
 .first>.song-list-info,.first>.song-list-num,.first>.fun-icon{
@@ -356,6 +354,7 @@ body{
     width:920px;
     margin:15px 0;
     table-layout: fixed;
+    font-size: 17px;
 }
 .list tr:nth-child(odd){
     background: rgb(242, 242, 242);
@@ -443,6 +442,89 @@ body{
 	text-decoration: underline;
 }
 
+/*Talk CSS*/
+
+
+.talk-container{
+    position:relative;
+    width:1020px;
+    margin:-180px auto 0 auto;
+}
+.talk-content{
+    float:left;
+    width:920px;
+    padding:30px 50px 15px 50px;
+    background: white;
+}
+.emotion{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.box-left{
+    float:left;
+    width:590px;
+    /*text-align: center;*/
+}
+.talk-music-pic{
+    float:left;
+    width:170px;
+    height:135px;
+    margin:0 40px 40px 0;
+}
+.music-li-three{
+    margin-right:0;
+}
+.talk-music-pic img{
+    width:170px;
+    height:100px;
+}
+.talk-music-pic p{
+    margin-bottom:10px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.music-name{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color:rgb(255, 145, 0);
+}
+.paging{
+    float:left;
+    width:100%;
+    height:30px;
+    text-align:center;
+    cursor: pointer;
+}
+.paging span{
+    margin:0 5px;
+}
+.box-right{
+    float:right;
+    width:250px;
+    margin-left:50px;
+}
+.pic-hot{
+    width:250px;
+    margin-bottom:30px;
+}
+.pic-hot img{
+    width:100px;
+    height:100px;
+    margin:0;
+}
+.hot-song {
+    float:right;
+    width:130px;
+    margin-left:20px;
+    margin-top: 10px;
+}
+.hot-number{
+    margin-top: 10px;
+}
+
 /*Play CSS*/
 
 .player-wrapper{
@@ -479,12 +561,12 @@ body{
 }
 .music-name{
 	margin-top: 20px;
-	font-size: 24px;
+	font-size: 18px;
 	color: #ffa800;
 }
 .music-singer{
 	margin-top: 10px;
-	font-size: 18px;
+	font-size: 16px;
 	color: #555555;
 }
 .album-name{
