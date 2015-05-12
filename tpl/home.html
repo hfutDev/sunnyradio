@@ -1,215 +1,138 @@
-<div id="main">
-        <div class="banner home-bg">
-            <div class="banner-msg"></div>
-        </div>
-        <div class="main-container">
-            <div class="left-container">
-                <p class="headline">
-                    <span class="music-title"></span>
-                    <span class="more">/更多</span>
-                </p>
-                <div class="rotating-content-container">
-                    <ul class="rotating-content">
-                        <li class="new-music">
-                            <img src="images/release.jpg" alt="">
-                            <p class="music-info ellipsis">
-                                <span class="music-name">尚好的青春好的青春</span>
-                                <span>-</span>
-                                <span class="music-singer">孙燕姿</span>
+<div id="main" ng-controller="HomeCtrl">
+    <div class="banner home-bg">
+        <div class="banner-msg"></div>
+    </div>
+    <div class="main-container">
+        <div class="left-container">
+            <p class="headline">
+                <span class="music-title"></span>
+                <span class="more">/更多</span>
+            </p>
+            <div class="rotating-content-container">
+                <ul class="rotating-content">
+                    <li class="new-music" ng-repeat="music in musicList">
+                        <img src="images/{{music.img}}">
+                        <p class="music-info ellipsis">
+                            <span class="music-name">{{music.name}}</span>
+                            <span>-</span>
+                            <span class="music-singer">{{music.songer}}</span>
+                        </p>
+                        <div id="comment" class="music-comment">
+                            <p>
+                                <span>{{music.common}}</span>
+                                <span>:</span>
+                                <span>{{music.desc}}</span>
                             </p>
-                            <div id="comment" class="music-comment">
-                                <p>
-                                    <span>飞天小莫</span>
-                                    <span>:</span>
-                                    <span>这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂</span>
-                                </p>
-                            </div>
-                        </li>
-                        <li class="new-music">
-                            <img src="images/release.jpg" alt="">
-                            <p class="music-info line-ellipsis">
-                                <span class="music-name">尚好的青春</span>
-                                <span>-</span>
-                                <span class="music-singer">孙燕姿</span>
-                            </p>
-                            <div class="music-comment">
-                                <p>
-                                    <span>飞天小莫</span>
-                                    <span>:</span>
-                                    <span>这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂</span>
-                                </p>
-                            </div>
-                        </li>
-                        <li class="new-music">
-                            <img src="images/release.jpg" alt="">
-                            <p class="music-info ellipsis">
-                                <span class="music-name">尚好的青春</span>
-                                <span>-</span>
-                                <span class="music-singer">孙燕姿</span>
-                            </p>
-                            <div class="music-comment">
-                                <p>
-                                    <span>飞天小莫</span>
-                                    <span>:</span>
-                                    <span>这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂</span>
-                                </p>
-                            </div>
-                        </li>
-                    </ul>
-                    <ul class="rotating-content">
-                        <li class="new-music">
-                            <img src="images/release.jpg" alt="">
-                            <p class="music-info ellipsis">
-                                <span class="music-name">尚好的青春</span>
-                                <span>-</span>
-                                <span class="music-singer">孙燕姿</span>
-                            </p>
-                            <div class="music-comment">
-                                <p>
-                                    <span>飞天小莫</span>
-                                    <span>:</span>
-                                    <span>这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂</span>
-                                </p>
-                            </div>
-                        </li>
-                        <li class="new-music">
-                            <img src="images/release.jpg" alt="">
-                            <p class="music-info ellipsis">
-                                <span class="music-name">尚好的青春</span>
-                                <span>-</span>
-                                <span class="music-singer">孙燕姿</span>
-                            </p>
-                            <div class="music-comment">
-                                <p>
-                                    <span>飞天小莫</span>
-                                    <span>:</span>
-                                    <span>这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂</span>
-                                </p>
-                            </div>
-                        </li>
-                        <li class="new-music">
-                            <img src="images/release.jpg" alt="">
-                            <p class="music-info ellipsis">
-                                <span class="music-name">尚好的青春</span>
-                                <span>-</span>
-                                <span class="music-singer">孙燕姿</span>
-                            </p>
-                            <div class="music-comment">
-                                <p>
-                                    <span>飞天小莫</span>
-                                    <span>:</span>
-                                    <span>这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂</span>
-                                </p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="right-container">
-                <p class="headline">
-                    <span class="music-title"></span>
-                    <span class="more">/更多</span>
-                </p>
-                <div class="music-top-container">
-                    <ul class="song-list">
-                        <li class="song-list-l first">
-                            <img src="images/album.gif" alt="">
-                            <p class="song-list-info ellipsis">
-                                <span class="num">01.</span>
-                                <span class="music-name">最炫名族风</span>
-                                <span>-</span>
-                                <span class="music-singer">凤凰传奇</span>
-                            </p>
-                            <p class="song-list-num">
-                                <span>播放</span>
-                                <span>2379</span>
-                                <span class="find">扒歌</span>
-                                <span>13</span>
-                            </p>
-                            <p class="fun-icon">
-                                <span class="icon-play icon"></span>
-                                <span class="icon-plus icon"></span>
-                                <span class="icon-love icon"></span>
-                                <span class="icon-download icon"></span>
-                            </p>
-                        </li>
-                        <li class="song-list-l">
-                            <img src="images/album.gif" alt="">
-                            <p class="song-list-info ellipsis">
-                                <span class="num">02.</span>
-                                <span class="music-name">最炫名族风</span>
-                                <span>-</span>
-                                <span class="music-singer">凤凰传奇</span>
-                            </p>
-                            <p class="song-list-num">
-                                <span>播放</span>
-                                <span>2379</span>
-                                <span class="find">扒歌</span>
-                                <span>13</span>
-                            </p>
-                        </li>
-                        <li class="song-list-l">
-                            <img src="images/album.gif" alt="">
-                            <p class="song-list-info ellipsis">
-                                <span class="num">03.</span>
-                                <span class="music-name">最炫名族风</span>
-                                <span>-</span>
-                                <span class="music-singer">凤凰传奇</span>
-                            </p>
-                            <p class="song-list-num">
-                                <span>播放</span>
-                                <span>2379</span>
-                                <span class="find">扒歌</span>
-                                <span>13</span>
-                            </p>
-                        </li>
-                        <li class="song-list-l">
-                            <img src="images/album.gif" alt="">
-                            <p class="song-list-info ellipsis">
-                                <span class="num">04.</span>
-                                <span class="music-name">最炫名族风</span>
-                                <span>-</span>
-                                <span class="music-singer">凤凰传奇</span>
-                            </p>
-                            <p class="song-list-num">
-                                <span>播放</span>
-                                <span>2379</span>
-                                <span class="find">扒歌</span>
-                                <span>13</span>
-                            </p>
-                        </li>
-                        <li class="song-list-l">
-                            <img src="images/album.gif" alt="">
-                            <p class="song-list-info ellipsis">
-                                <span class="num">05.</span>
-                                <span class="music-name">最炫名族风</span>
-                                <span>-</span>
-                                <span class="music-singer">凤凰传奇</span>
-                            </p>
-                            <p class="song-list-num">
-                                <span>播放</span>
-                                <span>2379</span>
-                                <span class="find">扒歌</span>
-                                <span>13</span>
-                            </p>
-                        </li>
-                        <li class="song-list-l">
-                            <img src="images/album.gif" alt="">
-                            <p class="song-list-info ellipsis">
-                                <span class="num">06.</span>
-                                <span class="music-name">最炫名族风</span>
-                                <span>-</span>
-                                <span class="music-singer">凤凰传奇</span>
-                            </p>
-                            <p class="song-list-num">
-                                <span>播放</span>
-                                <span>2379</span>
-                                <span class="find">扒歌</span>
-                                <span>13</span>
-                            </p>
-                        </li>
-                    </ul>
-                </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
+        <div class="right-container">
+            <p class="headline">
+                <span class="music-title"></span>
+                <span class="more">/更多</span>
+            </p>
+            <div class="music-top-container">
+                <ul class="song-list">
+                    <li class="song-list-l first" ng-repeat="song in musicRank">
+                        <img src="images/{{song.img}}">
+                        <p class="song-list-info ellipsis">
+                            <span class="num">{{song.id}}</span>
+                            <span class="music-name">{{song.name}}</span>
+                            <span>-</span>
+                            <span class="music-singer">{{song.songer}}</span>
+                        </p>
+                        <p class="song-list-num">
+                            <span>播放</span>
+                            <span>{{song.playNum}}</span>
+                            <span class="find">扒歌</span>
+                            <span>{{song.searchNum}}</span>
+                        </p>
+                        <p class="fun-icon">
+                            <span class="icon-play icon"></span>
+                            <span class="icon-plus icon"></span>
+                            <span class="icon-love icon"></span>
+                            <span class="icon-download icon"></span>
+                        </p>
+                    </li>
+                    <!-- <li class="song-list-l">
+                        <img src="images/album.gif" alt="">
+                        <p class="song-list-info ellipsis">
+                            <span class="num">02.</span>
+                            <span class="music-name">最炫名族风</span>
+                            <span>-</span>
+                            <span class="music-singer">凤凰传奇</span>
+                        </p>
+                        <p class="song-list-num">
+                            <span>播放</span>
+                            <span>2379</span>
+                            <span class="find">扒歌</span>
+                            <span>13</span>
+                        </p>
+                    </li>
+                    <li class="song-list-l">
+                        <img src="images/album.gif" alt="">
+                        <p class="song-list-info ellipsis">
+                            <span class="num">03.</span>
+                            <span class="music-name">最炫名族风</span>
+                            <span>-</span>
+                            <span class="music-singer">凤凰传奇</span>
+                        </p>
+                        <p class="song-list-num">
+                            <span>播放</span>
+                            <span>2379</span>
+                            <span class="find">扒歌</span>
+                            <span>13</span>
+                        </p>
+                    </li>
+                    <li class="song-list-l">
+                        <img src="images/album.gif" alt="">
+                        <p class="song-list-info ellipsis">
+                            <span class="num">04.</span>
+                            <span class="music-name">最炫名族风</span>
+                            <span>-</span>
+                            <span class="music-singer">凤凰传奇</span>
+                        </p>
+                        <p class="song-list-num">
+                            <span>播放</span>
+                            <span>2379</span>
+                            <span class="find">扒歌</span>
+                            <span>13</span>
+                        </p>
+                    </li>
+                    <li class="song-list-l">
+                        <img src="images/album.gif" alt="">
+                        <p class="song-list-info ellipsis">
+                            <span class="num">05.</span>
+                            <span class="music-name">最炫名族风</span>
+                            <span>-</span>
+                            <span class="music-singer">凤凰传奇</span>
+                        </p>
+                        <p class="song-list-num">
+                            <span>播放</span>
+                            <span>2379</span>
+                            <span class="find">扒歌</span>
+                            <span>13</span>
+                        </p>
+                    </li>
+                    <li class="song-list-l">
+                        <img src="images/album.gif" alt="">
+                        <p class="song-list-info ellipsis">
+                            <span class="num">06.</span>
+                            <span class="music-name">最炫名族风</span>
+                            <span>-</span>
+                            <span class="music-singer">凤凰传奇</span>
+                        </p>
+                        <p class="song-list-num">
+                            <span>播放</span>
+                            <span>2379</span>
+                            <span class="find">扒歌</span>
+                            <span>13</span>
+                        </p>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>

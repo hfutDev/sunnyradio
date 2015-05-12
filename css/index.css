@@ -88,7 +88,7 @@ body{
 }
 .home-bg{
 	height: 500px;
-	background-image: url('../images/banner-left.png'), url('../images/banner-right.png'),url('../images/bg.jpg');
+	background-image: url(../images/background.jpg);
 }
 .bg{
 	height:314px;
@@ -100,7 +100,7 @@ body{
 	top: 190px;
 	width: 580px;
 	height: 190px;
-	background: url('../images/banner-msg.png') no-repeat;
+	background: url(../images/banner-msg.png) no-repeat;
 }
 .main-container{
 	position: relative;
@@ -166,9 +166,10 @@ body{
 }
 .music-comment{
 	float: left;
+    width: 178px;
 	height: 40px;
+    padding-left: 5px;
 	font-size: 14px;
-	width: 178px;
 	color: rgb( 170, 170, 170 );
 }
 .right-container{

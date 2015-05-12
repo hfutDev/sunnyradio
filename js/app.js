@@ -1,7 +1,12 @@
+// Author: Shafley
+// Date: 2015.5
+// Organizations: HeFei University of Technology
+
+
  'use strict';
 
-// Declare app level module which depends on filters, and services
-//
+// Declare app level module which depends on controller,services,directives,and filters.
+
 var app = angular.module('app', [
     'ngRoute',
     'app.filters',
