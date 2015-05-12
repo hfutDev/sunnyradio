@@ -91,7 +91,6 @@ music.controller('HomeCtrl', ['$scope', function ($scope){
             'playNum': '2379',
             'searchNum': '15'
         }
-
     ];
 
 }]);
@@ -174,5 +173,62 @@ music.controller('TalkCtrl', ['$scope', function ($scope){
             'img': 'search.jpg',
             'number': '365'
         }
+    ];
+}]);
+
+music.controller('PlayCtrl', ['$scope', function ($scope){
+    $scope.channel = [
+        {
+            'name': '儿歌兆赫',
+            'count': '6789'
+        },
+
+        {
+            'name': '小清新兆赫',
+            'count': '6789'
+        },
+
+        {
+            'name': '经典怀旧兆赫',
+            'count': '6789'
+        },
+
+        {
+            'name': '流行华语兆赫',
+            'count': '6789'
+        },
+
+        {
+            'name': '欧美兆赫',
+            'total': '6789'
+        },
+
+        {
+            'name': '电影原声兆赫',
+            'count': '6789'
+        },
+
+        {
+            'name': '流行粤语兆赫',
+            'count': '6789'
+        },
+
+        {
+            'name': '流行日语兆赫',
+            'count': '6789'
+        },
+
+        {
+            'name': '流行韩语兆赫',
+            'count': '6789'
+        }
+    ];
+}]);
+
+music.controller('RankCtrl', ['$scope', function {
+    $scope.rank = [
+        {
+
+        },
     ];
 }]);
