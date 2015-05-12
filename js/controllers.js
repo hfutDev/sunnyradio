@@ -225,10 +225,96 @@ music.controller('PlayCtrl', ['$scope', function ($scope){
     ];
 }]);
 
-music.controller('RankCtrl', ['$scope', function {
-    $scope.rank = [
+music.controller('RankCtrl', ['$scope', function ($scope){
+    $scope.categoryRank = [
         {
-
+            'id': '01',
+            'name': '最炫民族风',
+            'songer': '凤凰传奇',
+            'playTimes': '4562',
+            'searchTimes': '15',
+            'category': 'hfut'
         },
+
+        {
+            'id': '02',
+            'name': '最炫民族风',
+            'songer': '凤凰传奇',
+            'playTimes': '4562',
+            'searchTimes': '15',
+            'category': 'hfut'
+        },
+
+        {
+            'id': '03',
+            'name': '最炫民族风',
+            'songer': '凤凰传奇',
+            'playTimes': '4562',
+            'searchTimes': '15',
+            'category': 'hfut'
+        },
+
+        {
+            'id': '04',
+            'name': '最炫民族风',
+            'songer': '凤凰传奇',
+            'playTimes': '4562',
+            'searchTimes': '15',
+            'category': 'hfut'
+        },
+
+        {
+            'id': '05',
+            'name': '最炫民族风',
+            'songer': '凤凰传奇',
+            'playTimes': '4562',
+            'searchTimes': '15',
+            'category': 'hfut'
+        },
+
+        {
+            'id': '06',
+            'name': '最炫民族风',
+            'songer': '凤凰传奇',
+            'playTimes': '4562',
+            'searchTimes': '15',
+            'category': 'hfut'
+        },
+
+        {
+            'id': '07',
+            'name': '最炫民族风',
+            'songer': '凤凰传奇',
+            'playTimes': '4562',
+            'searchTimes': '15',
+            'category': 'hfut'
+        },
+
+        {
+            'id': '08',
+            'name': '最炫民族风',
+            'songer': '凤凰传奇',
+            'playTimes': '4562',
+            'searchTimes': '15',
+            'category': 'hfut'
+        },
+
+        {
+            'id': '09',
+            'name': '最炫民族风',
+            'songer': '凤凰传奇',
+            'playTimes': '4562',
+            'searchTimes': '15',
+            'category': 'hfut'
+        },
+
+        {
+            'id': '10',
+            'name': '最炫民族风',
+            'songer': '凤凰传奇',
+            'playTimes': '4562',
+            'searchTimes': '15',
+            'category': 'hfut'
+        }
     ];
 }]);
