@@ -2,8 +2,4 @@
 
 /* Services */
 
-angular.module('app.services', [])
-
-
-
-;
+angular.module('music.services', []);

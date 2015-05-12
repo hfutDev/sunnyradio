@@ -7,15 +7,15 @@
 
 // Declare app level module which depends on controller,services,directives,and filters.
 
-var app = angular.module('app', [
+var music = angular.module('music', [
     'ngRoute',
-    'app.filters',
-    'app.services',
-    'app.directives',
-    'app.controllers'
+    'music.filters',
+    'music.services',
+    'music.directives',
+    'music.controllers'
 ]);
 
-app.config(
+music.config(
     [
         '$routeProvider',
         '$locationProvider',

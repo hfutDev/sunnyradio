@@ -2,8 +2,4 @@
 
 /* Directives */
 
-angular.module('app.directives', [])
-
-
-
-;
+angular.module('music.directives', []);

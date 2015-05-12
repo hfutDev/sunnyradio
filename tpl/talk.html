@@ -1,13 +1,13 @@
-    <div id="main">
+    <div id="main" ng-controller="TalkCtrl">
         <div class="banner bg"></div>
         <div class="talk-container">
             <div class="talk-content">
                 <div class="box-left">
                     <p class="emotion">最新心情</p>
                     <ul>
-                        <li class="talk-music-pic">
-                            <img src="images/search.jpg">
-                            <p><span class="music-name">红尘客栈</span>-周杰伦</p>
+                        <li class="talk-music-pic" ng-repeat="music in musicEmotion">
+                            <img ng-src="images/{{music.img}}">
+                            <p><span class="music-name">{{music.name}}</span>-{{music.songer}}</p>
                             <div>
                                 <span class="icon icon-play"></span>
                                 <span class="icon icon-plus"></span>
@@ -15,7 +15,7 @@
                                 <span class="icon icon-download"></span>
                             </div>
                         </li>
-                        <li class="talk-music-pic">
+                        <!-- <li class="talk-music-pic">
                             <img src="images/search.jpg">
                             <p><span class="music-name">红尘客栈</span>-周杰伦</p>
                             <div>
@@ -94,7 +94,7 @@
                                 <span class="icon icon-love"></span>
                                 <span class="icon icon-download"></span>
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
                     <div class="paging">
                         <span>首页</span>
@@ -110,16 +110,16 @@
                 </div>
                 <div class="box-right">
                     <p class="emotion">最新音乐</p>
-                    <ul>
+                    <ul ng-repeat="new in newMusic">
                         <li class="pic-hot">
-                            <img src="images/search.jpg">
+                            <img ng-src="images/{{new.img}}">
                             <div class="hot-song">
-                                <p class="music-name">红</p>
-                                <p>周杰伦</p>
-                                <p class="hot-number">被说365次</p>
+                                <p class="music-name">{{new.name}}</p>
+                                <p>{{new.songer}}</p>
+                                <p class="hot-number">被说{{new.number}}次</p>
                             </div>
                         </li>
-                        <li class="pic-hot">
+                       <!--  <li class="pic-hot">
                             <img src="images/search.jpg">
                             <div class="hot-song">
                                 <p class="music-name">红尘客栈</p>
@@ -134,7 +134,7 @@
                                 <p>周杰伦</p>
                                 <p class="hot-number">被说365次</p>
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>

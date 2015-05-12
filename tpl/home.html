@@ -11,18 +11,16 @@
             <div class="rotating-content-container">
                 <ul class="rotating-content">
                     <li class="new-music" ng-repeat="music in musicList">
-                        <img src="images/{{music.img}}">
+                        <img ng-src="images/{{music.img}}">
                         <p class="music-info ellipsis">
                             <span class="music-name">{{music.name}}</span>
                             <span>-</span>
                             <span class="music-singer">{{music.songer}}</span>
                         </p>
-                        <div id="comment" class="music-comment">
-                            <p>
-                                <span>{{music.common}}</span>
-                                <span>:</span>
-                                <span>{{music.desc}}</span>
-                            </p>
+                        <div id="comment" class="music-comment ">
+                            <span>
+                               {{music.common}}:{{music.desc}}
+                            </span>
                         </div>
                     </li>
                 </ul>
@@ -36,7 +34,7 @@
             <div class="music-top-container">
                 <ul class="song-list">
                     <li class="song-list-l first" ng-repeat="song in musicRank">
-                        <img src="images/{{song.img}}">
+                        <img ng-src="images/{{song.img}}">
                         <p class="song-list-info ellipsis">
                             <span class="num">{{song.id}}</span>
                             <span class="music-name">{{song.name}}</span>

@@ -2,8 +2,4 @@
 
 /* Filters */
 
-angular.module('app.filters', [])
-
-
-
-;
+angular.module('music.filters', []);
