@@ -318,7 +318,7 @@ body{
     height:120px;
 }
 .music-pic p{
-    margin:-bottom:10px;
+    margin-bottom:10px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -333,8 +333,12 @@ body{
     position:relative;
     width:920px;
     /*margin:-185px auto 0 auto;*/
-    padding:40px 50px 20px 50px;
+    /*padding:40px 50px 20px 50px;*/
     background: white;
+}
+.rank-con{
+    margin:-185px auto 0 auto;
+    padding:40px 50px 20px 50px;
 }
 .title{
     width:100%;
