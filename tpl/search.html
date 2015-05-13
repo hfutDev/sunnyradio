@@ -9,9 +9,9 @@
         <div class="content">
             <p class="search-result">搜索结果</p>
             <ul>
-                <li class="music-pic">
-                    <img src="images/search.jpg">
-                    <p><span class="music-color">红尘客栈</span>-周杰伦周杰伦周杰伦周杰伦</p>
+                <li class="music-pic" ng-repeat="music in musicResult">
+                    <img ng-src="images/{{music.img}}">
+                    <p class="music-color">{{music.name}}-{{music.songer}}</p>
                     <div>
                         <span class="icon icon-play"></span>
                         <span class="icon icon-plus"></span>
@@ -19,7 +19,7 @@
                         <span class="icon icon-download"></span>
                     </div>
                 </li>
-                <li class="music-pic">
+                <!-- <li class="music-pic">
                     <img src="images/search.jpg">
                     <p><span class="music-color">红尘客栈</span>-周杰伦</p>
                     <div>
@@ -88,7 +88,7 @@
                         <span class="icon icon-love"></span>
                         <span class="icon icon-download"></span>
                     </div>
-                </li>
+                </li> -->
             </ul>
         </div>
 

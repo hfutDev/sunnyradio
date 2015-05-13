@@ -297,7 +297,7 @@ body{
     float:left;
     width:920px;
     margin: 0 0 30px -50px;
-    padding:30px 50px 15px 50px;
+    padding:30px 40px 15px 60px;
     background: white;
 }
 .search-result{
@@ -308,7 +308,7 @@ body{
     float:left;
     width:200px;
     height:150px;
-    margin:0 40px 40px 0;
+    margin:0 30px 40px 0;
 }
 .music-li-four{
     margin-right:0;

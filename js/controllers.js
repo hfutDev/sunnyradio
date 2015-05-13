@@ -320,5 +320,53 @@ music.controller('RankCtrl', ['$scope', function ($scope){
 }]);
 
 music.controller('SearchCtrl', ['$scope', function ($scope){
+    $scope.musicResult = [
+        {
+            'name': '红尘客栈',
+            'songer':'周杰伦',
+            'img': 'search.jpg'
+        },
 
+        {
+            'name': '红尘客栈',
+            'songer':'周杰伦',
+            'img': 'search.jpg'
+        },
+
+        {
+            'name': '红尘客栈',
+            'songer':'周杰伦',
+            'img': 'search.jpg'
+        },
+
+        {
+            'name': '红尘客栈',
+            'songer':'周杰伦',
+            'img': 'search.jpg'
+        },
+
+        {
+            'name': '红尘客栈',
+            'songer':'周杰伦',
+            'img': 'search.jpg'
+        },
+
+        {
+            'name': '红尘客栈',
+            'songer':'周杰伦',
+            'img': 'search.jpg'
+        },
+
+        {
+            'name': '红尘客栈',
+            'songer':'周杰伦',
+            'img': 'search.jpg'
+        },
+
+        {
+            'name': '红尘客栈',
+            'songer':'周杰伦',
+            'img': 'search.jpg'
+        }
+    ];
 }]);
