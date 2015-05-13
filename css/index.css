@@ -296,6 +296,7 @@ body{
 .content{
     float:left;
     width:920px;
+    margin-left:-50px;
     padding:30px 50px 15px 50px;
     background: white;
 }
@@ -331,7 +332,7 @@ body{
 .container{
     position:relative;
     width:920px;
-    margin:-185px auto 0 auto;
+    /*margin:-185px auto 0 auto;*/
     padding:40px 50px 20px 50px;
     background: white;
 }

@@ -318,3 +318,7 @@ music.controller('RankCtrl', ['$scope', function ($scope){
         }
     ];
 }]);
+
+music.controller('SearchCtrl', ['$scope', function ($scope){
+
+}]);
