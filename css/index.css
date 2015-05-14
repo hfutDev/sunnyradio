@@ -586,11 +586,17 @@ body{
 	float: left;
 	margin-top: 5px;
 	margin-left: 28px;
-	width: 170px;
+	width: 260px;
+}
+.up-func-btn li{
+    cursor: pointer;
+}
+.bot-func-btn{
+    cursor: pointer;
 }
 .up-func-btn,.bot-func-btn{
 	float: left;
-	width: 170px;
+	width: 260px;
 }
 .up-func-btn .comment-btn{
 	float: left;
@@ -621,7 +627,7 @@ body{
 }
 .play-siderbar ul li{
 	float: left;
-	cursor: pointer;
+	/*cursor: pointer;*/
 }
 .bot-func-btn .play-btn{
 	margin-top: 15px;
@@ -631,7 +637,7 @@ body{
 }
 .bot-func-btn .ctrl-btn{
 	margin-left: 20px;
-	width: 80px;
+	width: 150px;
 }
 .ctrl-btn a{
 	float: left;
@@ -640,6 +646,60 @@ body{
 	height: 22px;
 	background: url('../images/icon-play.png') -249px -6px;
 }
+#voice{
+    margin:48px 0 0 10px;
+    width:100px;
+    cursor: pointer;
+}
+a{
+    cursor: pointer;
+}
+input[type='range'] {
+    -webkit-appearance: none;
+    background-color:rgb(192, 189, 189);
+    height: 8px;
+    border-radius: 15px;
+    outline: none;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 12px;
+    width: 12px;
+    background: gray;
+    border-radius: 100%;
+    border: none;
+}
+input.range::-webkit-slider-thumb {
+    height: 18px;
+    width: 18px;
+}
+
+input[type='range']::-moz-range-track {
+    height: 8px;
+    background: gray;
+    border-radius: 15px;
+    border: none;
+}
+
+input[type='range']::-moz-range-thumb {
+    height: 12px;
+    width: 12px;
+    background: gray;
+    border: none;
+    border-radius: 100%;
+}
+
+input.range::-webkit-slider-thumb {
+    height: 18px;
+    width: 18px;
+}
+
+input.range::-moz-range-thumb {
+    height: 18px;
+    width: 18px;
+}
+
 .ctrl-btn .slider-btn{
 	float: left;
 	margin-left: 5px;
@@ -690,6 +750,9 @@ body{
 	margin-left: 32px;
 	margin-bottom: 50px;
 	width: 1000px;
+}
+.channel-list li{
+    cursor:pointer;
 }
 .channel-list-l{
 	float: left;

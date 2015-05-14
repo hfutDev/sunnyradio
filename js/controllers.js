@@ -4,6 +4,13 @@
 
 angular.module('music.controllers', []);
 
+music.controller('MusicCtrl', ['$scope', '$rootScope', function ($scope, $rootScope){
+    $rootScope.music = {
+        'state': true,
+        'url': 'July.mp3'
+    };
+}]);
+
 music.controller('HomeCtrl', ['$scope', function ($scope){
     $scope.musicList = [
         {
