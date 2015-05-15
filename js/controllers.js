@@ -5,10 +5,7 @@
 angular.module('music.controllers', []);
 
 music.controller('MusicCtrl', ['$scope', '$rootScope', function ($scope, $rootScope){
-    $rootScope.music = {
-        'state': true,
-        'url': 'July.mp3'
-    };
+    $rootScope.playState = true;
 }]);
 
 music.controller('HomeCtrl', ['$scope', function ($scope){
@@ -183,7 +180,7 @@ music.controller('TalkCtrl', ['$scope', function ($scope){
     ];
 }]);
 
-music.controller('PlayCtrl', ['$scope', function ($scope){
+music.controller('PlayCtrl', ['$scope', '$rootScope', 'audioService', function ($scope, $rootScope, audioService){
     $scope.channel = [
         {
             'name': '儿歌兆赫',
@@ -230,6 +227,21 @@ music.controller('PlayCtrl', ['$scope', function ($scope){
             'count': '6789'
         }
     ];
+
+    $scope.playMusic = function (){
+
+        console.log($rootScope.playState);
+
+        if($rootScope.playState){
+            $rootScope.playState = false;
+            $scope.play = audioService.play();
+        }else{
+            $rootScope.playState = true;
+            $scope.stop = audioService.pause();
+        }
+
+    }
+
 }]);
 
 music.controller('RankCtrl', ['$scope', function ($scope){

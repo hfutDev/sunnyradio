@@ -1,4 +1,4 @@
-	<div id="main">
+	<div id="main" ng-controller="PlayCtrl">
 		<div class="banner home-bg">
 			<div class="player-wrapper">
 				<div id="player">
@@ -18,10 +18,10 @@
 							<li class="skip-btn"></li>
 						</ul>
 						<ul class="bot-func-btn">
-							<li class="play-btn"></li>
+							<li class="play-btn" ng-click="playMusic()"></li>
 							<li class="ctrl-btn">
-								<a></a>
-								<input id="voice" type="range" value="100"/>
+								<a ></a>
+								<input id="voice" type="range" ng-click="voice(number)" ng-model="number" value="100"/>
 							</li>
 						</ul>
 					</div>
