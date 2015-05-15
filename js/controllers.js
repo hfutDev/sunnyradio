@@ -4,8 +4,14 @@
 
 angular.module('music.controllers', []);
 
-music.controller('MusicCtrl', ['$scope', '$rootScope', function ($scope, $rootScope){
-    $rootScope.playState = true;
+music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', function ($scope, $rootScope, $interval){
+    $rootScope.musicPlay = {
+        'state': false,
+        'end': false,
+        'song': 'songs/Nice.mp3',
+        'img': 'search.jpg'
+    };
+
 }]);
 
 music.controller('HomeCtrl', ['$scope', function ($scope){
@@ -230,16 +236,33 @@ music.controller('PlayCtrl', ['$scope', '$rootScope', 'audioService', function (
 
     $scope.playMusic = function (){
 
-        console.log($rootScope.playState);
+        audioService.playMusic();
+        // $rootScope.$watch($rootScope.musicPlay.end){
 
-        if($rootScope.playState){
-            $rootScope.playState = false;
-            $scope.play = audioService.play();
-        }else{
-            $rootScope.playState = true;
-            $scope.stop = audioService.pause();
-        }
+        // };
 
+        // console.log($rootScope.musicPlay.state);
+
+        // if(!$rootScope.musicPlay.state){
+        //    $rootScope.musicPlay.state = 'play';
+        // }
+
+        // if($rootScope.musicPlay.state){
+        //     $rootScope.musicPlay.state = false;
+        //     $scope.play = audioService.play();
+        // }else{
+        //     $rootScope.musicPlay.state = true;
+        //     $scope.stop = audioService.pause();
+        // }
+    };
+
+    $scope.voice = function (number){
+        audioService.voice(number);
+    }
+
+    $scope.sound = true;
+    $scope.silent = function (){
+        $scope.sound = audioService.silent($scope.sound);
     }
 
 }]);

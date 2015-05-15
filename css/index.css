@@ -629,11 +629,14 @@ body{
 	float: left;
 	/*cursor: pointer;*/
 }
-.bot-func-btn .play-btn{
+.bot-func-btn .pause-btn{
 	margin-top: 15px;
 	width: 70px;
 	height: 70px;
-	background: url('../images/icon-play.png') 0px -37px;
+    background: url('../images/icon-play.png') -339px 0px;
+}
+.bot-func-btn .play-btn {
+    background: url('../images/icon-play.png') 0px -37px;
 }
 .bot-func-btn .ctrl-btn{
 	margin-left: 20px;
@@ -645,6 +648,9 @@ body{
 	width: 23px;
 	height: 22px;
 	background: url('../images/icon-play.png') -249px -6px;
+}
+.ctrl-btn .sound{
+    background: url('../images/icon-play.png') -208px -172px;
 }
 #voice{
     margin:48px 0 0 10px;

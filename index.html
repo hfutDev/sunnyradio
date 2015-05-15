@@ -11,8 +11,8 @@
 
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
-<body>
-	<audio id="audio" src="songs/July.mp3"></audio>
+<body ng-controller="MusicCtrl">
+	<audio id="audio" ng-src="{{musicPlay.song}}"></audio>
 	<div id="header">
 		<div class="nav">
 			<ul class="site-nav">
