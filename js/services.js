@@ -50,8 +50,9 @@ music.factory('audioService', ['$rootScope', '$interval', function ($rootScope, 
         return sound;
     };
 
-    factory.nextSong = function (url){
+    factory.nextSong = function (){
         audio.src = $rootScope.musicPlay.song;
+        audio.autoplay=true;
     };
 
     return factory;

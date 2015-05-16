@@ -185,7 +185,7 @@ music.controller('TalkCtrl', ['$scope', function ($scope){
     ];
 }]);
 
-music.controller('PlayCtrl', ['$scope', 'audioService', function ($scope, audioService){
+music.controller('PlayCtrl', ['$scope', '$rootScope', 'audioService', function ($scope, $rootScope, audioService){
     $scope.channel = [
         {
             'name': '儿歌兆赫',
@@ -245,6 +245,12 @@ music.controller('PlayCtrl', ['$scope', 'audioService', function ($scope, audioS
     $scope.sound = true;
     $scope.silent = function (){
         $scope.sound = audioService.silent($scope.sound);
+    }
+
+    $scope.nextSong = function (){
+        $rootScope.musicPlay.song = 'songs/July.mp3';
+        // $rootScope.musicPlay.img = music.img;
+        audioService.nextSong();
     }
 
 }]);
