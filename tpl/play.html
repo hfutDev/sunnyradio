@@ -18,9 +18,9 @@
 							<li class="skip-btn" ng-click="nextSong()"></li>
 						</ul>
 						<ul class="bot-func-btn">
-							<li class="pause-btn" ng-class="{true:'play-btn', false:''}[musicPlay.state]" ng-click="playMusic()"></li>
+							<li class="pause-btn" ng-class="{'play-btn':musicPlay.state}" ng-click="playMusic()"></li>
 							<li class="ctrl-btn">
-								<a ng-class="{true:'', false:'sound'}[sound]" ng-click="silent()"></a>
+								<a ng-class="{sound:!sound}" ng-click="silent()"></a>
 								<input id="voice" type="range" ng-change="voice(number)" ng-model="number" />
 							</li>
 						</ul>

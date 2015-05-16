@@ -9,7 +9,7 @@
                             <img ng-src="images/{{music.img}}">
                             <p><span class="music-name">{{music.name}}</span>-{{music.songer}}</p>
                             <div>
-                                <span class="icon icon-play"></span>
+                                <span class="icon icon-play" ng-click="musicPlay.play(music)"></span>
                                 <span class="icon icon-plus"></span>
                                 <span class="icon icon-love"></span>
                                 <span class="icon icon-download"></span>
@@ -30,7 +30,7 @@
                 <div class="box-right">
                     <p class="emotion">最新音乐</p>
                     <ul ng-repeat="new in newMusic">
-                        <li class="pic-hot">
+                        <li class="pic-hot" ng-click="musicPlay.play(music)">
                             <img ng-src="images/{{new.img}}">
                             <div class="hot-song">
                                 <p class="music-name">{{new.name}}</p>

@@ -6,9 +6,17 @@ angular.module('music.controllers', []);
 
 music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', function ($scope, $rootScope, $interval){
     $rootScope.musicPlay = {
+        'id': '01',
         'state': false,
-        'song': 'songs/July.mp3',
-        'img': 'search.jpg'
+        'img': 'images/search.jpg',
+        'url': 'songs/July.mp3',
+        'img': 'search.jpg',
+        play:function (music){
+            console.log(music);
+            //this.id = music.id;
+            //this.img = music.img;
+            // this.song = music.url;
+        }
     };
 }]);
 
@@ -238,7 +246,7 @@ music.controller('PlayCtrl', ['$scope', '$rootScope', 'audioService', function (
     };
 
     $scope.nextSong = function (){
-        $rootScope.musicPlay.song = 'songs/Nice.mp3';
+        $rootScope.musicPlay.url = 'songs/Nice.mp3';
         // $rootScope.musicPlay.img = music.img;
         audioService.nextSong();
     };
@@ -346,10 +354,6 @@ music.controller('RankCtrl', ['$scope', function ($scope){
             'category': 'hfut'
         }
     ];
-
-    $scope.play = function (music){
-        console.log(music);
-    };
 }]);
 
 music.controller('SearchCtrl', ['$scope', function ($scope){

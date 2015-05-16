@@ -10,7 +10,7 @@
             </p>
             <div class="rotating-content-container">
                 <ul class="rotating-content">
-                    <li class="new-music" ng-repeat="music in musicList">
+                    <li class="new-music" ng-repeat="music in musicList" ng-click="musicPlay.play(music)">
                         <img ng-src="images/{{music.img}}">
                         <p class="music-info ellipsis">
                             <span class="music-name">{{music.name}}</span>
@@ -29,106 +29,31 @@
         <div class="right-container">
             <p class="headline">
                 <span class="music-title"></span>
-                <span class="more">/更多</span>
+                <a href="#!/rank" class="more">/更多</a>
             </p>
             <div class="music-top-container">
                 <ul class="song-list">
-                    <li class="song-list-l first" ng-repeat="song in musicRank">
-                        <img ng-src="images/{{song.img}}">
+                    <li class="song-list-l first" ng-repeat="music in musicRank">
+                        <img ng-src="images/{{music.img}}">
                         <p class="song-list-info ellipsis">
-                            <span class="num">{{song.id}}</span>
-                            <span class="music-name">{{song.name}}</span>
+                            <span class="num">{{music.id}}</span>
+                            <span class="music-name">{{music.name}}</span>
                             <span>-</span>
-                            <span class="music-singer">{{song.songer}}</span>
+                            <span class="music-singer">{{music.songer}}</span>
                         </p>
                         <p class="song-list-num">
                             <span>播放</span>
-                            <span>{{song.playNum}}</span>
+                            <span>{{music.playNum}}</span>
                             <span class="find">扒歌</span>
-                            <span>{{song.searchNum}}</span>
+                            <span>{{music.searchNum}}</span>
                         </p>
                         <p class="fun-icon">
-                            <span class="icon-play icon"></span>
+                            <span class="icon-play icon" ng-click="musicPlay.play(music)"></span>
                             <span class="icon-plus icon"></span>
                             <span class="icon-love icon"></span>
                             <span class="icon-download icon"></span>
                         </p>
                     </li>
-                    <!-- <li class="song-list-l">
-                        <img src="images/album.gif" alt="">
-                        <p class="song-list-info ellipsis">
-                            <span class="num">02.</span>
-                            <span class="music-name">最炫名族风</span>
-                            <span>-</span>
-                            <span class="music-singer">凤凰传奇</span>
-                        </p>
-                        <p class="song-list-num">
-                            <span>播放</span>
-                            <span>2379</span>
-                            <span class="find">扒歌</span>
-                            <span>13</span>
-                        </p>
-                    </li>
-                    <li class="song-list-l">
-                        <img src="images/album.gif" alt="">
-                        <p class="song-list-info ellipsis">
-                            <span class="num">03.</span>
-                            <span class="music-name">最炫名族风</span>
-                            <span>-</span>
-                            <span class="music-singer">凤凰传奇</span>
-                        </p>
-                        <p class="song-list-num">
-                            <span>播放</span>
-                            <span>2379</span>
-                            <span class="find">扒歌</span>
-                            <span>13</span>
-                        </p>
-                    </li>
-                    <li class="song-list-l">
-                        <img src="images/album.gif" alt="">
-                        <p class="song-list-info ellipsis">
-                            <span class="num">04.</span>
-                            <span class="music-name">最炫名族风</span>
-                            <span>-</span>
-                            <span class="music-singer">凤凰传奇</span>
-                        </p>
-                        <p class="song-list-num">
-                            <span>播放</span>
-                            <span>2379</span>
-                            <span class="find">扒歌</span>
-                            <span>13</span>
-                        </p>
-                    </li>
-                    <li class="song-list-l">
-                        <img src="images/album.gif" alt="">
-                        <p class="song-list-info ellipsis">
-                            <span class="num">05.</span>
-                            <span class="music-name">最炫名族风</span>
-                            <span>-</span>
-                            <span class="music-singer">凤凰传奇</span>
-                        </p>
-                        <p class="song-list-num">
-                            <span>播放</span>
-                            <span>2379</span>
-                            <span class="find">扒歌</span>
-                            <span>13</span>
-                        </p>
-                    </li>
-                    <li class="song-list-l">
-                        <img src="images/album.gif" alt="">
-                        <p class="song-list-info ellipsis">
-                            <span class="num">06.</span>
-                            <span class="music-name">最炫名族风</span>
-                            <span>-</span>
-                            <span class="music-singer">凤凰传奇</span>
-                        </p>
-                        <p class="song-list-num">
-                            <span>播放</span>
-                            <span>2379</span>
-                            <span class="find">扒歌</span>
-                            <span>13</span>
-                        </p>
-                    </li> -->
                 </ul>
             </div>
         </div>

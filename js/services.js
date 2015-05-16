@@ -34,10 +34,10 @@ music.factory('audioService', ['$rootScope', '$interval', function ($rootScope, 
     }
 
     factory.nextSong = function (){
-        audio.src = $rootScope.musicPlay.song;
+        audio.src = $rootScope.musicPlay.url;
         audio.autoplay=true;
-        endCheck();
         $rootScope.musicPlay.state = true;
+        endCheck();
     };
 
     factory.voice = function (number){
