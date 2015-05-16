@@ -662,7 +662,8 @@ a{
 }
 input[type='range'] {
     -webkit-appearance: none;
-    background-color:rgb(192, 189, 189);
+    -ms-appearance: none;
+    background-color:rgb(200, 195, 195);
     height: 8px;
     border-radius: 15px;
     outline: none;
@@ -683,7 +684,7 @@ input.range::-webkit-slider-thumb {
 
 input[type='range']::-moz-range-track {
     height: 8px;
-    background: gray;
+    background: rgb(200, 195, 195);
     border-radius: 15px;
     border: none;
 }
@@ -702,6 +703,10 @@ input.range::-webkit-slider-thumb {
 }
 
 input.range::-moz-range-thumb {
+    height: 18px;
+    width: 18px;
+}
+input.range::-ms-range-thumb {
     height: 18px;
     width: 18px;
 }

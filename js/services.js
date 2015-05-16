@@ -53,6 +53,7 @@ music.factory('audioService', ['$rootScope', '$interval', function ($rootScope, 
     factory.nextSong = function (){
         audio.src = $rootScope.musicPlay.song;
         audio.autoplay=true;
+        $rootScope.musicPlay.state = true;
     };
 
     return factory;

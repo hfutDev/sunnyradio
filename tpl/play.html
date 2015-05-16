@@ -21,7 +21,7 @@
 							<li class="pause-btn" ng-class="{true:'play-btn', false:''}[musicPlay.state]" ng-click="playMusic()"></li>
 							<li class="ctrl-btn">
 								<a ng-class="{true:'', false:'sound'}[sound]" ng-click="silent()"></a>
-								<input id="voice" type="range" ng-click="voice(number)" ng-model="number" value="100"/>
+								<input id="voice" type="range" ng-change="voice(number)" ng-model="number" value="100"/>
 							</li>
 						</ul>
 					</div>
