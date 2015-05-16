@@ -7,7 +7,6 @@ angular.module('music.controllers', []);
 music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', function ($scope, $rootScope, $interval){
     $rootScope.musicPlay = {
         'state': false,
-        'end': false,
         'song': 'songs/Nice.mp3',
         'img': 'search.jpg'
     };
@@ -186,7 +185,7 @@ music.controller('TalkCtrl', ['$scope', function ($scope){
     ];
 }]);
 
-music.controller('PlayCtrl', ['$scope', '$rootScope', 'audioService', function ($scope, $rootScope, audioService){
+music.controller('PlayCtrl', ['$scope', 'audioService', function ($scope, audioService){
     $scope.channel = [
         {
             'name': '儿歌兆赫',
@@ -237,23 +236,6 @@ music.controller('PlayCtrl', ['$scope', '$rootScope', 'audioService', function (
     $scope.playMusic = function (){
 
         audioService.playMusic();
-        // $rootScope.$watch($rootScope.musicPlay.end){
-
-        // };
-
-        // console.log($rootScope.musicPlay.state);
-
-        // if(!$rootScope.musicPlay.state){
-        //    $rootScope.musicPlay.state = 'play';
-        // }
-
-        // if($rootScope.musicPlay.state){
-        //     $rootScope.musicPlay.state = false;
-        //     $scope.play = audioService.play();
-        // }else{
-        //     $rootScope.musicPlay.state = true;
-        //     $scope.stop = audioService.pause();
-        // }
     };
 
     $scope.voice = function (number){
