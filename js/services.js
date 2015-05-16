@@ -10,28 +10,35 @@ music.factory('audioService', ['$rootScope', '$interval', function ($rootScope, 
 
     var factory = {};
 
-    factory.playMusic = function (){
-        var check;
+    function endCheck(){
+        var audioSrc = audio.src;
+        var check = $interval(function(){
+            // 播放结束 || 点击暂停 || 下一首
+            if(audio.ended || !$rootScope.musicPlay.state) {
+                $rootScope.musicPlay.state = false;
+                $interval.cancel(check);
+            }
+            console.log('voice: '+audio.volume*100 +'\n'+'timeEnd: '+audio.ended+'\n'+'playing: '+$rootScope.musicPlay.state);
+        }, 500);
+    }
 
+    factory.playMusic = function (){
         if($rootScope.musicPlay.state){
             audio.pause();
             $rootScope.musicPlay.state = false;
-
         }else{
             audio.play();
-            check = $interval(function(){
-                if(audio.ended || !$rootScope.musicPlay.state){
-                    $rootScope.musicPlay.state = false;
-                    $interval.cancel(check);
-                }
-
-                console.log('voice: '+audio.volume*100 +'\n'+'timeEnd: '+audio.ended+'\n'+'playing: '+$rootScope.musicPlay.state);
-
-            }, 500);
-
+            endCheck();
             $rootScope.musicPlay.state = true;
         }
     }
+
+    factory.nextSong = function (){
+        audio.src = $rootScope.musicPlay.song;
+        audio.autoplay=true;
+        endCheck();
+        $rootScope.musicPlay.state = true;
+    };
 
     factory.voice = function (number){
         audio.volume = number / 100;
@@ -48,12 +55,6 @@ music.factory('audioService', ['$rootScope', '$interval', function ($rootScope, 
             sound = true;
         }
         return sound;
-    };
-
-    factory.nextSong = function (){
-        audio.src = $rootScope.musicPlay.song;
-        audio.autoplay=true;
-        $rootScope.musicPlay.state = true;
     };
 
     return factory;

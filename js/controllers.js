@@ -7,10 +7,9 @@ angular.module('music.controllers', []);
 music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', function ($scope, $rootScope, $interval){
     $rootScope.musicPlay = {
         'state': false,
-        'song': 'songs/Nice.mp3',
+        'song': 'songs/July.mp3',
         'img': 'search.jpg'
     };
-
 }]);
 
 music.controller('HomeCtrl', ['$scope', function ($scope){
@@ -186,6 +185,7 @@ music.controller('TalkCtrl', ['$scope', function ($scope){
 }]);
 
 music.controller('PlayCtrl', ['$scope', '$rootScope', 'audioService', function ($scope, $rootScope, audioService){
+
     $scope.channel = [
         {
             'name': '儿歌兆赫',
@@ -234,24 +234,23 @@ music.controller('PlayCtrl', ['$scope', '$rootScope', 'audioService', function (
     ];
 
     $scope.playMusic = function (){
-
         audioService.playMusic();
+    };
+
+    $scope.nextSong = function (){
+        $rootScope.musicPlay.song = 'songs/Nice.mp3';
+        // $rootScope.musicPlay.img = music.img;
+        audioService.nextSong();
     };
 
     $scope.voice = function (number){
         audioService.voice(number);
-    }
+    };
 
     $scope.sound = true;
     $scope.silent = function (){
         $scope.sound = audioService.silent($scope.sound);
-    }
-
-    $scope.nextSong = function (){
-        $rootScope.musicPlay.song = 'songs/July.mp3';
-        // $rootScope.musicPlay.img = music.img;
-        audioService.nextSong();
-    }
+    };
 
 }]);
 
@@ -347,6 +346,10 @@ music.controller('RankCtrl', ['$scope', function ($scope){
             'category': 'hfut'
         }
     ];
+
+    $scope.play = function (music){
+        console.log(music);
+    };
 }]);
 
 music.controller('SearchCtrl', ['$scope', function ($scope){
