@@ -8,17 +8,16 @@ music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', 'audioServic
     $rootScope.musicPlay = {
         'id': '01',
         'state': false,
-        'img': 'images/search.jpg',
-        'url': 'songs/July.mp3',
         'img': 'search.jpg',
-        play:function (music){
+        'url': 'songs/July.mp3',
+        play: function (music){
             console.log(music);
             //this.id = music.id;
             //this.img = music.img;
-            this.url = music.url;
+            $rootScope.musicPlay.url = music.url;
             audioService.nextSong();
         }
-    };
+    }
 }]);
 
 music.controller('HomeCtrl', ['$scope', function ($scope){
