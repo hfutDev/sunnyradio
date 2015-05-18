@@ -4,7 +4,7 @@
 
 angular.module('music.controllers', []);
 
-music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', function ($scope, $rootScope, $interval){
+music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', 'audioService', function ($scope, $rootScope, $interval, audioService){
     $rootScope.musicPlay = {
         'id': '01',
         'state': false,
@@ -15,7 +15,8 @@ music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', function ($s
             console.log(music);
             //this.id = music.id;
             //this.img = music.img;
-            // this.song = music.url;
+            this.url = music.url;
+            audioService.nextSong();
         }
     };
 }]);
@@ -76,6 +77,7 @@ music.controller('HomeCtrl', ['$scope', function ($scope){
             'id': '01',
             'name': '最炫民族风',
             'songer': '凤凰传奇',
+            'url': 'songs/Nice.mp3',
             'img': 'album.gif',
             'playNum': '2379',
             'searchNum': '15'
@@ -85,6 +87,7 @@ music.controller('HomeCtrl', ['$scope', function ($scope){
             'id': '01',
             'name': '最炫民族风',
             'songer': '凤凰传奇',
+            'url': 'songs/Nice.mp3',
             'img': 'album.gif',
             'playNum': '2379',
             'searchNum': '15'
@@ -94,6 +97,7 @@ music.controller('HomeCtrl', ['$scope', function ($scope){
             'id': '01',
             'name': '最炫民族风',
             'songer': '凤凰传奇',
+            'url': 'songs/Nice.mp3',
             'img': 'album.gif',
             'playNum': '2379',
             'searchNum': '15'
@@ -103,6 +107,7 @@ music.controller('HomeCtrl', ['$scope', function ($scope){
             'id': '01',
             'name': '最炫民族风',
             'songer': '凤凰传奇',
+            'url': 'songs/Nice.mp3',
             'img': 'album.gif',
             'playNum': '2379',
             'searchNum': '15'
@@ -116,54 +121,63 @@ music.controller('TalkCtrl', ['$scope', function ($scope){
         {
             'name': '红尘客栈',
             'songer': '周杰伦',
+            'url': 'songs/Nice.mp3',
             'img': 'search.jpg'
         },
 
         {
             'name': '红尘客栈',
             'songer': '周杰伦',
+            'url': 'songs/Nice.mp3',
             'img': 'search.jpg'
         },
 
         {
             'name': '红尘客栈',
             'songer': '周杰伦',
+            'url': 'songs/Nice.mp3',
             'img': 'search.jpg'
         },
 
         {
             'name': '红尘客栈',
             'songer': '周杰伦',
+            'url': 'songs/Nice.mp3',
             'img': 'search.jpg'
         },
 
         {
             'name': '红尘客栈',
             'songer': '周杰伦',
+            'url': 'songs/Nice.mp3',
             'img': 'search.jpg'
         },
 
         {
             'name': '红尘客栈',
             'songer': '周杰伦',
+            'url': 'songs/Nice.mp3',
             'img': 'search.jpg'
         },
 
         {
             'name': '红尘客栈',
             'songer': '周杰伦',
+            'url': 'songs/Nice.mp3',
             'img': 'search.jpg'
         },
 
         {
             'name': '红尘客栈',
             'songer': '周杰伦',
+            'url': 'songs/Nice.mp3',
             'img': 'search.jpg'
         },
 
         {
             'name': '红尘客栈',
             'songer': '周杰伦',
+            'url': 'songs/Nice.mp3',
             'img': 'search.jpg'
         }
     ];
@@ -172,6 +186,7 @@ music.controller('TalkCtrl', ['$scope', function ($scope){
         {
             'name': '红尘客栈',
             'songer': '周杰伦',
+            'url': 'songs/Nice.mp3',
             'img': 'search.jpg',
             'number': '365'
         },
@@ -179,6 +194,7 @@ music.controller('TalkCtrl', ['$scope', function ($scope){
         {
             'name': '红尘客栈',
             'songer': '周杰伦',
+            'url': 'songs/Nice.mp3',
             'img': 'search.jpg',
             'number': '365'
         },
@@ -186,6 +202,7 @@ music.controller('TalkCtrl', ['$scope', function ($scope){
         {
             'name': '红尘客栈',
             'songer': '周杰伦',
+            'url': 'songs/Nice.mp3',
             'img': 'search.jpg',
             'number': '365'
         }
@@ -268,6 +285,7 @@ music.controller('RankCtrl', ['$scope', function ($scope){
             'id': '01',
             'name': '最炫民族风',
             'songer': '凤凰传奇',
+            'url': 'songs/Nice.mp3',
             'playTimes': '4562',
             'searchTimes': '15',
             'category': 'hfut'
@@ -277,6 +295,7 @@ music.controller('RankCtrl', ['$scope', function ($scope){
             'id': '02',
             'name': '最炫民族风',
             'songer': '凤凰传奇',
+            'url': 'songs/Nice.mp3',
             'playTimes': '4562',
             'searchTimes': '15',
             'category': 'hfut'
@@ -286,6 +305,7 @@ music.controller('RankCtrl', ['$scope', function ($scope){
             'id': '03',
             'name': '最炫民族风',
             'songer': '凤凰传奇',
+            'url': 'songs/Nice.mp3',
             'playTimes': '4562',
             'searchTimes': '15',
             'category': 'hfut'
@@ -295,6 +315,7 @@ music.controller('RankCtrl', ['$scope', function ($scope){
             'id': '04',
             'name': '最炫民族风',
             'songer': '凤凰传奇',
+            'url': 'songs/Nice.mp3',
             'playTimes': '4562',
             'searchTimes': '15',
             'category': 'hfut'
@@ -304,6 +325,7 @@ music.controller('RankCtrl', ['$scope', function ($scope){
             'id': '05',
             'name': '最炫民族风',
             'songer': '凤凰传奇',
+            'url': 'songs/Nice.mp3',
             'playTimes': '4562',
             'searchTimes': '15',
             'category': 'hfut'
@@ -313,6 +335,7 @@ music.controller('RankCtrl', ['$scope', function ($scope){
             'id': '06',
             'name': '最炫民族风',
             'songer': '凤凰传奇',
+            'url': 'songs/Nice.mp3',
             'playTimes': '4562',
             'searchTimes': '15',
             'category': 'hfut'
@@ -322,6 +345,7 @@ music.controller('RankCtrl', ['$scope', function ($scope){
             'id': '07',
             'name': '最炫民族风',
             'songer': '凤凰传奇',
+            'url': 'songs/Nice.mp3',
             'playTimes': '4562',
             'searchTimes': '15',
             'category': 'hfut'
@@ -331,6 +355,7 @@ music.controller('RankCtrl', ['$scope', function ($scope){
             'id': '08',
             'name': '最炫民族风',
             'songer': '凤凰传奇',
+            'url': 'songs/Nice.mp3',
             'playTimes': '4562',
             'searchTimes': '15',
             'category': 'hfut'
@@ -340,6 +365,7 @@ music.controller('RankCtrl', ['$scope', function ($scope){
             'id': '09',
             'name': '最炫民族风',
             'songer': '凤凰传奇',
+            'url': 'songs/Nice.mp3',
             'playTimes': '4562',
             'searchTimes': '15',
             'category': 'hfut'
@@ -349,6 +375,7 @@ music.controller('RankCtrl', ['$scope', function ($scope){
             'id': '10',
             'name': '最炫民族风',
             'songer': '凤凰传奇',
+            'url': 'songs/Nice.mp3',
             'playTimes': '4562',
             'searchTimes': '15',
             'category': 'hfut'
@@ -361,48 +388,56 @@ music.controller('SearchCtrl', ['$scope', function ($scope){
         {
             'name': '红尘客栈',
             'songer':'周杰伦',
+            'url': 'songs/Nice.mp3',
             'img': 'search.jpg'
         },
 
         {
             'name': '红尘客栈',
             'songer':'周杰伦',
+            'url': 'songs/Nice.mp3',
             'img': 'search.jpg'
         },
 
         {
             'name': '红尘客栈',
             'songer':'周杰伦',
+            'url': 'songs/Nice.mp3',
             'img': 'search.jpg'
         },
 
         {
             'name': '红尘客栈',
             'songer':'周杰伦',
+            'url': 'songs/Nice.mp3',
             'img': 'search.jpg'
         },
 
         {
             'name': '红尘客栈',
             'songer':'周杰伦',
+            'url': 'songs/Nice.mp3',
             'img': 'search.jpg'
         },
 
         {
             'name': '红尘客栈',
             'songer':'周杰伦',
+            'url': 'songs/Nice.mp3',
             'img': 'search.jpg'
         },
 
         {
             'name': '红尘客栈',
             'songer':'周杰伦',
+            'url': 'songs/Nice.mp3',
             'img': 'search.jpg'
         },
 
         {
             'name': '红尘客栈',
             'songer':'周杰伦',
+            'url': 'songs/Nice.mp3',
             'img': 'search.jpg'
         }
     ];
