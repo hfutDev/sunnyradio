@@ -35,8 +35,8 @@
         <param value="0" name="balance">
         <param value="0" name="currentPosition">
         <param value="100" name="playCount">
-        <param id="play" value="false" name="autoStart">
-        <param  value="true" name="PLAY">
+        <param value="false" name="autoStart">
+        <!-- <param  value="false" name="PLAY"> -->
 
         <!-- <param value="" name="defaultFrame"> -->
         <!-- <param value="100" name="volume"> -->
@@ -53,14 +53,14 @@
         <!-- <param value="" name="SAMIFilename"> -->
         <!-- <param value="" name="captioningID"> -->
         <!-- <param value="0" name="enableErrorDialogs"> -->
-        <embed width="100%" height="64" play="false" enablecontextmenu="1" playcount="0" allowscan="1" showcontrols="1" autostart="1" type="video/x-ms-wmv" name="MediaPlayer" src="July.mp3" id="ffmedia">
+        <embed id="play"  width="100%" height="64" play="false" enablecontextmenu="1" playcount="0" allowscan="1" showcontrols="1" autostart="false" type="video/x-ms-wmv" name="MediaPlayer" src="July.mp3" id="ffmedia">
     </object>
 <p> 11111111111111111111111111111111</p>
     <!-- <audio id="song" preload controls src="July.mp3">
         不支持Audio
     </audio> -->
     <input id="voice" type="range" value="100"/>
-    <input id="ctrl" type="button" value="播放" onclick="play()"/>
+    <input id="ctrl" type="button" value="播放"/>
 
     <script>
     // var song = document.getElementById('song');
@@ -69,8 +69,8 @@
     // var voice = document.getElementById('voice');
     // console.log(ctrl);
 
-    function play(){
-        play.value = true;
+    ctrl.onclick = function(){
+        play.autostart = true;
     }
 
     // var state = true;
@@ -87,7 +87,7 @@
         //     this.value = '播放';
         //     state = true;
         // }
-    });
+    // });
 
     // voice.addEventListener('click', function(){
     //     console.log(voice.value);
