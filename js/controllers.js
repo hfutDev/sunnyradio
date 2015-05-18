@@ -17,7 +17,7 @@ music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', 'audioServic
             $rootScope.musicPlay.url = music.url;
             audioService.nextSong();
         }
-    }
+    };
 }]);
 
 music.controller('HomeCtrl', ['$scope', function ($scope){
