@@ -23,15 +23,19 @@ music.factory('audioService', ['$rootScope', '$interval', function ($rootScope, 
     }
 
     factory.playMusic = function (){
+
         if($rootScope.musicPlay.state){
             audio.pause();
+            audio.autoplay=false;
             $rootScope.musicPlay.state = false;
         }else{
+            audio.src = $rootScope.musicPlay.url;
             audio.play();
+            audio.autoplay=true;
             endCheck();
             $rootScope.musicPlay.state = true;
         }
-    }
+    };
 
     factory.nextSong = function (){
         audio.src = $rootScope.musicPlay.url;

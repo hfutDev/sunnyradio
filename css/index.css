@@ -241,6 +241,9 @@ body{
 	margin-left: 0px;
 	background: url('../images/icon.png') -263px -229px;
 }
+.icon-pause{
+    background: url('../images/icon.png') -263px -209px;
+}
 .icon-plus{
 	background: url('../images/icon.png') -293px -230px;
 }

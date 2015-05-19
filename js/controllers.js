@@ -15,7 +15,8 @@ music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', 'audioServic
             //this.id = music.id;
             //this.img = music.img;
             $rootScope.musicPlay.url = music.url;
-            audioService.nextSong();
+            // audioService.nextSong();
+            audioService.playMusic();
         }
     };
 }]);
