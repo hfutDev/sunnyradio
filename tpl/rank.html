@@ -15,7 +15,7 @@
                         <td class="song-play">播放{{music.playTimes}}次</td>
                         <td class="song-seach">扒歌{{music.searchTimes}}次</td>
                         <td class="song-ctrl">
-                            <span class="icon icon-play" ng-click="musicPlay.play(music)"></span>
+                            <span class="icon icon-play" ng-class="{'icon-pause':musicPlay.state}" ng-click="musicPlay.play(music)"></span>
                             <span class="icon icon-plus"></span>
                             <span class="icon icon-love"></span>
                             <span class="icon icon-download"></span>
@@ -38,7 +38,7 @@
                         <td class="song-play">播放{{music.playTimes}}次</td>
                         <td class="song-seach">扒歌{{music.searchTimes}}次</td>
                         <td class="song-ctrl">
-                            <span class="icon icon-play" ng-click="musicPlay.play(music)"></span>
+                            <span class="icon icon-play" ng-class="{'icon-pause':musicPlay.state}" ng-click="musicPlay.play(music)"></span>
                             <span class="icon icon-plus"></span>
                             <span class="icon icon-love"></span>
                             <span class="icon icon-download"></span>
