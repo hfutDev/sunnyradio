@@ -6,16 +6,19 @@ angular.module('music.controllers', []);
 
 music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', 'audioService', function ($scope, $rootScope, $interval, audioService){
     $rootScope.musicPlay = {
-        'id': '01',
+        'id': '03',
         'state': false,
         'img': 'search.jpg',
         'url': 'songs/July.mp3',
         play: function (music){
             this.id = music.id;
             //this.img = music.img;
-            $rootScope.musicPlay.url = music.url;
+            this.url = music.url;
             // audioService.nextSong();
             audioService.playMusic();
+        },
+        nextPlay:function(music){
+            audioService.nextPlay(music);
         }
     };
 }]);
@@ -118,16 +121,12 @@ music.controller('HomeCtrl', ['$scope', 'audioService', function ($scope, audioS
             'searchNum': '15'
         }
     ];
-
-    $scope.playMusic = function (){
-        audioService.playMusic();
-    };
-
 }]);
 
 music.controller('TalkCtrl', ['$scope', function ($scope){
     $scope.musicEmotion = [
         {
+            'id': '01',
             'name': '红尘客栈',
             'songer': '周杰伦',
             'url': 'songs/Nice.mp3',
@@ -135,6 +134,7 @@ music.controller('TalkCtrl', ['$scope', function ($scope){
         },
 
         {
+            'id': '02',
             'name': '红尘客栈',
             'songer': '周杰伦',
             'url': 'songs/Nice.mp3',
@@ -142,6 +142,7 @@ music.controller('TalkCtrl', ['$scope', function ($scope){
         },
 
         {
+            'id': '03',
             'name': '红尘客栈',
             'songer': '周杰伦',
             'url': 'songs/Nice.mp3',
@@ -149,6 +150,7 @@ music.controller('TalkCtrl', ['$scope', function ($scope){
         },
 
         {
+            'id': '04',
             'name': '红尘客栈',
             'songer': '周杰伦',
             'url': 'songs/Nice.mp3',
@@ -156,6 +158,7 @@ music.controller('TalkCtrl', ['$scope', function ($scope){
         },
 
         {
+            'id': '05',
             'name': '红尘客栈',
             'songer': '周杰伦',
             'url': 'songs/Nice.mp3',
@@ -163,6 +166,7 @@ music.controller('TalkCtrl', ['$scope', function ($scope){
         },
 
         {
+            'id': '06',
             'name': '红尘客栈',
             'songer': '周杰伦',
             'url': 'songs/Nice.mp3',
@@ -170,6 +174,7 @@ music.controller('TalkCtrl', ['$scope', function ($scope){
         },
 
         {
+            'id': '07',
             'name': '红尘客栈',
             'songer': '周杰伦',
             'url': 'songs/Nice.mp3',
@@ -177,6 +182,7 @@ music.controller('TalkCtrl', ['$scope', function ($scope){
         },
 
         {
+            'id': '08',
             'name': '红尘客栈',
             'songer': '周杰伦',
             'url': 'songs/Nice.mp3',
@@ -184,6 +190,7 @@ music.controller('TalkCtrl', ['$scope', function ($scope){
         },
 
         {
+            'id': '09',
             'name': '红尘客栈',
             'songer': '周杰伦',
             'url': 'songs/Nice.mp3',
@@ -288,7 +295,7 @@ music.controller('PlayCtrl', ['$scope', '$rootScope', 'audioService', function (
 
 }]);
 
-music.controller('RankCtrl', ['$scope', function ($scope){
+music.controller('RankCtrl', ['$scope', 'audioService', function ($scope, audioService){
     $scope.categoryRank = [
         {
             'id': '01',
@@ -394,6 +401,10 @@ music.controller('RankCtrl', ['$scope', function ($scope){
     $scope.find = function (id){
         $scope.musicId = id;
     };
+
+    $scope.nextPlay = function(music){
+        audioService.nextPlay(music);
+    }
 }]);
 
 music.controller('SearchCtrl', ['$scope', function ($scope){
