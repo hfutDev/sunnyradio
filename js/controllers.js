@@ -11,8 +11,7 @@ music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', 'audioServic
         'img': 'search.jpg',
         'url': 'songs/July.mp3',
         play: function (music){
-            console.log(music);
-            //this.id = music.id;
+            this.id = music.id;
             //this.img = music.img;
             $rootScope.musicPlay.url = music.url;
             // audioService.nextSong();
@@ -21,9 +20,10 @@ music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', 'audioServic
     };
 }]);
 
-music.controller('HomeCtrl', ['$scope', function ($scope){
+music.controller('HomeCtrl', ['$scope', 'audioService', function ($scope, audioService){
     $scope.musicList = [
         {
+            'id': 1,
             'name': '尚好的青春',
             'songer': '孙燕姿',
             'img': 'release.jpg',
@@ -32,6 +32,7 @@ music.controller('HomeCtrl', ['$scope', function ($scope){
         },
 
         {
+            'id': 2,
             'name': '尚好的青春',
             'songer': '孙燕姿',
             'img': 'release.jpg',
@@ -40,6 +41,7 @@ music.controller('HomeCtrl', ['$scope', function ($scope){
         },
 
         {
+            'id': 3,
             'name': '尚好的青春',
             'songer': '孙燕姿',
             'img': 'release.jpg',
@@ -48,6 +50,7 @@ music.controller('HomeCtrl', ['$scope', function ($scope){
         },
 
         {
+            'id': 4,
             'name': '尚好的青春',
             'songer': '孙燕姿',
             'img': 'release.jpg',
@@ -56,6 +59,7 @@ music.controller('HomeCtrl', ['$scope', function ($scope){
         },
 
         {
+            'id': 5,
             'name': '尚好的青春',
             'songer': '孙燕姿',
             'img': 'release.jpg',
@@ -64,6 +68,7 @@ music.controller('HomeCtrl', ['$scope', function ($scope){
         },
 
         {
+            'id': 6,
             'name': '尚好的青春',
             'songer': '孙燕姿',
             'img': 'release.jpg',
@@ -84,7 +89,7 @@ music.controller('HomeCtrl', ['$scope', function ($scope){
         },
 
         {
-            'id': '01',
+            'id': '02',
             'name': '最炫民族风',
             'songer': '凤凰传奇',
             'url': 'songs/Nice.mp3',
@@ -94,7 +99,7 @@ music.controller('HomeCtrl', ['$scope', function ($scope){
         },
 
         {
-            'id': '01',
+            'id': '03',
             'name': '最炫民族风',
             'songer': '凤凰传奇',
             'url': 'songs/Nice.mp3',
@@ -104,7 +109,7 @@ music.controller('HomeCtrl', ['$scope', function ($scope){
         },
 
         {
-            'id': '01',
+            'id': '04',
             'name': '最炫民族风',
             'songer': '凤凰传奇',
             'url': 'songs/Nice.mp3',
@@ -113,6 +118,10 @@ music.controller('HomeCtrl', ['$scope', function ($scope){
             'searchNum': '15'
         }
     ];
+
+    $scope.playMusic = function (){
+        audioService.playMusic();
+    };
 
 }]);
 
@@ -381,6 +390,10 @@ music.controller('RankCtrl', ['$scope', function ($scope){
             'category': 'hfut'
         }
     ];
+
+    $scope.find = function (id){
+        $scope.musicId = id;
+    };
 }]);
 
 music.controller('SearchCtrl', ['$scope', function ($scope){

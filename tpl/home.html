@@ -1,6 +1,6 @@
 <div id="main" ng-controller="HomeCtrl">
     <div class="banner home-bg">
-        <div class="banner-msg"></div>
+        <div class="banner-msg" ng-class="{'banner-pause':musicPlay.state}" ng-click="playMusic()"></div>
     </div>
     <div class="main-container">
         <div class="left-container">

@@ -101,6 +101,11 @@ body{
 	width: 580px;
 	height: 190px;
 	background: url(../images/banner-msg.png) no-repeat;
+    cursor:pointer;
+}
+.banner .banner-pause{
+    background:url(../images/banner-pause.png) no-repeat;
+    cursor:pointer;
 }
 .main-container{
 	position: relative;
@@ -367,6 +372,9 @@ body{
     margin:15px 0;
     table-layout: fixed;
     font-size: 17px;
+}
+.list .active{
+    background:rgb(63, 242, 14) !important;
 }
 .list tr:nth-child(odd){
     background: rgb(242, 242, 242);
