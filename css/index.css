@@ -72,6 +72,40 @@ body{
 	cursor: pointer;
 	background: url('../images/icon.png') -108px -271px;
 }
+.upload{
+    position:absolute;
+    width:550px;
+    height:330px;
+    top:120px;
+    left:50%;
+    margin-left:-275px;
+    background: white;
+    border-top:6px solid rgb(255, 168, 0);
+    border-radius: 1px;
+    box-shadow: 1px 1px 1px gray;
+    z-index: 10;
+}
+.close{
+    position: absolute;
+    top:-6px;
+    right:0;
+    width:25px;
+    height:25px;
+    background: url(../images/upload.png) -433px -9px;
+}
+.upload-box{
+    width:550px;
+    height:250px;
+    margin:0 20px;
+    background: blue;
+}
+.music-box{
+    width:180px;
+    height:180px;
+    margin-left:50px;
+}
+
+
 
 /*Main CSS*/
 
