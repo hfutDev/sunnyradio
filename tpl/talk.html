@@ -9,7 +9,7 @@
                             <img ng-src="images/{{music.img}}">
                             <p><span class="music-name">{{music.name}}</span>-{{music.songer}}</p>
                             <div>
-                                <span class="icon icon-play" ng-class="{'icon-pause':musicPlay.state && music.id == musicPlay.id}" ng-click="musicPlay.nextPlay(music)"></span>
+                                <span class="icon icon-play" ng-class="{'icon-pause':musicPlay.state && music.id == musicPlay.music.id}" ng-click="musicPlay.nextPlay(music)"></span>
                                 <span class="icon icon-plus"></span>
                                 <span class="icon icon-love"></span>
                                 <span class="icon icon-download"></span>

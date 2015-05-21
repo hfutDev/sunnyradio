@@ -25,11 +25,10 @@ music.factory('audioService', ['$rootScope', '$interval', function ($rootScope, 
     factory.playMusic = function (){
 
         if($rootScope.musicPlay.state){
-            audio.pause();
             audio.autoplay=false;
+            audio.pause();
             $rootScope.musicPlay.state = false;
         }else{
-            audio.src = $rootScope.musicPlay.url;
             audio.autoplay=true;
             audio.play();
             endCheck();
@@ -38,16 +37,15 @@ music.factory('audioService', ['$rootScope', '$interval', function ($rootScope, 
     };
 
     factory.nextSong = function (){
-        audio.src = $rootScope.musicPlay.url;
+        audio.src = $rootScope.musicPlay.music.url;
         audio.autoplay=true;
         $rootScope.musicPlay.state = true;
         endCheck();
     };
 
     factory.nextPlay = function (music){
-        if(music.id != $rootScope.musicPlay.id){
-            $rootScope.musicPlay.url = music.url;
-            $rootScope.musicPlay.id = music.id;
+        if(music.id != $rootScope.musicPlay.music.id){
+            $rootScope.musicPlay.music = music;
             factory.nextSong();
         }else{
             factory.playMusic();

@@ -6,15 +6,14 @@ angular.module('music.controllers', []);
 
 music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', 'audioService', function ($scope, $rootScope, $interval, audioService){
     $rootScope.musicPlay = {
-        'id': '03',
         'state': false,
-        'img': 'search.jpg',
-        'url': 'songs/July.mp3',
+        'music':{
+            'id': '03',
+            'img': 'search.jpg',
+            'url': 'songs/July.mp3'
+        },
         play: function (music){
-            this.id = music.id;
-            //this.img = music.img;
-            this.url = music.url;
-            // audioService.nextSong();
+            this.music = music;
             audioService.playMusic();
         },
         nextPlay:function(music){
@@ -121,6 +120,10 @@ music.controller('HomeCtrl', ['$scope', 'audioService', function ($scope, audioS
             'searchNum': '15'
         }
     ];
+
+    $scope.playMusic = function (){
+        audioService.playMusic();
+    }
 }]);
 
 music.controller('TalkCtrl', ['$scope', function ($scope){
@@ -279,7 +282,7 @@ music.controller('PlayCtrl', ['$scope', '$rootScope', 'audioService', function (
     };
 
     $scope.nextSong = function (){
-        $rootScope.musicPlay.url = 'songs/Nice.mp3';
+        $rootScope.musicPlay.music.url = 'songs/Nice.mp3';
         // $rootScope.musicPlay.img = music.img;
         audioService.nextSong();
     };

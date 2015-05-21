@@ -48,7 +48,7 @@
                             <span>{{music.searchNum}}</span>
                         </p>
                         <p class="fun-icon">
-                            <span class="icon-play icon" ng-class="{'icon-pause':musicPlay.state}" ng-click="musicPlay.play(music)"></span>
+                            <span class="icon-play icon" ng-class="{'icon-pause':musicPlay.state && music.id == musicPlay.music.id}" ng-click="musicPlay.nextPlay(music)"></span>
                             <span class="icon-plus icon"></span>
                             <span class="icon-love icon"></span>
                             <span class="icon-download icon"></span>
