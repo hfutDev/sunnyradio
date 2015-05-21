@@ -1,7 +1,7 @@
 <div id="main" ng-controller="SearchCtrl">
     <div class="banner bg"></div>
-    <form class="search">
-        <input class="search-input" type="text" placeholder="红尘客栈">
+    <form class="search" ng-submit="">
+        <input class="search-input" type="text" ng-model="music.name" placeholder="红尘客栈">
         <button class="search-icon" type="submit"></button>
     </form>
 
@@ -9,7 +9,7 @@
         <div class="content">
             <p class="search-result">搜索结果</p>
             <ul>
-                <li class="music-pic" ng-repeat="music in musicResult">
+                <li class="music-pic" ng-repeat="music in musicResult | filter:music.name">
                     <img ng-src="images/{{music.img}}">
                     <p class="music-color">{{music.name}}-{{music.songer}}</p>
                     <div>

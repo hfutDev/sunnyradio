@@ -4,7 +4,7 @@
 
 angular.module('music.controllers', []);
 
-music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', 'audioService', function ($scope, $rootScope, $interval, audioService){
+music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', '$location', 'audioService', function ($scope, $rootScope, $interval, $location, audioService){
     $rootScope.musicPlay = {
         'state': false,
         'music':{
@@ -20,6 +20,10 @@ music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', 'audioServic
             audioService.nextPlay(music);
         }
     };
+
+    $scope.search = function(){
+        $location.path('/search');
+    }
 }]);
 
 music.controller('HomeCtrl', ['$scope', 'audioService', function ($scope, audioService){
@@ -422,7 +426,7 @@ music.controller('SearchCtrl', ['$scope', function ($scope){
 
         {
             'id': '02',
-            'name': '红尘客栈',
+            'name': '龙卷风',
             'songer':'周杰伦',
             'url': 'songs/Nice.mp3',
             'img': 'search.jpg'
