@@ -413,6 +413,7 @@ music.controller('RankCtrl', ['$scope', 'audioService', function ($scope, audioS
 music.controller('SearchCtrl', ['$scope', function ($scope){
     $scope.musicResult = [
         {
+            'id': '01',
             'name': '红尘客栈',
             'songer':'周杰伦',
             'url': 'songs/Nice.mp3',
@@ -420,6 +421,7 @@ music.controller('SearchCtrl', ['$scope', function ($scope){
         },
 
         {
+            'id': '02',
             'name': '红尘客栈',
             'songer':'周杰伦',
             'url': 'songs/Nice.mp3',
@@ -427,6 +429,7 @@ music.controller('SearchCtrl', ['$scope', function ($scope){
         },
 
         {
+            'id': '03',
             'name': '红尘客栈',
             'songer':'周杰伦',
             'url': 'songs/Nice.mp3',
@@ -434,6 +437,7 @@ music.controller('SearchCtrl', ['$scope', function ($scope){
         },
 
         {
+            'id': '04',
             'name': '红尘客栈',
             'songer':'周杰伦',
             'url': 'songs/Nice.mp3',
@@ -441,6 +445,7 @@ music.controller('SearchCtrl', ['$scope', function ($scope){
         },
 
         {
+            'id': '05',
             'name': '红尘客栈',
             'songer':'周杰伦',
             'url': 'songs/Nice.mp3',
@@ -448,6 +453,7 @@ music.controller('SearchCtrl', ['$scope', function ($scope){
         },
 
         {
+            'id': '06',
             'name': '红尘客栈',
             'songer':'周杰伦',
             'url': 'songs/Nice.mp3',
@@ -455,6 +461,7 @@ music.controller('SearchCtrl', ['$scope', function ($scope){
         },
 
         {
+            'id': '07',
             'name': '红尘客栈',
             'songer':'周杰伦',
             'url': 'songs/Nice.mp3',
@@ -462,6 +469,7 @@ music.controller('SearchCtrl', ['$scope', function ($scope){
         },
 
         {
+            'id': '08',
             'name': '红尘客栈',
             'songer':'周杰伦',
             'url': 'songs/Nice.mp3',

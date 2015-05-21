@@ -46,6 +46,8 @@ music.factory('audioService', ['$rootScope', '$interval', function ($rootScope, 
     factory.nextPlay = function (music){
         if(music.id != $rootScope.musicPlay.music.id){
             $rootScope.musicPlay.music = music;
+            // $rootScope.musicPlay.url = music.url;
+            // $rootScope.musicPlay.id = music.id;
             factory.nextSong();
         }else{
             factory.playMusic();
