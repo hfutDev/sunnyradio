@@ -84,8 +84,9 @@ body{
     border-radius: 1px;
     box-shadow: 1px 1px 1px gray;
     z-index: 10;
-    display: none;
+    /*display: none;*/
 }
+
 .close{
     position: absolute;
     top:-6px;
@@ -133,13 +134,25 @@ body{
     line-height: 18px;
 }
 .up-name{
-    width:200px;
+    width:190px;
+    padding: 3px 0 0 5px;
 }
 .up-songer{
     width:150px;
+    padding:3px 0 0 5px;
 }
 .up-category{
     width:140px;
+    padding: 3px 0 0 5px;
+}
+.up-btn{
+    width:70px;
+    font-size: 20px;
+    margin-top: 12px;
+    border-width: 0;
+    border-radius: 2px;
+    background: rgb(255, 168, 0);
+    cursor: pointer;
 }
 
 

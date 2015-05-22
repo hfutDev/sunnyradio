@@ -65,14 +65,13 @@
 					<!-- <p>上传中...</p> -->
 				</div>
 		</div>
-		<form name="music" class="up-form">
-			<input type="text" class="up-name" ng-model="music.name" placeholder="歌名"/>
-			<input type="text" class="up-songer" ng-model="music.songer" placeholder="歌手"/>
-			<select name="category" class="up-category" ng-model="music.category" >
-				<option value="">选择歌曲类型</option>
-				<option>小清新</option>
-				<option>流行语</option>
+		<form name="musicUpload" class="up-form" ng-submit="upload()">
+			<input type="text" class="up-name" ng-model="music.name" placeholder="歌名"/ required>
+			<input type="text" class="up-songer" ng-model="music.songer" placeholder="歌手"/ required>
+			<select class="up-category" ng-options="category.cate for category in categorys" ng-model="music.category" ng-change="selectAction()" required>
+				<option value="">选择歌曲分类</option>
 			</select>
+			<button type="submit" class="up-btn">提 交</button>
 		</form>
 	</div>
 

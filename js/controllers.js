@@ -24,6 +24,28 @@ music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', '$location',
     $scope.search = function(){
         $location.path('/search');
     }
+
+    $scope.categorys = [
+        {
+            cate:'小清新兆赫'
+        },
+        {
+            cate:'流行粤语兆赫'
+        },
+        {
+            cate:'流行日语兆赫'
+        }
+    ];
+
+    $scope.selectAction = function (){
+        console.log($scope.music.category);
+    }
+
+    $scope.upload = function (){
+        $scope.music.category = $scope.music.category.cate;
+        console.log($scope.music);
+        console.log($scope.musicUpload);
+    }
 }]);
 
 music.controller('HomeCtrl', ['$scope', 'audioService', function ($scope, audioService){
