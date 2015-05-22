@@ -68,13 +68,12 @@
 		<form name="musicUpload" class="up-form" ng-submit="upload()">
 			<input type="text" class="up-name" ng-model="music.name" placeholder="歌名"/ required>
 			<input type="text" class="up-songer" ng-model="music.songer" placeholder="歌手"/ required>
-			<select class="up-category" ng-options="category.cate for category in categorys" ng-model="music.category" ng-change="selectAction()" required>
+			<select class="up-category" ng-options="category.cate for category in categorys" ng-model="music.category" required>
 				<option value="">选择歌曲分类</option>
 			</select>
 			<button type="submit" class="up-btn">提 交</button>
 		</form>
 	</div>
-
 
 	<div ng-view></div>
 

@@ -37,10 +37,6 @@ music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', '$location',
         }
     ];
 
-    $scope.selectAction = function (){
-        console.log($scope.music.category);
-    }
-
     $scope.upload = function (){
         $scope.music.category = $scope.music.category.cate;
         console.log($scope.music);
