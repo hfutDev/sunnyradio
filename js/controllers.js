@@ -10,7 +10,7 @@ music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', '$location',
         'music':{
             'id': '03',
             'img': 'search.jpg',
-            'url': 'songs/July.mp3'
+            'url': 'songs/Liekkas.mp3'
         },
         play: function (music){
             this.music = music;

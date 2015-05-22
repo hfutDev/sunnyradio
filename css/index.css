@@ -84,6 +84,7 @@ body{
     border-radius: 1px;
     box-shadow: 1px 1px 1px gray;
     z-index: 10;
+    display: none;
 }
 .close{
     position: absolute;
@@ -94,15 +95,51 @@ body{
     background: url(../images/upload.png) -433px -9px;
 }
 .upload-box{
-    width:550px;
+    width:510px;
     height:250px;
     margin:0 20px;
-    background: blue;
+    /*background: gray;*/
 }
 .music-box{
     width:180px;
     height:180px;
-    margin-left:50px;
+    margin:40px 0 0 50px;
+    text-align: center;
+    background: red;
+    display: inline-block;
+}
+.music-bg{
+    background:url(../images/upload.png) 18px -48px no-repeat;
+}
+.thumb-box{
+    background:url(../images/upload.png) -226px -48px no-repeat;
+}
+.up-text{
+    position: relative;
+    top:135px;
+    font-size: 33px;
+
+}
+.up-form{
+    /*width:;*/
+    /*height:20px;*/
+    margin:0 20px;
+    font-size: 18px;
+    line-height: 18px;
+    text-align: center;
+}
+.up-form input,select{
+    font-size: 18px;
+    line-height: 18px;
+}
+.up-name{
+    width:200px;
+}
+.up-songer{
+    width:150px;
+}
+.up-category{
+    width:140px;
 }
 
 

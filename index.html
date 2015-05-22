@@ -53,10 +53,27 @@
 	<!-- upload music -->
 	<div class="upload">
 		<div class="close"></div>
-		<div class="upload-box">
-			<div class="music-box"></div>
-			<div class="pic-box"></div>
+			<div class="upload-box">
+				<div class="music-box music-bg">
+					<!-- <p>20%</p> -->
+					<p class="up-text">上传歌曲</p>
+					<!-- <p>上传中...</p> -->
+				</div>
+				<div class="music-box thumb-box">
+					<!-- <p>20%</p> -->
+					<p class="up-text">上传封面</p>
+					<!-- <p>上传中...</p> -->
+				</div>
 		</div>
+		<form name="music" class="up-form">
+			<input type="text" class="up-name" ng-model="music.name" placeholder="歌名"/>
+			<input type="text" class="up-songer" ng-model="music.songer" placeholder="歌手"/>
+			<select name="category" class="up-category" ng-model="music.category" >
+				<option value="">选择歌曲类型</option>
+				<option>小清新</option>
+				<option>流行语</option>
+			</select>
+		</form>
 	</div>
 
 
