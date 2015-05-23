@@ -84,7 +84,7 @@ body{
     border-radius: 1px;
     box-shadow: 1px 1px 1px gray;
     z-index: 10;
-    /*display: none;*/
+    display: none;
 }
 
 .close{

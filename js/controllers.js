@@ -16,6 +16,7 @@ music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', '$location',
             this.music = music;
             audioService.playMusic();
         },
+        //音乐列表中的播放按钮调用
         nextPlay:function(music){
             audioService.nextPlay(music);
         }

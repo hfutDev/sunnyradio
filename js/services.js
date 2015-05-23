@@ -10,10 +10,12 @@ music.factory('audioService', ['$rootScope', '$interval', function ($rootScope, 
 
     var factory = {};
 
+    //这个地方不用$watch是因为不会写Orz,,,
+    //当定时器完成任务后注销掉
     function endCheck(){
         var audioSrc = audio.src;
         var check = $interval(function(){
-            // 播放结束 || 点击暂停 || 下一首
+            // 播放结束 || 点击暂停
             if(audio.ended || !$rootScope.musicPlay.state) {
                 $rootScope.musicPlay.state = false;
                 $interval.cancel(check);
@@ -22,20 +24,22 @@ music.factory('audioService', ['$rootScope', '$interval', function ($rootScope, 
         }, 500);
     }
 
+    //音乐控制面板的播放
     factory.playMusic = function (){
 
         if($rootScope.musicPlay.state){
-            audio.autoplay=false;
+            // audio.autoplay=false;
             audio.pause();
             $rootScope.musicPlay.state = false;
         }else{
-            audio.autoplay=true;
+            // audio.autoplay=true;
             audio.play();
             endCheck();
             $rootScope.musicPlay.state = true;
         }
     };
 
+    //音乐控制面板的下一首
     factory.nextSong = function (){
         audio.src = $rootScope.musicPlay.music.url;
         audio.autoplay=true;
@@ -46,8 +50,6 @@ music.factory('audioService', ['$rootScope', '$interval', function ($rootScope, 
     factory.nextPlay = function (music){
         if(music.id != $rootScope.musicPlay.music.id){
             $rootScope.musicPlay.music = music;
-            // $rootScope.musicPlay.url = music.url;
-            // $rootScope.musicPlay.id = music.id;
             factory.nextSong();
         }else{
             factory.playMusic();
