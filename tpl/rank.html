@@ -8,7 +8,7 @@
                 </ul>
 
                 <table class="list">
-                    <tr ng-repeat="music in categoryRank" ng-class="{'active': music.id == musicId}" ng-click="find(music.id)">
+                    <tr ng-repeat="music in categoryRank"  ng-class="{'playing':musicPlay.state && music.id == musicPlay.music.id}" ng-dblclick="musicPlay.nextPlay(music)">
                         <td class="song-no">{{music.id}}</td>
                         <td class="song-name">{{music.name}}</td>
                         <td class="songer">{{music.songer}}</td>
@@ -31,7 +31,7 @@
                 </ul>
 
                 <table class="list">
-                    <tr ng-repeat="music in categoryRank" ng-class="{'active': music.id == musicId}" ng-click="find(music.id)">
+                    <tr ng-repeat="music in categoryRank" ng-class="{'playing':musicPlay.state && music.id == musicPlay.music.id}" ng-dblclick="musicPlay.nextPlay(music)">
                         <td class="song-no">{{music.id}}</td>
                         <td class="song-name">{{music.name}}</td>
                         <td class="songer">{{music.songer}}</td>

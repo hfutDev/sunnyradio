@@ -457,20 +457,33 @@ body{
     table-layout: fixed;
     font-size: 17px;
 }
-.list .active{
-    background:rgb(63, 242, 14) !important;
+.list tr{
+    border-left: 5px solid white;
 }
 .list tr:nth-child(odd){
     background: rgb(242, 242, 242);
+    border-left-color:rgb(242, 242, 242);
+}
+.list tr:hover{
+    border-left-color:rgb(21, 221, 46);
+}
+.playing{
+    border-left-color:rgb(21, 221, 46) !important;
 }
 .list tr td{
     padding:5px 0;
+}
+::selection{
+    color:white;
+}
+::-moz-selection{
+    color:white;
 }
 .list-two{
     margin: 20px 0 0 0;
 }
 .song-no{
-    width:40px;
+    width:30px;
     text-align: center;
     color:rgb(255, 145, 0);
 }

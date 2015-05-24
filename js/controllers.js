@@ -433,10 +433,6 @@ music.controller('RankCtrl', ['$scope', 'audioService', function ($scope, audioS
         }
     ];
 
-    $scope.find = function (id){
-        $scope.musicId = id;
-    };
-
 }]);
 
 music.controller('SearchCtrl', ['$scope', function ($scope){
