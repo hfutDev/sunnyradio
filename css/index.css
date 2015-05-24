@@ -609,8 +609,8 @@ body{
     margin-left:60px;
 }
 .pic-hot{
-    /*width:250px;*/
     margin-bottom:30px;
+    cursor:pointer;
 }
 .pic-hot img{
     width:120px;

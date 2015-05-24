@@ -51,6 +51,7 @@ music.controller('HomeCtrl', ['$scope', 'audioService', function ($scope, audioS
             'id': 1,
             'name': '尚好的青春',
             'songer': '孙燕姿',
+            'url': 'songs/Liekkas.mp3',
             'img': 'release.jpg',
             'common': '飞天小沫',
             'desc': '这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂'
@@ -60,6 +61,7 @@ music.controller('HomeCtrl', ['$scope', 'audioService', function ($scope, audioS
             'id': 2,
             'name': '尚好的青春',
             'songer': '孙燕姿',
+            'url': 'songs/Liekkas.mp3',
             'img': 'release.jpg',
             'common': '飞天小沫',
             'desc': '这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂'
@@ -69,6 +71,7 @@ music.controller('HomeCtrl', ['$scope', 'audioService', function ($scope, audioS
             'id': 3,
             'name': '尚好的青春',
             'songer': '孙燕姿',
+            'url': 'songs/Liekkas.mp3',
             'img': 'release.jpg',
             'common': '飞天小沫',
             'desc': '这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂'
@@ -78,6 +81,7 @@ music.controller('HomeCtrl', ['$scope', 'audioService', function ($scope, audioS
             'id': 4,
             'name': '尚好的青春',
             'songer': '孙燕姿',
+            'url': 'songs/Liekkas.mp3',
             'img': 'release.jpg',
             'common': '飞天小沫',
             'desc': '这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂'
@@ -87,6 +91,7 @@ music.controller('HomeCtrl', ['$scope', 'audioService', function ($scope, audioS
             'id': 5,
             'name': '尚好的青春',
             'songer': '孙燕姿',
+            'url': 'songs/Liekkas.mp3',
             'img': 'release.jpg',
             'common': '飞天小沫',
             'desc': '这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂'
@@ -96,6 +101,7 @@ music.controller('HomeCtrl', ['$scope', 'audioService', function ($scope, audioS
             'id': 6,
             'name': '尚好的青春',
             'songer': '孙燕姿',
+            'url': 'songs/Liekkas.mp3',
             'img': 'release.jpg',
             'common': '飞天小沫',
             'desc': '这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂'
@@ -226,6 +232,7 @@ music.controller('TalkCtrl', ['$scope', function ($scope){
 
     $scope.newMusic = [
         {
+            'id': '01',
             'name': '红尘客栈',
             'songer': '周杰伦',
             'url': 'songs/Nice.mp3',
@@ -234,6 +241,7 @@ music.controller('TalkCtrl', ['$scope', function ($scope){
         },
 
         {
+            'id': '02',
             'name': '红尘客栈',
             'songer': '周杰伦',
             'url': 'songs/Nice.mp3',
@@ -242,6 +250,7 @@ music.controller('TalkCtrl', ['$scope', function ($scope){
         },
 
         {
+            'id': '03',
             'name': '红尘客栈',
             'songer': '周杰伦',
             'url': 'songs/Nice.mp3',

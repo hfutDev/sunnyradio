@@ -10,7 +10,7 @@
             </p>
             <div class="rotating-content-container">
                 <ul class="rotating-content">
-                    <li class="new-music" ng-repeat="music in musicList" ng-click="musicPlay.play(music)">
+                    <li class="new-music" ng-repeat="music in musicList" ng-click="musicPlay.nextPlay(music)">
                         <img ng-src="images/{{music.img}}">
                         <p class="music-info ellipsis">
                             <span class="music-name">{{music.name}}</span>

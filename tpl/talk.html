@@ -29,13 +29,13 @@
                 </div>
                 <div class="box-right">
                     <p class="emotion">最新音乐</p>
-                    <ul ng-repeat="new in newMusic">
-                        <li class="pic-hot" ng-click="musicPlay.play(music)">
-                            <img ng-src="images/{{new.img}}">
+                    <ul ng-repeat="music in newMusic">
+                        <li class="pic-hot" ng-click="musicPlay.nextPlay(music)">
+                            <img ng-src="images/{{music.img}}">
                             <div class="hot-song">
-                                <p class="music-name">{{new.name}}</p>
-                                <p>{{new.songer}}</p>
-                                <p class="hot-number">被说{{new.number}}次</p>
+                                <p class="music-name">{{music.name}}</p>
+                                <p>{{music.songer}}</p>
+                                <p class="hot-number">被说{{music.number}}次</p>
                             </div>
                         </li>
                     </ul>
