@@ -428,9 +428,6 @@ music.controller('RankCtrl', ['$scope', 'audioService', function ($scope, audioS
         $scope.musicId = id;
     };
 
-    $scope.nextPlay = function(music){
-        audioService.nextPlay(music);
-    }
 }]);
 
 music.controller('SearchCtrl', ['$scope', function ($scope){

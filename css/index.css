@@ -443,13 +443,13 @@ body{
     float: left;
     width:200px;
     padding-bottom:10px;
-    border-bottom: 3px solid rgb(255, 145, 0);
-    color:rgb(94, 86, 86);
+    border-bottom: 3px solid rgb(148, 144, 144);
+    color:rgb(148, 144, 144);
     cursor: pointer;
 }
 .title .title-color{
-    color:rgb(148, 144, 144);
-    border-color:rgb(148, 144, 144);
+    color:rgb(94, 86, 86);
+    border-color:rgb(255, 145, 0);
 }
 .list{
     width:920px;
