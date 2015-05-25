@@ -84,9 +84,8 @@ body{
     border-radius: 1px;
     box-shadow: 1px 1px 1px gray;
     z-index: 10;
-    display: none;
+    /*display: none;*/
 }
-
 .close{
     position: absolute;
     top:-6px;
@@ -99,7 +98,6 @@ body{
     width:510px;
     height:250px;
     margin:0 20px;
-    /*background: gray;*/
 }
 .music-box{
     width:180px;
@@ -122,8 +120,6 @@ body{
 
 }
 .up-form{
-    /*width:;*/
-    /*height:20px;*/
     margin:0 20px;
     font-size: 18px;
     line-height: 18px;
@@ -291,6 +287,9 @@ body{
 	float: left;
 	max-width: 50px;
 	max-height: 50px;
+}
+.song-list-content{
+    width:350px;
 }
 .first-song{
     font-size: 22px !important;

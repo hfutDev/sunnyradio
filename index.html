@@ -17,7 +17,7 @@
 		<div class="nav">
 			<ul class="site-nav">
 				<li>
-					<a href="#!/">作品上传</a>
+					<a ng-click="display=true">作品上传</a>
 				</li>
 				<li>
 					<a href="fm/SunnyRadio.zip">客户端</a>
@@ -51,19 +51,19 @@
 	</div>
 
 	<!-- upload music -->
-	<div class="upload">
-		<div class="close"></div>
-			<div class="upload-box">
-				<div class="music-box music-bg">
-					<!-- <p>20%</p> -->
-					<p class="up-text">上传歌曲</p>
-					<!-- <p>上传中...</p> -->
-				</div>
-				<div class="music-box thumb-box">
-					<!-- <p>20%</p> -->
-					<p class="up-text">上传封面</p>
-					<!-- <p>上传中...</p> -->
-				</div>
+	<div class="upload" ng-show="display">
+		<div class="close" ng-click="display=false"></div>
+		<div class="upload-box">
+			<div class="music-box music-bg">
+				<!-- <p>20%</p> -->
+				<p class="up-text">上传歌曲</p>
+				<!-- <p>上传中...</p> -->
+			</div>
+			<div class="music-box thumb-box">
+				<!-- <p>20%</p> -->
+				<p class="up-text">上传封面</p>
+				<!-- <p>上传中...</p> -->
+			</div>
 		</div>
 		<form name="musicUpload" class="up-form" ng-submit="upload()">
 			<input type="text" class="up-name" ng-model="music.name" placeholder="歌名"/ required>

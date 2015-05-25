@@ -33,26 +33,29 @@
             </p>
             <div class="music-top-container">
                 <ul class="song-list">
-                    <li class="song-list-l" ng-repeat="music in musicRank" ng-class="{'first':$first}" ng-mouseenter="hover=false" ng-mouseleave="hover=true">
-                        <img ng-src="images/{{music.img}}">
-                        <p class="song-list-info ellipsis">
-                            <span class="num"  ng-class="{'first-song':$first}">{{music.id}}</span>
-                            <span class="music-name"  ng-class="{'first-song':$first}">{{music.name}}</span>
-                            <span>-</span>
-                            <span class="music-singer">{{music.songer}}</span>
-                        </p>
-                        <p class="song-list-num" ng-show="$first || hover">
-                            <span>播放</span>
-                            <span>{{music.playNum}}</span>
-                            <span class="find">扒歌</span>
-                            <span>{{music.searchNum}}</span>
-                        </p>
-                        <p class="fun-icon" ng-hide="!$first &&hover">
-                            <span class="icon-play icon" ng-class="{'icon-pause':musicPlay.state && music.id == musicPlay.music.id}" ng-click="musicPlay.nextPlay(music)"></span>
-                            <span class="icon-plus icon"></span>
-                            <span class="icon-love icon"></span>
-                            <span class="icon-download icon"></span>
-                        </p>
+                    <li class="song-list-l" ng-repeat="music in musicRank" ng-class="{'first':$first}" ng-mouseenter="hover=flase" ng-init="hover=true">
+                        <div class="song-list-content" ng-mouseleave="hover=true">
+                            <img ng-src="images/{{music.img}}">
+                            <p class="song-list-info ellipsis">
+                                <span class="num"  ng-class="{'first-song':$first}">{{music.id}}</span>
+                                <span class="music-name"  ng-class="{'first-song':$first}">{{music.name}}</span>
+                                <span>-</span>
+                                <span class="music-singer">{{music.songer}}</span>
+                            </p>
+                            <p class="song-list-num" ng-show="$first || hover">
+                                <span>播放</span>
+                                <span>{{music.playNum}}</span>
+                                <span class="find">扒歌</span>
+                                <span>{{music.searchNum}}</span>
+                            </p>
+                            <p class="fun-icon" ng-show="$first || !hover">
+                                <span class="icon-play icon" ng-class="{'icon-pause':musicPlay.state && music.id == musicPlay.music.id}" ng-click="musicPlay.nextPlay(music)"></span>
+                                <span class="icon-plus icon"></span>
+                                <span class="icon-love icon"></span>
+                                <span class="icon-download icon"></span>
+                            </p>
+                        </div>
+
                     </li>
                 </ul>
             </div>
