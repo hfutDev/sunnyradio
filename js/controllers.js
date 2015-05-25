@@ -154,8 +154,6 @@ music.controller('HomeCtrl', ['$scope', 'audioService', function ($scope, audioS
         audioService.playMusic();
     }
 
-    // $scope.hover = true;
-
 }]);
 
 music.controller('TalkCtrl', ['$scope', function ($scope){

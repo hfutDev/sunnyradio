@@ -84,7 +84,6 @@ body{
     border-radius: 1px;
     box-shadow: 1px 1px 1px gray;
     z-index: 10;
-    /*display: none;*/
 }
 .close{
     position: absolute;
@@ -93,6 +92,7 @@ body{
     width:25px;
     height:25px;
     background: url(../images/upload.png) -433px -9px;
+    cursor:pointer;
 }
 .upload-box{
     width:510px;
@@ -106,6 +106,7 @@ body{
     text-align: center;
     background: red;
     display: inline-block;
+    cursor:pointer;
 }
 .music-bg{
     background:url(../images/upload.png) 18px -48px no-repeat;
