@@ -292,6 +292,13 @@ body{
 	max-width: 50px;
 	max-height: 50px;
 }
+.first-song{
+    font-size: 22px !important;
+}
+.first img{
+    max-width: 70px;
+    max-height: 70px;
+}
 .song-list-info,.song-list-num,.fun-icon{
 	float: left;
 	width: 265px;
@@ -311,10 +318,6 @@ body{
 }
 .song-list-num .find{
 	margin-left: 11px;
-}
-.song-list .first img{
-	max-width:70px;
-	max-height: 70px;
 }
 .fun-icon{
 	padding-top: 5px;
