@@ -4,7 +4,7 @@
 
 angular.module('music.controllers', []);
 
-music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', '$location', 'audioService', function ($scope, $rootScope, $interval, $location, audioService){
+music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', '$location', 'audioService',   function ($scope, $rootScope, $interval, $location, audioService){
     $rootScope.musicPlay = {
         'state': false,
         'music':{
@@ -38,10 +38,14 @@ music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', '$location',
         }
     ];
 
-    $scope.upload = function (){
+    $scope.upload = function (music){
         $scope.music.category = $scope.music.category.cate;
-        console.log($scope.music);
-        console.log($scope.musicUpload);
+        console.log(music);
+        // console.log($scope.musicUpload);
+    }
+
+    $scope.change = function (){
+        console.log(1111);
     }
 }]);
 

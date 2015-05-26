@@ -100,9 +100,11 @@ body{
     margin:0 20px;
 }
 .music-box{
+    position: relative;
+    top:12px;
     width:180px;
     height:180px;
-    margin:40px 0 0 50px;
+    margin:40px 30px;
     text-align: center;
     background: red;
     display: inline-block;
@@ -115,13 +117,12 @@ body{
     background:url(../images/upload.png) -226px -48px no-repeat;
 }
 .up-text{
-    position: relative;
+    position: absolute;
     top:135px;
+    left:25px;
     font-size: 33px;
-
 }
 .up-form{
-    margin:0 20px;
     font-size: 18px;
     line-height: 18px;
     text-align: center;
@@ -150,6 +151,12 @@ body{
     border-radius: 2px;
     background: rgb(255, 168, 0);
     cursor: pointer;
+}
+.up-file{
+    width:180px;
+    height:180px;
+    cursor: pointer;
+    opacity: 0;
 }
 
 

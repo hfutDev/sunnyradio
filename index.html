@@ -53,19 +53,21 @@
 	<!-- upload music -->
 	<div class="upload" ng-show="display">
 		<div class="close" ng-click="display=false"></div>
-		<div class="upload-box">
-			<div class="music-box music-bg">
-				<!-- <p>20%</p> -->
-				<p class="up-text">上传歌曲</p>
-				<!-- <p>上传中...</p> -->
+		<form name="musicUpload" class="up-form" ng-submit="upload(music)">
+			<div class="upload-box">
+				<div class="music-box music-bg">
+					<!-- <p>20%</p> -->
+					<p class="up-text">上传歌曲</p>
+					<!-- <p>上传中...</p> -->
+					<input type="file"  accept="audio/*" class="up-file" ng-model="music.url" ng-change="change()">
+				</div>
+				<div class="music-box thumb-box">
+					<!-- <p>20%</p> -->
+					<p class="up-text">上传封面</p>
+					<!-- <p>上传中...</p> -->
+					<input type="file" accept="image/*" class="up-file" ng-model="music.img">
+				</div>
 			</div>
-			<div class="music-box thumb-box">
-				<!-- <p>20%</p> -->
-				<p class="up-text">上传封面</p>
-				<!-- <p>上传中...</p> -->
-			</div>
-		</div>
-		<form name="musicUpload" class="up-form" ng-submit="upload()">
 			<input type="text" class="up-name" ng-model="music.name" placeholder="歌名"/ required>
 			<input type="text" class="up-songer" ng-model="music.songer" placeholder="歌手"/ required>
 			<select class="up-category" ng-options="category.cate for category in categorys" ng-model="music.category" required>
