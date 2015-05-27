@@ -38,22 +38,26 @@ music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', '$location',
         }
     ];
 
+}]);
+
+music.controller('UploadCtrl', ['$scope', function ($scope){
+    $scope.music = {};
     $scope.upload = function (music){
         $scope.music.category = $scope.music.category.cate;
         console.log(music);
         // console.log($scope.musicUpload);
-
-        console.log($('#img')[0].files);
     }
 
-    $scope.inputChange = function (){
-        console.log(1111);
+    $scope.change = function (element){
+        var file = element.files[0];
+        var pos = file.name.lastIndexOf(".");
+        console.log(file.name);
+        //用$apply更新$scope
+        $scope.$apply(function(){
+            $scope.music.name = file.name;
+            $scope.music.type = file.name.substring(pos + 1);
+        });
     }
-
-    $scope.$watch('hehe', function(newval) {
-        console.log(newval);
-    });
-
 }]);
 
 music.controller('HomeCtrl', ['$scope', 'audioService', function ($scope, audioService){
