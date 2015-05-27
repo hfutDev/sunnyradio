@@ -42,11 +42,18 @@ music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', '$location',
         $scope.music.category = $scope.music.category.cate;
         console.log(music);
         // console.log($scope.musicUpload);
+
+        console.log($('#img')[0].files);
     }
 
-    $scope.change = function (){
+    $scope.inputChange = function (){
         console.log(1111);
     }
+
+    $scope.$watch('hehe', function(newval) {
+        console.log(newval);
+    });
+
 }]);
 
 music.controller('HomeCtrl', ['$scope', 'audioService', function ($scope, audioService){
