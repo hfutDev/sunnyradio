@@ -298,6 +298,7 @@ body{
 }
 .song-list-content{
     width:350px;
+    height: 60px;
 }
 .first-song{
     font-size: 22px !important;
