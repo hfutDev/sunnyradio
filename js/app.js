@@ -15,6 +15,10 @@ var music = angular.module('music', [
     'music.controllers'
 ]);
 
+music.run(['$rootScope', function ($rootScope){
+    $rootScope.apiHost = 'http://localhost';
+}]);
+
 music.config(
     [
         '$routeProvider',

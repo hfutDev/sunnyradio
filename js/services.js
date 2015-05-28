@@ -8,7 +8,7 @@ music.factory('audioService', ['$rootScope', '$interval', function ($rootScope, 
     var audio = $('#audio')[0];
     audio.volume = 0.5;
 
-    var factory = {};
+    var service = {};
 
     //这个地方不用$watch是因为不会写Orz,,,
     //当定时器完成任务后注销掉
@@ -25,7 +25,7 @@ music.factory('audioService', ['$rootScope', '$interval', function ($rootScope, 
     }
 
     //音乐控制面板的播放
-    factory.playMusic = function (){
+    service.playMusic = function (){
 
         if($rootScope.musicPlay.state){
             // audio.autoplay=false;
@@ -40,28 +40,28 @@ music.factory('audioService', ['$rootScope', '$interval', function ($rootScope, 
     };
 
     //音乐控制面板的下一首
-    factory.nextSong = function (){
+    service.nextSong = function (){
         audio.src = $rootScope.musicPlay.music.url;
         audio.autoplay=true;
         $rootScope.musicPlay.state = true;
         endCheck();
     };
 
-    factory.nextPlay = function (music){
+    service.nextPlay = function (music){
         if(music.id != $rootScope.musicPlay.music.id){
             $rootScope.musicPlay.music = music;
-            factory.nextSong();
+            service.nextSong();
         }else{
-            factory.playMusic();
+            service.playMusic();
         }
     };
 
-    factory.voice = function (number){
+    service.voice = function (number){
         audio.volume = number / 100;
     };
 
     var voiceNum = 0;
-    factory.silent = function (sound){
+    service.silent = function (sound){
         if(sound){
             sound = false;
             voiceNum = audio.volume;
@@ -73,6 +73,17 @@ music.factory('audioService', ['$rootScope', '$interval', function ($rootScope, 
         return sound;
     };
 
-    return factory;
+    return service;
+}]);
+
+music.factory('rankService', ['$rootScope', '$http', function ($rootScope, $http){
+    var url = $rootScope.apiHost + '/api/v1/ranklist';
+    var service = {};
+
+    service.getRankList = function (){
+        return $http.get(url).then(function (resp){
+            return resp.data;
+        });
+    };
 
 }]);
