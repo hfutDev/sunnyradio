@@ -86,4 +86,5 @@ music.factory('rankService', ['$rootScope', '$http', function ($rootScope, $http
         });
     };
 
+    return service;
 }]);
