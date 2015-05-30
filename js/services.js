@@ -76,11 +76,37 @@ music.factory('audioService', ['$rootScope', '$interval', function ($rootScope, 
     return service;
 }]);
 
+music.factory('homeService', ['$rootScope', '$http', function ($rootScope, $http){
+    var url = $rootScope.apiHost + '/api/v1/homelist';
+    var service = {};
+
+    service.getRankList = function (){
+        return $http.get(url).then(function (resp){
+            return resp.data;
+        });
+    };
+
+    return service;
+}]);
+
 music.factory('rankService', ['$rootScope', '$http', function ($rootScope, $http){
     var url = $rootScope.apiHost + '/api/v1/ranklist';
     var service = {};
 
     service.getRankList = function (){
+        return $http.get(url).then(function (resp){
+            return resp.data;
+        });
+    };
+
+    return service;
+}]);
+
+music.factory('talkService', ['$rootScope', '$http', function ($rootScope, $http){
+    var url = $rootScope.apiHost + '/api/v1/talklist';
+    var service = {};
+
+    service.getTalkList = function (){
         return $http.get(url).then(function (resp){
             return resp.data;
         });
