@@ -114,3 +114,16 @@ music.factory('talkService', ['$rootScope', '$http', function ($rootScope, $http
 
     return service;
 }]);
+
+music.factory('searchService', ['$rootScope', '$http', function ($rootScope, $http){
+    var url = $rootScope.apiHost + '/api/v1/searchlist';
+    var service = {};
+
+    service.getTalkList = function (){
+        return $http.get(url).then(function (resp){
+            return resp.data;
+        });
+    };
+
+    return service;
+}]);
