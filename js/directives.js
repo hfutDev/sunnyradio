@@ -14,3 +14,12 @@ angular.module('music.directives', []);
 //         }
 //     }
 // });
+
+music.directive('pagination', function (){
+    return {
+        restrict: 'AE',
+        link:function (){
+
+        }
+    }
+});
