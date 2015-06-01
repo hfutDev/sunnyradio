@@ -5,7 +5,9 @@
                 <div class="box-left">
                     <p class="emotion">最新心情</p>
                     <ul>
-                        <li class="talk-music-pic" ng-repeat="music in musicEmotion">
+                        <li class="talk-music-pic" ng-repeat="music in musicEmotion |
+                        offset: currentPage*itemsPerPage |
+                        limitTo: itemsPerPage">
                             <img ng-src="images/{{music.img}}">
                             <p><span class="music-name">{{music.name}}</span>-{{music.songer}}</p>
                             <div>
@@ -16,7 +18,8 @@
                             </div>
                     </ul>
                     <div class="paging">
-                        <span>首页</span>
+                        <pagination current-page="0" items-per-page="5" list="{{musicEmotion}}"></pagination>
+                        <!-- <span>首页</span>
                         <span>上一页</span>
                         <span>1</span>
                         <span>2</span>
@@ -24,7 +27,7 @@
                         <span>4</span>
                         <span>5</span>
                         <span>下一页</span>
-                        <span>末页</span>
+                        <span>末页</span> -->
                     </div>
                 </div>
                 <div class="box-right">

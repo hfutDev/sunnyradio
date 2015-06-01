@@ -4,10 +4,38 @@
     <meta charset="UTF-8">
     <title>angular</title>
 </head>
-<body ng-app>
-    <input type="text" ng-model="name">
-    <p>Hello,{{name}}!</p>
+<body ng-app="app">
+    <ul>
+        <li ng-repeat="blog in blog_list"></li>
+    </ul>
 
+    <script>
+        var app = angular.module('app',[
+            app.directives,
+            app.controllers
+        ]);
+
+        angular.module('music.controllers', []);
+        app.controller();
+
+        angular.module('app.directives', []);
+        app.directive('pagination', function (){
+            return {
+                restrict: 'AE',
+                replace: true,
+                scope: {
+                    blog_list: '@',
+                    currentPage: '=',
+                    itemsPerPage: '=',
+                },
+                link:function (){
+
+                }
+            }
+        });
+
+
+    </script>
     <script src="js/libs/angular-1.2.28.min.js"></script>
 </body>
 </html>
