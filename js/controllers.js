@@ -243,6 +243,46 @@ music.controller('TalkCtrl', ['$scope', function ($scope){
             'songer': '周杰伦',
             'url': 'songs/Nice.mp3',
             'img': 'search.jpg'
+        },
+
+        {
+            'id': '07',
+            'name': '红尘客栈',
+            'songer': '周杰伦',
+            'url': 'songs/Nice.mp3',
+            'img': 'search.jpg'
+        },
+
+        {
+            'id': '08',
+            'name': '红尘客栈',
+            'songer': '周杰伦',
+            'url': 'songs/Nice.mp3',
+            'img': 'search.jpg'
+        },
+
+        {
+            'id': '09',
+            'name': '红尘客栈',
+            'songer': '周杰伦',
+            'url': 'songs/Nice.mp3',
+            'img': 'search.jpg'
+        },
+
+        {
+            'id': '07',
+            'name': '红尘客栈',
+            'songer': '周杰伦',
+            'url': 'songs/Nice.mp3',
+            'img': 'search.jpg'
+        },
+
+        {
+            'id': '08',
+            'name': '红尘客栈',
+            'songer': '周杰伦',
+            'url': 'songs/Nice.mp3',
+            'img': 'search.jpg'
         }
     ];
 

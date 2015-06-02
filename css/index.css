@@ -627,6 +627,9 @@ body{
     margin:0 5px;
     cursor: pointer;
 }
+.paging .numactive{
+    color:red;
+}
 .box-right{
     float:left;
     width:270px;
