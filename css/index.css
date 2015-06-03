@@ -202,9 +202,12 @@ body{
 	min-height: 468px;
 	background-color: #ffffff;
 }
+.clearfloat{
+    clear:both;
+}
 .left-container{
 	float: left;
-	margin: 32px 0 0 50px;
+	margin: 32px 0 10px 50px;
 	width: 622px;
 }
 .left-container .headline{

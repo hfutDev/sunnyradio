@@ -2,7 +2,7 @@
 
 /* Directives */
 
-angular.module('music.directives', []);
+angular.module('pagination.directives', []);
 
 // music.directive('uploadFiles', function (){
 //     return {

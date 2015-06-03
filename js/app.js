@@ -11,7 +11,7 @@ var music = angular.module('music', [
     'ngRoute',
     'music.filters',
     'music.services',
-    'music.directives',
+    'pagination.directives',
     'music.controllers'
 ]);
 
