@@ -4,17 +4,6 @@
 
 angular.module('pagination.directives', []);
 
-// music.directive('uploadFiles', function (){
-//     return {
-//         restrict: 'A',
-//         link:function (scope, element, attrs){
-//             element.bind('change', function(){
-//                 scope.$apply();
-//             });
-//         }
-//     }
-// });
-
 music.directive('pagination', function (){
     return {
         restrict: 'AE',
@@ -31,7 +20,7 @@ music.directive('pagination', function (){
                         ng-class="{numactive: currentPage+1 == num}">{{num}}</span> \
                 <sapn ng-hide="nextPageDisabled() || (total<=pageList)">...</sapn> \
                 <span ng-click="nextPage()" ng-disabled="nextPageDisabled()">下一页</span>\
-                <span ng-click="jumpEnd()">首页</span> \
+                <span ng-click="jumpEnd()">尾页</span> \
             </div>',
         link:function (scope, element, attrs){
 
@@ -74,6 +63,7 @@ music.directive('pagination', function (){
 
             scope.jumpEnd = function (){
                 scope.currentPage = scope.total-1;
+                scope.jumpPageList();
             }
 
             scope.prevPage = function () {

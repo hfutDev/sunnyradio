@@ -9,10 +9,10 @@
 
 var music = angular.module('music', [
     'ngRoute',
-    'music.filters',
+    'music.controllers',
     'music.services',
     'pagination.directives',
-    'music.controllers'
+    'pagination.filters'
 ]);
 
 music.run(['$rootScope', function ($rootScope){
