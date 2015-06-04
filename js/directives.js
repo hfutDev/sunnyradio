@@ -31,7 +31,6 @@ music.directive('pagination', function (){
 
             scope.itemsList = scope.$eval(scope.itemsList);
 
-            console.log(scope.itemsList);
             scope.pageCount = function () {
                 if (scope.itemsList) {
                     return Math.ceil(scope.itemsList.length / scope.itemsPerPage);
