@@ -77,7 +77,7 @@ music.factory('audioService', ['$rootScope', '$interval', function ($rootScope, 
 }]);
 
 music.factory('homeService', ['$rootScope', '$http', function ($rootScope, $http){
-    var url = $rootScope.apiHost + '/api/v1/homelist';
+    // var url = $rootScope.apiHost + '/api/v1/homelist';
     var service = {};
 
     service.getRankList = function (){
@@ -90,7 +90,8 @@ music.factory('homeService', ['$rootScope', '$http', function ($rootScope, $http
 }]);
 
 music.factory('rankService', ['$rootScope', '$http', function ($rootScope, $http){
-    var url = $rootScope.apiHost + '/api/v1/ranklist';
+    var url = $rootScope.apiHost + '/api/fyb/0';
+    // var url = $rootScope.apiHost +"fyb_type.php";
     var service = {};
 
     service.getRankList = function (){

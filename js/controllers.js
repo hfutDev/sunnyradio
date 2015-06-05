@@ -386,108 +386,26 @@ music.controller('PlayCtrl', ['$scope', '$rootScope', 'audioService', function (
 
 }]);
 
-music.controller('RankCtrl', ['$scope', 'audioService', function ($scope, audioService){
-    $scope.categoryRank = [
-        {
-            'id': '01',
-            'name': '最炫民族风',
-            'songer': '凤凰传奇',
-            'url': 'songs/Nice.mp3',
-            'playTimes': '4562',
-            'searchTimes': '15',
-            'category': 'hfut'
-        },
-
-        {
-            'id': '02',
-            'name': '最炫民族风',
-            'songer': '凤凰传奇',
-            'url': 'songs/Nice.mp3',
-            'playTimes': '4562',
-            'searchTimes': '15',
-            'category': 'hfut'
-        },
-
-        {
-            'id': '03',
-            'name': '最炫民族风',
-            'songer': '凤凰传奇',
-            'url': 'songs/Nice.mp3',
-            'playTimes': '4562',
-            'searchTimes': '15',
-            'category': 'hfut'
-        },
-
-        {
-            'id': '04',
-            'name': '最炫民族风',
-            'songer': '凤凰传奇',
-            'url': 'songs/Nice.mp3',
-            'playTimes': '4562',
-            'searchTimes': '15',
-            'category': 'hfut'
-        },
-
-        {
-            'id': '05',
-            'name': '最炫民族风',
-            'songer': '凤凰传奇',
-            'url': 'songs/Nice.mp3',
-            'playTimes': '4562',
-            'searchTimes': '15',
-            'category': 'hfut'
-        },
-
-        {
-            'id': '06',
-            'name': '最炫民族风',
-            'songer': '凤凰传奇',
-            'url': 'songs/Nice.mp3',
-            'playTimes': '4562',
-            'searchTimes': '15',
-            'category': 'hfut'
-        },
-
-        {
-            'id': '07',
-            'name': '最炫民族风',
-            'songer': '凤凰传奇',
-            'url': 'songs/Nice.mp3',
-            'playTimes': '4562',
-            'searchTimes': '15',
-            'category': 'hfut'
-        },
-
-        {
-            'id': '08',
-            'name': '最炫民族风',
-            'songer': '凤凰传奇',
-            'url': 'songs/Nice.mp3',
-            'playTimes': '4562',
-            'searchTimes': '15',
-            'category': 'hfut'
-        },
-
-        {
-            'id': '09',
-            'name': '最炫民族风',
-            'songer': '凤凰传奇',
-            'url': 'songs/Nice.mp3',
-            'playTimes': '4562',
-            'searchTimes': '15',
-            'category': 'hfut'
-        },
-
-        {
-            'id': '10',
-            'name': '最炫民族风',
-            'songer': '凤凰传奇',
-            'url': 'songs/Nice.mp3',
-            'playTimes': '4562',
-            'searchTimes': '15',
-            'category': 'hfut'
+music.controller('RankCtrl', ['$scope', 'audioService', 'rankService', function ($scope, audioService, rankService){
+    $scope.category = [1,2,3,4,5];
+    $scope.cateListOne = 1;
+    $scope.cateListTwo = 3;
+    $scope.getCategory = function (num){
+        console.log(num);
+        if(num<=2){
+            $scope.cateListOne = num;
+        }else{
+            $scope.cateListTwo = num;
         }
-    ];
+
+    }
+    $scope.getRank = function (){
+        rankService.getRankList().then(function (data){
+            $scope.categoryRank = data;
+            console.log(data);
+        });
+    }
+    $scope.getRank();
 
 }]);
 

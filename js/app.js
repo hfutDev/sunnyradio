@@ -16,14 +16,20 @@ var music = angular.module('music', [
 ]);
 
 music.run(['$rootScope', function ($rootScope){
-    $rootScope.apiHost = 'http://localhost';
+    $rootScope.apiHost = 'http://localhost/sunnyradio';
+    // $rootScope.apiHost = 'http://sunnyradio.hfutonline.net/new/';
+
 }]);
 
 music.config(
     [
         '$routeProvider',
         '$locationProvider',
-        function ($routeProvider, $locationProvider) {
+        '$httpProvider',
+        function ($routeProvider, $locationProvider, $httpProvider) {
+            // $httpProvider.defaults.headers.common["Access-Control-Allow-Origin"]= "/*";
+            // console.log($httpProvider);
+
             $routeProvider
                 .when('/', {
                     templateUrl: 'tpl/home.html'

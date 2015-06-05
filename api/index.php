@@ -3,7 +3,8 @@
 require 'Slim/Slim.php';
 $app = new Slim();
 
-$app->get('/fyb/:type', 'getFyb');
+$app->get('/fyb/:type', 'getHfutRank');
+
 $app->get('/blog/:id',	'getBlogContent');
 $app->post('/blog/add', 'addBlog');
 $app->put('/blog/update/:id', 'updateBlog');
@@ -22,7 +23,8 @@ function getConnection() {
 	return $dbh;
 }
 
-function getFyb($type) {
+
+function getHfutRank($type) {
 	$sql = "SELECT id,filepath,filename,singer,
 			realname,imgid,playtimes FROM radio_song ";
 	$order = " ORDER BY playtimes DESC LIMIT 10";
@@ -36,19 +38,30 @@ function getFyb($type) {
 		$stmt = $db->query($sql);
 		$fybtype = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-
 		for ($i=0; $i < count($fybtype); $i++) {
 			$fybtype[$i]->name = $fybtype[$i]->filename;
-			$fybtype[$i]->src = "";
 			$fybtype[$i]->url = $fybtype[$i]->filepath.$fybtype[$i]->realname;
-			unset($fybtype[$i]->filepath,$fybtype[$i]->realname,$fybtype[$i]->filename);
-		};
 
+			//查询图片路径
+			$queryImgid = "SELECT path,name FROM radio_img WHERE id=" .$fybtype[$i]->imgid;
+			$stmt = $db->query($queryImgid);
+			$src = $stmt->fetchAll(PDO::FETCH_OBJ);
+			$fybtype[$i]->src = $src[0]->path.$src[0]->name;
+
+			//查询扒歌次数
+			$querySearchtimes = "SELECT count(songid) AS searchtimes FROM radio_comment WHERE type=-1 AND songid=" . $fybtype[$i]->id;
+			$stmt = $db->query($querySearchtimes);
+			$searchtimes = $stmt->fetchAll(PDO::FETCH_OBJ);
+			$fybtype[$i]->searchtimes = $searchtimes[0]->searchtimes;
+
+			//重新排序id
+			$fybtype[$i]->num = $i+1;
+
+			//删除多余字段
+			unset($fybtype[$i]->filepath,$fybtype[$i]->realname,$fybtype[$i]->filename,$fybtype[$i]->imgid);
+		};
 		$db = null;
 
-		// print_r($fybtype);
-
-		// echo  $fybtype;
 		echo  json_encode($fybtype);
 	} catch(PDOException $e) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';

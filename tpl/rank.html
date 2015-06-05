@@ -3,17 +3,17 @@
         <div class="container rank-con">
             <div>
                 <ul class="title">
-                    <li class="title-color">工大风云榜中榜</li>
-                    <li>扒歌音乐榜中榜</li>
+                    <li ng-class="{'title-color':cateListOne == category[0]}" ng-click="getCategory(category[0])">工大风云榜中榜<span class="rankhide">{{category[0]}}</span></li>
+                    <li ng-class="{'title-color':cateListOne == category[1]}" ng-click="getCategory(category[1])">扒歌音乐榜中榜<span class="rankhide">{{category[1]}}</span></li>
                 </ul>
 
                 <table class="list">
                     <tr ng-repeat="music in categoryRank"  ng-class="{'playing':musicPlay.state && music.id == musicPlay.music.id}" ng-dblclick="musicPlay.nextPlay(music)">
-                        <td class="song-no">{{music.id}}</td>
+                        <td class="song-no">{{music.num}}</td>
                         <td class="song-name">{{music.name}}</td>
-                        <td class="songer">{{music.songer}}</td>
-                        <td class="song-play">播放{{music.playTimes}}次</td>
-                        <td class="song-seach">扒歌{{music.searchTimes}}次</td>
+                        <td class="songer">{{music.singer}}</td>
+                        <td class="song-play">播放{{music.playtimes}}次</td>
+                        <td class="song-seach">扒歌{{music.searchtimes}}次</td>
                         <td class="song-ctrl">
                             <span class="icon icon-play" ng-class="{'icon-pause':musicPlay.state && music.id == musicPlay.music.id}" ng-click="musicPlay.nextPlay(music)"></span>
                             <span class="icon icon-plus"></span>
@@ -25,18 +25,18 @@
             </div>
             <div class="list-two">
                 <ul class="title">
-                    <li class="title-color">华语风云榜</li>
-                    <li>欧美风云榜</li>
-                    <li>日韩风云榜</li>
+                    <li ng-class="{'title-color':cateListTwo == category[2]}" ng-click="getCategory(category[2])">华语风云榜<span class="rankhide">{{category[2]}}</span></li>
+                    <li ng-class="{'title-color':cateListTwo == category[3]}" ng-click="getCategory(category[3])">欧美风云榜<span class="rankhide">{{category[3]}}</span></li>
+                    <li ng-class="{'title-color':cateListTwo == category[4]}" ng-click="getCategory(category[4])">日韩风云榜<span class="rankhide">{{category[4]}}</span></li>
                 </ul>
 
                 <table class="list">
                     <tr ng-repeat="music in categoryRank" ng-class="{'playing':musicPlay.state && music.id == musicPlay.music.id}" ng-dblclick="musicPlay.nextPlay(music)">
                         <td class="song-no">{{music.id}}</td>
                         <td class="song-name">{{music.name}}</td>
-                        <td class="songer">{{music.songer}}</td>
-                        <td class="song-play">播放{{music.playTimes}}次</td>
-                        <td class="song-seach">扒歌{{music.searchTimes}}次</td>
+                        <td class="songer">{{music.singer}}</td>
+                        <td class="song-play">播放{{music.playtimes}}次</td>
+                        <td class="song-seach">扒歌{{music.searchtimes}}次</td>
                         <td class="song-ctrl">
                             <span class="icon icon-play" ng-class="{'icon-pause':musicPlay.state && music.id == musicPlay.music.id}" ng-click="musicPlay.nextPlay(music)"></span>
                             <span class="icon icon-plus"></span>
