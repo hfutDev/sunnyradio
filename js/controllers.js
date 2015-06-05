@@ -387,6 +387,20 @@ music.controller('PlayCtrl', ['$scope', '$rootScope', 'audioService', function (
 }]);
 
 music.controller('RankCtrl', ['$scope', 'audioService', 'rankService', function ($scope, audioService, rankService){
+
+    var categoryRankList = [];
+    $scope.getRank = function (){
+        // for(var i=0; i<5; i++){
+        //     rankService.getRankList(i).then(function (data){
+        //         categoryRankList.push(data);
+        //     });
+        // }
+        rankService.getRankList().then(function (data){
+            $scope.categoryRank = data;
+        });
+    }
+    $scope.getRank();
+
     $scope.category = [1,2,3,4,5];
     $scope.cateListOne = 1;
     $scope.cateListTwo = 3;
@@ -397,15 +411,15 @@ music.controller('RankCtrl', ['$scope', 'audioService', 'rankService', function 
         }else{
             $scope.cateListTwo = num;
         }
-
+        switch(num){
+            case 1: $scope.categoryRank = categoryRankList[0];break;
+            case 2: $scope.categoryRank = categoryRankList[1];break;
+            case 3: $scope.categoryRank = categoryRankList[2];break;
+            case 4: $scope.categoryRank = categoryRankList[3];break;
+            case 5: $scope.categoryRank = categoryRankList[4];break;
+            default: return;
+        }
     }
-    $scope.getRank = function (){
-        rankService.getRankList().then(function (data){
-            $scope.categoryRank = data;
-            console.log(data);
-        });
-    }
-    $scope.getRank();
 
 }]);
 

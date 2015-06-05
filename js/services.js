@@ -93,8 +93,9 @@ music.factory('rankService', ['$rootScope', '$http', function ($rootScope, $http
     var url = $rootScope.apiHost + '/api/fyb/0';
     // var url = $rootScope.apiHost +"fyb_type.php";
     var service = {};
-
-    service.getRankList = function (){
+    // var file = ['fyb_type.php', 'fyb_bg.php', 'fyb_type.php?type=1', 'fyb_type.php?type=2', 'fyb_type.php?type=3'];
+    service.getRankList = function (index){
+        // url = $rootScope.apiHost + file[index];
         return $http.get(url).then(function (resp){
             return resp.data;
         });
