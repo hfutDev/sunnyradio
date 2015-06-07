@@ -8,7 +8,7 @@
                 </ul>
 
                 <table class="list">
-                    <tr ng-repeat="music in categoryRank"  ng-class="{'playing':musicPlay.state && music.id == musicPlay.music.id}" ng-dblclick="musicPlay.nextPlay(music)">
+                    <tr ng-repeat="music in cateRankOne"  ng-class="{'playing':musicPlay.state && music.id == musicPlay.music.id}" ng-dblclick="musicPlay.nextPlay(music)">
                         <td class="song-no">{{music.num}}</td>
                         <td class="song-name">{{music.name}}</td>
                         <td class="songer">{{music.singer}}</td>
@@ -31,8 +31,8 @@
                 </ul>
 
                 <table class="list">
-                    <tr ng-repeat="music in categoryRank" ng-class="{'playing':musicPlay.state && music.id == musicPlay.music.id}" ng-dblclick="musicPlay.nextPlay(music)">
-                        <td class="song-no">{{music.id}}</td>
+                    <tr ng-repeat="music in cateRankTwo" ng-class="{'playing':musicPlay.state && music.id == musicPlay.music.id}" ng-dblclick="musicPlay.nextPlay(music)">
+                        <td class="song-no">{{music.num}}</td>
                         <td class="song-name">{{music.name}}</td>
                         <td class="songer">{{music.singer}}</td>
                         <td class="song-play">播放{{music.playtimes}}次</td>

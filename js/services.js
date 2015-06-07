@@ -90,13 +90,15 @@ music.factory('homeService', ['$rootScope', '$http', function ($rootScope, $http
 }]);
 
 music.factory('rankService', ['$rootScope', '$http', function ($rootScope, $http){
-    var url = $rootScope.apiHost + '/api/fyb/0';
+    // var url = $rootScope.apiHost + '/api/fyb/0';
     // var url = $rootScope.apiHost +"fyb_type.php";
     var service = {};
-    // var file = ['fyb_type.php', 'fyb_bg.php', 'fyb_type.php?type=1', 'fyb_type.php?type=2', 'fyb_type.php?type=3'];
+    var file = ['fybtype.php', 'fybtype.php?type=1', 'fybtype.php', 'fybtype.php?type=2', 'fybtype.php?type=3'];
     service.getRankList = function (index){
-        // url = $rootScope.apiHost + file[index];
+        var url = $rootScope.apiHost + file[index];
+        // console.log(url);
         return $http.get(url).then(function (resp){
+            // console.log(resp.data);
             return resp.data;
         });
     };

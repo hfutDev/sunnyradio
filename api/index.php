@@ -4,11 +4,13 @@ require 'Slim/Slim.php';
 $app = new Slim();
 
 $app->get('/fyb/:type', 'getHfutRank');
+$app->get('/fybbg', 'getBgRank');
+$app->get('/test', 'fuck');
 
-$app->get('/blog/:id',	'getBlogContent');
-$app->post('/blog/add', 'addBlog');
-$app->put('/blog/update/:id', 'updateBlog');
-$app->delete('/blog/delete/:id', 'deleteBlog');
+// $app->get('/blog/:id',	'getBlogContent');
+// $app->post('/blog/add', 'addBlog');
+// $app->put('/blog/update/:id', 'updateBlog');
+// $app->delete('/blog/delete/:id', 'deleteBlog');
 
 $app->run();
 
@@ -46,7 +48,14 @@ function getHfutRank($type) {
 			$queryImgid = "SELECT path,name FROM radio_img WHERE id=" .$fybtype[$i]->imgid;
 			$stmt = $db->query($queryImgid);
 			$src = $stmt->fetchAll(PDO::FETCH_OBJ);
-			$fybtype[$i]->src = $src[0]->path.$src[0]->name;
+
+			//如果没有图片,src为空
+			if(!empty($src[0])){
+				$fybtype[$i]->src = $src[0]->path.$src[0]->name;
+			}else{
+				$fybtype[$i]->src = "";
+			}
+
 
 			//查询扒歌次数
 			$querySearchtimes = "SELECT count(songid) AS searchtimes FROM radio_comment WHERE type=-1 AND songid=" . $fybtype[$i]->id;
@@ -67,108 +76,60 @@ function getHfutRank($type) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
 }
+function fuck(){
+	$sql = "SELECT songid,filepath,filename,singer,realname,imgid,playtimes,path,name
+	FROM radio_comment,radio_img,radio_song
+	WHERE radio_comment.type=-1
+	AND radio_img.id=radio_song.id
+	LIMIT 10";
+	$db = getConnection();
+	$stmt = $db->query($sql);
+	$result = $stmt->fetchAll(PDO::FETCH_OBJ);
+	$result = json_encode($result);
+	echo $result;
+}
 
-// function getBlog() {
-// 	$sql = "SELECT id,category,title,tags,post_date,summary FROM bloglist ORDER BY id";
-// 	try {
-// 		$db = getConnection();
-// 		$stmt = $db->query($sql);
-// 		$bloglist = $stmt->fetchAll(PDO::FETCH_OBJ);
-// 		$db = null;
-// 		// echo  $bloglist;
-// 		echo  json_encode($bloglist);
-// 	} catch(PDOException $e) {
-// 		echo '{"error":{"text":'. $e->getMessage() .'}}';
-// 	}
-// }
+function getBgRank(){
+	$sql = "SELECT songid, COUNT(*) AS searchtimes FROM radio_comment WHERE type=-1 GROUP BY songid ORDER BY searchtimes DESC LIMIT 10";
+	try {
+		$db = getConnection();
+		//查询扒歌次数
+		$stmt = $db->query($sql);
+		$fybbg = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-// function getBlogContent($id) {
-// 	$sql = "SELECT * FROM bloglist WHERE id=:id";
-// 	try {
-// 		$db = getConnection();
-// 		$stmt = $db->prepare($sql);
-// 		$stmt->bindParam("id", $id);
-// 		$stmt->execute();
-// 		$blogcontent = $stmt->fetchObject();
-// 		$db = null;
-// 		echo  json_encode($blogcontent);
-// 	} catch(PDOException $e) {
-// 		echo '{"error":{"text":'. $e->getMessage() .'}}';
-// 	}
-// }
+		for ($i=0; $i < count($fybbg); $i++) {
+			//查询歌曲
+			$querySongid = "SELECT id,filepath,filename,singer,
+                realname,imgid,playtimes FROM radio_song WHERE id=" . $fybbg[$i]->songid;
+            $stmt = $db->query($querySongid);
+            $song = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-// function deleteBlog($id) {
-// 	$sql = "DELETE FROM bloglist WHERE id=:id";
-// 	try {
-// 		$db = getConnection();
-// 		$stmt = $db->prepare($sql);
-// 		$stmt->bindParam("id", $id);
-// 		$stmt->execute();
-// 		$db = null;
-// 	} catch(PDOException $e) {
-// 		echo '{"error":{"text":'. $e->getMessage() .'}}';
-// 	}
-// }
+            $fybbg[$i]->id = $song[0]->id;
+            $fybbg[$i]->num = $i+1;
+            $fybbg[$i]->name = $song[0]->filename;
+            $fybbg[$i]->singer = $song[0]->singer;
+            $fybbg[$i]->url = $song[0]->filepath.$song[0]->realname;
+            $fybbg[$i]->playtimes = $song[0]->playtimes;
 
-// function addBlog() {
-// 	// error_log('addWine\n', 3, 'api/php.log');
-// 	$request = Slim::getInstance()->request();
-// 	$bloglist = json_decode($request->getBody());
-// 	$sql = "INSERT INTO bloglist (category,content,summary,tags,title) VALUES (:category, :content, :summary, :tags, :title)";
-// 	try {
-// 		$db = getConnection();
-// 		$stmt = $db->prepare($sql);
-// 		$stmt->bindParam("category", $bloglist->category);
-// 		$stmt->bindParam("title", $bloglist->title);
-// 		$stmt->bindParam("tags", $bloglist->tags);
-// 		$stmt->bindParam("summary", $bloglist->summary);
-// 		$stmt->bindParam("content", $bloglist->content);
-// 		$stmt->execute();
-// 		$bloglist->id = $db->lastInsertId();
-// 		$db = null;
-// 		echo json_encode($bloglist);
-// 	} catch(PDOException $e) {
-// 		// error_log($e->getMessage(), 3, '/var/tmp/php.log');
-// 		echo '{"error":{"text":'. $e->getMessage() .'}}';
-// 	}
-// }
+            //查询图片路径
+            $queryImgid = "SELECT path,name FROM radio_img WHERE id=" .$song[0]->imgid;
+            $stmt = $db->query($queryImgid);
+            $src = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-// function updateBlog($id) {
-// 	$request = Slim::getInstance()->request();
-// 	$body = $request->getBody();
-// 	$bloglist = json_decode($body);
-// 	$sql = "UPDATE bloglist SET category=:category, title=:title, tags=:tags, summary=:summary, content=:content WHERE id=:id";
-// 	try {
-// 		$db = getConnection();
-// 		$stmt = $db->prepare($sql);
-// 		$stmt->bindParam("category", $bloglist->category);
-// 		$stmt->bindParam("title", $bloglist->title);
-// 		$stmt->bindParam("tags", $bloglist->tags);
-// 		$stmt->bindParam("summary", $bloglist->summary);
-// 		$stmt->bindParam("content", $bloglist->content);
-// 		$stmt->bindParam("id", $id);
-// 		$stmt->execute();
-// 		$db = null;
-// 		echo json_encode($bloglist);
-// 	} catch(PDOException $e) {
-// 		echo '{"error":{"text":'. $e->getMessage() .'}}';
-// 	}
-// }
+            //如果没有图片,src为空
+			if(!empty($src[0])){
+				$fybbg[$i]->src = $src[0]->path.$src[0]->name;
+			}else{
+				$fybbg[$i]->src = "";
+			}
 
-// function findByName($query) {
-// 	$sql = "SELECT * FROM wine WHERE UPPER(name) LIKE :query ORDER BY name";
-// 	try {
-// 		$db = getConnection();
-// 		$stmt = $db->prepare($sql);
-// 		$query = "%".$query."%";
-// 		$stmt->bindParam("query", $query);
-// 		$stmt->execute();
-// 		$wines = $stmt->fetchAll(PDO::FETCH_OBJ);
-// 		$db = null;
-// 		echo '{"wine": ' . json_encode($wines) . '}';
-// 	} catch(PDOException $e) {
-// 		echo '{"error":{"text":'. $e->getMessage() .'}}';
-// 	}
-// }
+            unset($fybbg[$i]->songid);
+        };
+        $db = null;
+		echo  json_encode($fybbg);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
 
 ?>

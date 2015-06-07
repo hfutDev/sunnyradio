@@ -386,18 +386,22 @@ music.controller('PlayCtrl', ['$scope', '$rootScope', 'audioService', function (
 
 }]);
 
-music.controller('RankCtrl', ['$scope', 'audioService', 'rankService', function ($scope, audioService, rankService){
+music.controller('RankCtrl', ['$scope', 'audioService', 'rankService', '$interval', function ($scope, audioService, rankService, $interval){
 
     var categoryRankList = [];
     $scope.getRank = function (){
-        // for(var i=0; i<5; i++){
-        //     rankService.getRankList(i).then(function (data){
-        //         categoryRankList.push(data);
-        //     });
-        // }
-        rankService.getRankList().then(function (data){
-            $scope.categoryRank = data;
-        });
+        for(var i=0; i<5; i++){
+            !(function (i){
+                rankService.getRankList(i).then(function (data){
+                    categoryRankList.push(data);
+                    if(i==0){
+                        $scope.cateRankOne = categoryRankList[i];
+                    }else if(i==2){
+                        $scope.cateRankTwo = categoryRankList[i];
+                    }
+                });
+            })(i);
+        }
     }
     $scope.getRank();
 
@@ -405,18 +409,17 @@ music.controller('RankCtrl', ['$scope', 'audioService', 'rankService', function 
     $scope.cateListOne = 1;
     $scope.cateListTwo = 3;
     $scope.getCategory = function (num){
-        console.log(num);
         if(num<=2){
             $scope.cateListOne = num;
         }else{
             $scope.cateListTwo = num;
         }
         switch(num){
-            case 1: $scope.categoryRank = categoryRankList[0];break;
-            case 2: $scope.categoryRank = categoryRankList[1];break;
-            case 3: $scope.categoryRank = categoryRankList[2];break;
-            case 4: $scope.categoryRank = categoryRankList[3];break;
-            case 5: $scope.categoryRank = categoryRankList[4];break;
+            case 1: $scope.cateRankOne = categoryRankList[0];break;
+            case 2: $scope.cateRankOne = categoryRankList[1];break;
+            case 3: $scope.cateRankTwo = categoryRankList[2];break;
+            case 4: $scope.cateRankTwo = categoryRankList[3];break;
+            case 5: $scope.cateRankTwo = categoryRankList[4];break;
             default: return;
         }
     }
