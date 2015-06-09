@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        input[type='range'] {
+            -webkit-appearance: none;
+            background-color:rgb(192, 189, 189);
+            height: 8px;
+            border-radius: 15px;
+            outline: none;
+        }
+
+        input[type='range']::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 12px;
+            width: 12px;
+            background: gray;
+            border-radius: 100%;
+            border: none;
+        }
+        input.range::-webkit-slider-thumb {
+            height: 18px;
+            width: 18px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <object width="424" border="0" height="70" type="application/x-ms-wmp" classid="clsid:6BF52A52-394A-11D3-B153-00C04F79FAA6" id="mediaPlayerObj">
+        <param value="July.mp3" name="url">
+        <param value="1" name="rate">
+        <param value="0" name="balance">
+        <param value="0" name="currentPosition">
+        <param value="100" name="playCount">
+        <param value="false" name="autoStart">
+        <!-- <param  value="false" name="PLAY"> -->
+
+        <!-- <param value="" name="defaultFrame"> -->
+        <!-- <param value="100" name="volume"> -->
+        <!-- <param value="0" name="currentMarker"> -->
+        <!-- <param value="-1" name="invokeURLs"> -->
+        <!-- <param value="-1" name="stretchToFit"> -->
+        <!-- <param value="-1" name="windowlessVideo"> -->
+        <!-- <param value="-1" name="enabled"> -->
+        <!-- <param value="Full" name="uiMode"> -->
+        <!-- <param value="-1" name="enableContextMenu"> -->
+        <!-- <param value="0" name="fullScreen"> -->
+        <!-- <param value="" name="SAMIStyle"> -->
+        <!-- <param value="" name="SAMILang"> -->
+        <!-- <param value="" name="SAMIFilename"> -->
+        <!-- <param value="" name="captioningID"> -->
+        <!-- <param value="0" name="enableErrorDialogs"> -->
+        <embed id="play"  width="100%" height="64" play="false" enablecontextmenu="1" playcount="0" allowscan="1" showcontrols="1" autostart="false" type="video/x-ms-wmv" name="MediaPlayer" src="July.mp3" id="ffmedia">
+    </object>
+<p> 11111111111111111111111111111111</p>
+    <!-- <audio id="song" preload controls src="July.mp3">
+        不支持Audio
+    </audio> -->
+    <input id="voice" type="range" value="100"/>
+    <input id="ctrl" type="button" value="播放"/>
+
+    <script>
+    // var song = document.getElementById('song');
+    var ctrl = document.getElementById('ctrl');
+    var play = document.getElementById('play');
+    // var voice = document.getElementById('voice');
+    // console.log(ctrl);
+
+    ctrl.onclick = function(){
+        play.autostart = true;
+    }
+
+    // var state = true;
+    // ctrl.addEventListener('click', function(){
+
+    //     play.value = true;
+    //     console.log(11111);
+        // if(state){
+        //     song.play();
+        //     this.value = '暂停';
+        //     state = false;
+        // }else{
+        //     song.pause();
+        //     this.value = '播放';
+        //     state = true;
+        // }
+    // });
+
+    // voice.addEventListener('click', function(){
+    //     console.log(voice.value);
+    //     song.volume = voice.value / 100;
+    // });
+
+    </script>
+
+</body>
+</html>
+
+

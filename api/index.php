@@ -5,7 +5,7 @@ $app = new Slim();
 
 $app->get('/fyb/:type', 'getHfutRank');
 $app->get('/fybbg', 'getBgRank');
-$app->get('/test', 'fuck');
+$app->get('/home/four', 'getFour');
 
 // $app->get('/blog/:id',	'getBlogContent');
 // $app->post('/blog/add', 'addBlog');
@@ -76,18 +76,6 @@ function getHfutRank($type) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
 }
-function fuck(){
-	$sql = "SELECT songid,filepath,filename,singer,realname,imgid,playtimes,path,name
-	FROM radio_comment,radio_img,radio_song
-	WHERE radio_comment.type=-1
-	AND radio_img.id=radio_song.id
-	LIMIT 10";
-	$db = getConnection();
-	$stmt = $db->query($sql);
-	$result = $stmt->fetchAll(PDO::FETCH_OBJ);
-	$result = json_encode($result);
-	echo $result;
-}
 
 function getBgRank(){
 	$sql = "SELECT songid, COUNT(*) AS searchtimes FROM radio_comment WHERE type=-1 GROUP BY songid ORDER BY searchtimes DESC LIMIT 10";
@@ -127,6 +115,47 @@ function getBgRank(){
         };
         $db = null;
 		echo  json_encode($fybbg);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+}
+
+function getFour(){
+	$sql = "SELECT id,filepath,filename,singer,
+            realname,imgid,playtimes FROM radio_song ORDER BY playtimes DESC LIMIT 4";
+	try {
+		$db = getConnection();
+		$stmt = $db->query($sql);
+		$homefour = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+		for ($i=0; $i < count($homefour); $i++) {
+
+            $homefour[$i]->num = $i+1;
+            $homefour[$i]->name = $homefour[$i]->filename;
+            $homefour[$i]->url = $homefour[$i]->filepath.$homefour[$i]->realname;
+
+            //查询扒歌次数
+            $querySearchtimes = "SELECT count(songid) AS searchtimes FROM radio_comment WHERE type=-1 AND songid=" . $homefour[$i]->id;
+			$stmt = $db->query($querySearchtimes);
+			$searchtimes = $stmt->fetchAll(PDO::FETCH_OBJ);
+			$homefour[$i]->searchtimes = $searchtimes[0]->searchtimes;
+
+            //查询图片路径
+            $queryImgid = "SELECT path,name FROM radio_img WHERE id=" .$homefour[$i]->imgid;
+            $stmt = $db->query($queryImgid);
+            $src = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+            //如果没有图片,src为空
+			if(!empty($src[$i])){
+				$homefour[$i]->src = $src[$i]->path.$src[$i]->name;
+			}else{
+				$homefour[$i]->src = "";
+			}
+
+            unset($homefour[$i]->songid,$homefour[$i]->imgid,$homefour[$i]->filepath,$homefour[$i]->filename,$homefour[$i]->realname);
+        };
+        $db = null;
+		echo  json_encode($homefour);
 	} catch(PDOException $e) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
