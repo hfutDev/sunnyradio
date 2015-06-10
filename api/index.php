@@ -6,6 +6,8 @@
 	$app->get('/fyb/:type', 'getHfutRank');
 	$app->get('/fybbg', 'getBgRank');
 	$app->get('/home/four', 'getFour');
+	$app->get('/newmood', 'newMood');
+
 
 	// $app->get('/blog/:id',	'getBlogContent');
 	// $app->post('/blog/add', 'addBlog');
@@ -158,6 +160,48 @@
 	        };
 	        $db = null;
 			echo  json_encode($homefour);
+		} catch(PDOException $e) {
+			echo '{"error":{"text":'. $e->getMessage() .'}}';
+		}
+	}
+
+	//index.html 音乐心情
+	function newMood(){
+		$sql = "SELECT songid,content FROM radio_comment WHERE type=-1 ORDER BY time_at DESC LIMIT 12";
+
+		try {
+			$db = getConnection();
+			$stmt = $db->query($sql);
+			$newMood = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+			for ($i=0; $i < count($newMood); $i++) {
+
+				$song = "SELECT id,filename,filepath,singer,realname,imgid FROM radio_song WHERE id=" . $newMood[$i]->songid;
+				$stmt = $db->query($song);
+				$result = $stmt->fetchAll(PDO::FETCH_OBJ);
+				// echo json_encode($result);
+
+				$newMood[$i]->id = $newMood[$i]->songid;
+	            $newMood[$i]->name = $result[0]->filename;
+	            $newMood[$i]->singer = $result[0]->singer;
+	            $newMood[$i]->url = $result[0]->filepath.$result[0]->realname;
+
+	           	//查询图片路径
+	            $queryImgid = "SELECT path,name FROM radio_img WHERE id=" .$result[0]->imgid;
+	            $stmt = $db->query($queryImgid);
+	            $src = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+	            //如果没有图片,src为空
+				if(!empty($src[$i])){
+					$newMood[$i]->src = $src[0]->path.$src[0]->name;
+				}else{
+					$newMood[$i]->src = "";
+				}
+
+	            unset($newMood[$i]->songid);
+	        };
+	        $db = null;
+			echo  json_encode($newMood);
 		} catch(PDOException $e) {
 			echo '{"error":{"text":'. $e->getMessage() .'}}';
 		}
