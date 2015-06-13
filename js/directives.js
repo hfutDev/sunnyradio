@@ -4,7 +4,7 @@
 
 angular.module('pagination.directives', []);
 
-music.directive('pagination', function (){
+music.directive('pagination', ['$interval', function ($interval){
     return {
         restrict: 'AE',
         replace: true,
@@ -23,11 +23,18 @@ music.directive('pagination', function (){
                 <span ng-click="jumpEnd()">尾页</span> \
             </div>',
         link:function (scope, element, attrs){
-
+            console.log();
             scope.currentPage = attrs.currentpage;
             scope.itemsPerPage = attrs.itemsperpage;
             scope.itemsList = attrs.itemslist;
             scope.pageList = attrs.pagelist;
+
+            var checked = $interval(function (){
+                if(scope.itemsList){
+                    console.log(11111111);
+                    $interval.cancel(checked);
+                }
+            }, 100);
 
             scope.itemsList = scope.$eval(scope.itemsList);
 
@@ -94,4 +101,4 @@ music.directive('pagination', function (){
             };
         }
     }
-});
+}]);

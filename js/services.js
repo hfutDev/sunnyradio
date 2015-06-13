@@ -77,10 +77,18 @@ music.factory('audioService', ['$rootScope', '$interval', function ($rootScope, 
 }]);
 
 music.factory('homeService', ['$rootScope', '$http', function ($rootScope, $http){
-    // var url = $rootScope.apiHost + '/api/v1/homelist';
+
     var service = {};
 
-    service.getRankList = function (){
+    service.getMusicList = function (){
+        var url = $rootScope.apiHost + '/musicmood';
+        return $http.get(url).then(function (resp){
+            return resp.data;
+        });
+    };
+
+    service.getRankFour = function (){
+        var url = $rootScope.apiHost + '/rankfour';
         return $http.get(url).then(function (resp){
             return resp.data;
         });
@@ -90,12 +98,11 @@ music.factory('homeService', ['$rootScope', '$http', function ($rootScope, $http
 }]);
 
 music.factory('rankService', ['$rootScope', '$http', function ($rootScope, $http){
-    // var url = $rootScope.apiHost + '/api/fyb/0';
-    // var url = $rootScope.apiHost +"fyb_type.php";
     var service = {};
-    var file = ['fybtype.php', 'fybtype.php?type=1', 'fybtype.php', 'fybtype.php?type=2', 'fybtype.php?type=3'];
+    // var file = ['fybtype.php', 'fybtype.php?type=1', 'fybtype.php', 'fybtype.php?type=2', 'fybtype.php?type=3'];
+    var file = [0, 'bg', 1, 2, 3];
     service.getRankList = function (index){
-        var url = $rootScope.apiHost + file[index];
+        var url = $rootScope.apiHost +"fyb/" + file[index];
         // console.log(url);
         return $http.get(url).then(function (resp){
             // console.log(resp.data);
@@ -107,11 +114,21 @@ music.factory('rankService', ['$rootScope', '$http', function ($rootScope, $http
 }]);
 
 music.factory('talkService', ['$rootScope', '$http', function ($rootScope, $http){
-    var url = $rootScope.apiHost + '/api/v1/talklist';
+
     var service = {};
 
-    service.getTalkList = function (){
+    service.getLastMood = function (){
+        var url = $rootScope.apiHost + 'lastmood';
         return $http.get(url).then(function (resp){
+            console.log(resp.data);
+            return resp.data;
+        });
+    };
+
+    service.lastMusic = function (){
+        var url = $rootScope.apiHost + 'lastmusic';
+        return $http.get(url).then(function (resp){
+            console.log(resp.data);
             return resp.data;
         });
     };

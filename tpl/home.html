@@ -14,21 +14,21 @@
                         offset: currentPage*itemsPerPage |
                         limitTo: itemsPerPage"
                         ng-click="musicPlay.nextPlay(music)">
-                        <img ng-src="images/{{music.img}}">
+                        <img ng-src="{{music.src}}" width="178" height="100">
                         <p class="music-info ellipsis">
                             <span class="music-name">{{music.name}}</span>
                             <span>-</span>
-                            <span class="music-singer">{{music.songer}}</span>
+                            <span class="music-singer">{{music.singer}}</span>
                         </p>
                         <div id="comment" class="music-comment ">
                             <span>
-                               {{music.common}}:{{music.desc}}
+                               {{music.content}}
                             </span>
                         </div>
                     </li>
                 </ul>
                 <div class="paging">
-                    <pagination currentPage="0" itemsPerPage="4" itemsList="musicList" pageList="2"></pagination>
+                    <pagination currentPage="0" itemsPerPage="6" itemsList="musicList" pageList="3"></pagination>
                 </div>
             </div>
         </div>
@@ -41,24 +41,24 @@
                 <ul class="song-list">
                     <li class="song-list-l" ng-repeat="music in musicRank" ng-class="{'first':$first}" ng-mouseenter="hover=flase" ng-init="hover=true">
                         <div class="song-list-content" ng-mouseleave="hover=true">
-                            <img ng-src="images/{{music.img}}">
+                            <img ng-src="{{music.src}}" width="70" height="70">
                             <p class="song-list-info ellipsis">
                                 <span class="num"  ng-class="{'first-song':$first}">{{music.id}}</span>
                                 <span class="music-name"  ng-class="{'first-song':$first}">{{music.name}}</span>
                                 <span>-</span>
-                                <span class="music-singer">{{music.songer}}</span>
+                                <span class="music-singer">{{music.singer}}</span>
                             </p>
                             <p class="song-list-num" ng-show="$first || hover">
                                 <span>播放</span>
-                                <span>{{music.playNum}}</span>
+                                <span>{{music.playtimes}}</span>
                                 <span class="find">扒歌</span>
-                                <span>{{music.searchNum}}</span>
+                                <span>{{music.searchtimes}}</span>
                             </p>
                             <p class="fun-icon" ng-show="$first || !hover">
                                 <span class="icon-play icon" ng-class="{'icon-pause':musicPlay.state && music.id == musicPlay.music.id}" ng-click="musicPlay.nextPlay(music)"></span>
                                 <span class="icon-plus icon"></span>
                                 <span class="icon-love icon"></span>
-                                <span class="icon-download icon"></span>
+                                <span class="icon-download icon"><a href="{{music.url}}"></a></span>
                             </p>
                         </div>
                     </li>

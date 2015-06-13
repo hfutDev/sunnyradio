@@ -60,110 +60,15 @@ music.controller('UploadCtrl', ['$scope', function ($scope){
     }
 }]);
 
-music.controller('HomeCtrl', ['$scope', 'audioService', function ($scope, audioService){
-    $scope.musicList = [
-        {
-            'id': 1,
-            'name': '尚好的青春',
-            'songer': '孙燕姿',
-            'url': 'songs/Liekkas.mp3',
-            'img': 'release.jpg',
-            'common': '飞天小沫',
-            'desc': '这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂'
-        },
+music.controller('HomeCtrl', ['$scope', 'audioService', 'homeService', function ($scope, audioService, homeService){
 
-        {
-            'id': 2,
-            'name': '尚好的青春',
-            'songer': '孙燕姿',
-            'url': 'songs/Liekkas.mp3',
-            'img': 'release.jpg',
-            'common': '飞天小沫',
-            'desc': '这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂'
-        },
+    homeService.getMusicList().then(function (data){
+        $scope.musicList = data;
+    });
 
-        {
-            'id': 3,
-            'name': '尚好的青春',
-            'songer': '孙燕姿',
-            'url': 'songs/Liekkas.mp3',
-            'img': 'release.jpg',
-            'common': '飞天小沫',
-            'desc': '这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂'
-        },
-
-        {
-            'id': 4,
-            'name': '尚好的青春',
-            'songer': '孙燕姿',
-            'url': 'songs/Liekkas.mp3',
-            'img': 'release.jpg',
-            'common': '飞天小沫',
-            'desc': '这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂'
-        },
-
-        {
-            'id': 5,
-            'name': '尚好的青春',
-            'songer': '孙燕姿',
-            'url': 'songs/Liekkas.mp3',
-            'img': 'release.jpg',
-            'common': '飞天小沫',
-            'desc': '这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂'
-        },
-
-        {
-            'id': 6,
-            'name': '尚好的青春',
-            'songer': '孙燕姿',
-            'url': 'songs/Liekkas.mp3',
-            'img': 'release.jpg',
-            'common': '飞天小沫',
-            'desc': '这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂这首歌献给需要被安慰的灵魂'
-        }
-    ];
-
-    $scope.musicRank = [
-        {
-            'id': '01',
-            'name': '最炫民族风',
-            'songer': '凤凰传奇',
-            'url': 'songs/Nice.mp3',
-            'img': 'album.gif',
-            'playNum': '2379',
-            'searchNum': '15'
-        },
-
-        {
-            'id': '02',
-            'name': '最炫民族风',
-            'songer': '凤凰传奇',
-            'url': 'songs/Nice.mp3',
-            'img': 'album.gif',
-            'playNum': '2379',
-            'searchNum': '15'
-        },
-
-        {
-            'id': '03',
-            'name': '最炫民族风',
-            'songer': '凤凰传奇',
-            'url': 'songs/Nice.mp3',
-            'img': 'album.gif',
-            'playNum': '2379',
-            'searchNum': '15'
-        },
-
-        {
-            'id': '04',
-            'name': '最炫民族风',
-            'songer': '凤凰传奇',
-            'url': 'songs/Nice.mp3',
-            'img': 'album.gif',
-            'playNum': '2379',
-            'searchNum': '15'
-        }
-    ];
+    homeService.getRankFour().then(function (data){
+        $scope.musicRank = data;
+    });
 
     $scope.playMusic = function (){
         audioService.playMusic();
@@ -171,149 +76,17 @@ music.controller('HomeCtrl', ['$scope', 'audioService', function ($scope, audioS
 
 }]);
 
-music.controller('TalkCtrl', ['$scope', function ($scope){
-    $scope.musicEmotion = [
-        {
-            'id': '01',
-            'name': '红尘客栈',
-            'songer': '周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg'
-        },
+music.controller('TalkCtrl', ['$scope', 'talkService', function ($scope, talkService){
 
-        {
-            'id': '02',
-            'name': '红尘客栈',
-            'songer': '周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg'
-        },
+    talkService.getLastMood().then(function (data){
+        $scope.lastMood = data;
+        console.log(data);
+    });
 
-        {
-            'id': '03',
-            'name': '红尘客栈',
-            'songer': '周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg'
-        },
-
-        {
-            'id': '04',
-            'name': '红尘客栈',
-            'songer': '周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg'
-        },
-
-        {
-            'id': '05',
-            'name': '红尘客栈',
-            'songer': '周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg'
-        },
-
-        {
-            'id': '06',
-            'name': '红尘客栈',
-            'songer': '周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg'
-        },
-
-        {
-            'id': '07',
-            'name': '红尘客栈',
-            'songer': '周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg'
-        },
-
-        {
-            'id': '08',
-            'name': '红尘客栈',
-            'songer': '周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg'
-        },
-
-        {
-            'id': '09',
-            'name': '红尘客栈',
-            'songer': '周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg'
-        },
-
-        {
-            'id': '07',
-            'name': '红尘客栈',
-            'songer': '周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg'
-        },
-
-        {
-            'id': '08',
-            'name': '红尘客栈',
-            'songer': '周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg'
-        },
-
-        {
-            'id': '09',
-            'name': '红尘客栈',
-            'songer': '周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg'
-        },
-
-        {
-            'id': '07',
-            'name': '红尘客栈',
-            'songer': '周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg'
-        },
-
-        {
-            'id': '08',
-            'name': '红尘客栈',
-            'songer': '周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg'
-        }
-    ];
-
-    $scope.newMusic = [
-        {
-            'id': '01',
-            'name': '红尘客栈',
-            'songer': '周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg',
-            'number': '365'
-        },
-
-        {
-            'id': '02',
-            'name': '红尘客栈',
-            'songer': '周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg',
-            'number': '365'
-        },
-
-        {
-            'id': '03',
-            'name': '红尘客栈',
-            'songer': '周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg',
-            'number': '365'
-        }
-    ];
+    talkService.lastMusic().then(function (data){
+        $scope.lastMusic = data;
+        console.log(data);
+    });
 }]);
 
 music.controller('PlayCtrl', ['$scope', '$rootScope', 'audioService', function ($scope, $rootScope, audioService){

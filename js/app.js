@@ -16,7 +16,7 @@ var music = angular.module('music', [
 ]);
 
 music.run(['$rootScope', function ($rootScope){
-    $rootScope.apiHost = 'http://localhost/sunnyradioapi/';
+    $rootScope.apiHost = 'http://localhost/sunnyradio/api/';
     // $rootScope.apiHost = 'http://sunnyradio.hfutonline.net/new/';
 
 }]);
