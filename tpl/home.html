@@ -28,7 +28,7 @@
                     </li>
                 </ul>
                 <div class="paging">
-                    <pagination currentPage="0" itemsPerPage="6" itemsList="musicList" pageList="3"></pagination>
+                    <pagination currentPage="0" itemsPerPage="6"itemsList="musicList" pageList="3"></pagination>
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
             </p>
             <div class="music-top-container">
                 <ul class="song-list">
-                    <li class="song-list-l" ng-repeat="music in musicRank" ng-class="{'first':$first}" ng-mouseenter="hover=flase" ng-init="hover=true">
+                    <li class="song-list-l" ng-repeat="music in musicRank | limitTo: 4" ng-class="{'first':$first}" ng-mouseenter="hover=flase" ng-init="hover=true">
                         <div class="song-list-content" ng-mouseleave="hover=true">
                             <img ng-src="{{music.src}}" width="70" height="70">
                             <p class="song-list-info ellipsis">

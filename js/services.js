@@ -137,10 +137,10 @@ music.factory('talkService', ['$rootScope', '$http', function ($rootScope, $http
 }]);
 
 music.factory('searchService', ['$rootScope', '$http', function ($rootScope, $http){
-    var url = $rootScope.apiHost + '/api/v1/searchlist';
     var service = {};
 
-    service.getTalkList = function (){
+    service.getSearchList = function (){
+        var url = $rootScope.apiHost + 'lastmood';
         return $http.get(url).then(function (resp){
             return resp.data;
         });

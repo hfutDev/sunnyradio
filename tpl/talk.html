@@ -18,12 +18,12 @@
                             </div>
                     </ul>
                     <div class="paging">
-                        <pagination currentPage="0" itemsPerPage="5" itemsList="lastMood" pageList="3"></pagination>
+                        <pagination currentPage="0" itemsPerPage="6" itemsList="lastMood" pageList="3"></pagination>
                     </div>
                 </div>
                 <div class="box-right">
                     <p class="emotion">最新音乐</p>
-                    <ul ng-repeat="music in lastMusic">
+                    <ul ng-repeat="music in lastMusic | limitTo: 3">
                         <li class="pic-hot" ng-click="musicPlay.nextPlay(music)">
                             <img ng-src="{{music.src}}" width="120" height="100">
                             <div class="hot-song">

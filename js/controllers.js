@@ -64,6 +64,7 @@ music.controller('HomeCtrl', ['$scope', 'audioService', 'homeService', function 
 
     homeService.getMusicList().then(function (data){
         $scope.musicList = data;
+        $scope.$broadcast('musicList');
     });
 
     homeService.getRankFour().then(function (data){
@@ -80,12 +81,11 @@ music.controller('TalkCtrl', ['$scope', 'talkService', function ($scope, talkSer
 
     talkService.getLastMood().then(function (data){
         $scope.lastMood = data;
-        console.log(data);
+        $scope.$broadcast('lastMood');
     });
 
     talkService.lastMusic().then(function (data){
         $scope.lastMusic = data;
-        console.log(data);
     });
 }]);
 
@@ -199,70 +199,74 @@ music.controller('RankCtrl', ['$scope', 'audioService', 'rankService', '$interva
 
 }]);
 
-music.controller('SearchCtrl', ['$scope', function ($scope){
-    $scope.musicResult = [
-        {
-            'id': '01',
-            'name': '红尘客栈',
-            'songer':'周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg'
-        },
+music.controller('SearchCtrl', ['$scope', 'searchService', function ($scope, searchService){
+    // $scope.musicResult = [
+    //     {
+    //         'id': '01',
+    //         'name': '红尘客栈',
+    //         'songer':'周杰伦',
+    //         'url': 'songs/Nice.mp3',
+    //         'img': 'search.jpg'
+    //     },
 
-        {
-            'id': '02',
-            'name': '龙卷风',
-            'songer':'周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg'
-        },
+    //     {
+    //         'id': '02',
+    //         'name': '龙卷风',
+    //         'songer':'周杰伦',
+    //         'url': 'songs/Nice.mp3',
+    //         'img': 'search.jpg'
+    //     },
 
-        {
-            'id': '03',
-            'name': '红尘客栈',
-            'songer':'周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg'
-        },
+    //     {
+    //         'id': '03',
+    //         'name': '红尘客栈',
+    //         'songer':'周杰伦',
+    //         'url': 'songs/Nice.mp3',
+    //         'img': 'search.jpg'
+    //     },
 
-        {
-            'id': '04',
-            'name': '红尘客栈',
-            'songer':'周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg'
-        },
+    //     {
+    //         'id': '04',
+    //         'name': '红尘客栈',
+    //         'songer':'周杰伦',
+    //         'url': 'songs/Nice.mp3',
+    //         'img': 'search.jpg'
+    //     },
 
-        {
-            'id': '05',
-            'name': '红尘客栈',
-            'songer':'周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg'
-        },
+    //     {
+    //         'id': '05',
+    //         'name': '红尘客栈',
+    //         'songer':'周杰伦',
+    //         'url': 'songs/Nice.mp3',
+    //         'img': 'search.jpg'
+    //     },
 
-        {
-            'id': '06',
-            'name': '红尘客栈',
-            'songer':'周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg'
-        },
+    //     {
+    //         'id': '06',
+    //         'name': '红尘客栈',
+    //         'songer':'周杰伦',
+    //         'url': 'songs/Nice.mp3',
+    //         'img': 'search.jpg'
+    //     },
 
-        {
-            'id': '07',
-            'name': '红尘客栈',
-            'songer':'周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg'
-        },
+    //     {
+    //         'id': '07',
+    //         'name': '红尘客栈',
+    //         'songer':'周杰伦',
+    //         'url': 'songs/Nice.mp3',
+    //         'img': 'search.jpg'
+    //     },
 
-        {
-            'id': '08',
-            'name': '红尘客栈',
-            'songer':'周杰伦',
-            'url': 'songs/Nice.mp3',
-            'img': 'search.jpg'
-        }
-    ];
+    //     {
+    //         'id': '08',
+    //         'name': '红尘客栈',
+    //         'songer':'周杰伦',
+    //         'url': 'songs/Nice.mp3',
+    //         'img': 'search.jpg'
+    //     }
+    // ];
+    searchService.getSearchList().then(function (data){
+        $scope.musicResult = data;
+        $scope.$broadcast('musicResult');
+    });
 }]);

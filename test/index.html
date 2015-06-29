@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular-pagination</title>
+    <style>
+        li{
+            list-style:none;
+        }
+        span{
+            cursor:pointer;
+        }
+        .numactive{
+            color:red;
+        }
+    </style>
+</head>
+<body ng-controller="AppCtrl">
+    <h1>Angular-pagination Demo</h1>
+    <ul >
+        <li ng-repeat="music in musicEmotion |
+            offset: currentPage*itemsPerPage |
+            limitTo: itemsPerPage"><h4>{{music.num}}、{{music.name}}</h4></li>
+    </ul>
+    <pagination currentPage="0" itemsPerPage="4" itemsList="musicEmotion" pageList="3"></pagination>
+
+    <script src="angular-1.2.28.js"></script>
+    <script src="angular-pagination.js"></script>
+</body>
+</html>

@@ -1,10 +1,28 @@
 'use strict';
+var app = angular.module('app', [
+    'app.controllers',
+    'pagination.directives',
+    'pagination.filters'
+]);
+app.factory('list', function($http) {
+        return {
+            musiclist: function() {
+                return $http.get('../api/musicmood');
+            }
+        }
+    })
+    //Controllers
+angular.module('app.controllers', []);
+app.controller('AppCtrl', ['$scope', '$http', 'list', function($scope, $http, list) {
+    list.musiclist().success(function(response) {
+        $scope.musicEmotion = response;
+        $scope.$broadcast('musicEmotion');
+    });
+}]);
 
-/* Directives */
-
+//Directives
 angular.module('pagination.directives', []);
-
-music.directive('pagination', ['$interval', function ($interval){
+app.directive('pagination', function() {
     return {
         restrict: 'AE',
         replace: true,
@@ -22,7 +40,7 @@ music.directive('pagination', ['$interval', function ($interval){
                 <span ng-click="nextPage()" ng-disabled="nextPageDisabled()">下一页</span>\
                 <span ng-click="jumpEnd()">尾页</span> \
             </div>',
-        link:function (scope, element, attrs){
+        link: function(scope, element, attrs) {
             scope.$on(attrs.itemslist, function() {
                 finish();
             });
@@ -31,46 +49,46 @@ music.directive('pagination', ['$interval', function ($interval){
                 scope.itemsPerPage = attrs.itemsperpage;
                 scope.itemsList = scope[attrs.itemslist];
                 scope.pageList = attrs.pagelist;
+                console.log(scope);
                 console.log(scope.itemsList);
 
-                // scope.itemsList = scope.$eval(scope.itemsList);
-
-                scope.pageCount = function () {
+                scope.pageCount = function() {
                     if (scope.itemsList) {
+                        console.log(Math.ceil(scope.itemsList.length / scope.itemsPerPage));
                         return Math.ceil(scope.itemsList.length / scope.itemsPerPage);
                     } else {
                         return 1;
                     }
                 };
+                console.log(scope.itemsList);
                 scope.total = scope.pageCount();
-
                 scope.number = [];
-                for(var i=0; i<scope.total; i++){
-                    scope.number.push(i+1);
+                for (var i = 0; i < scope.total; i++) {
+                    scope.number.push(i + 1);
                 };
 
                 scope.currentNum = 0;
-                scope.jumpPageList = function (){
-                    scope.currentNum = parseInt(scope.currentPage/scope.pageList);
+                scope.jumpPageList = function() {
+                    scope.currentNum = parseInt(scope.currentPage / scope.pageList);
                 };
 
-                scope.jumpPage = function (num){
-                    scope.currentPage = num -1;
+                scope.jumpPage = function(num) {
+                    scope.currentPage = num - 1;
                     scope.jumpPageList();
                 };
 
-                scope.jumpHead = function (){
+                scope.jumpHead = function() {
                     scope.currentPage = 0;
                     scope.jumpPageList();
                 }
 
-                scope.jumpEnd = function (){
-                    scope.currentPage = scope.total-1;
+                scope.jumpEnd = function() {
+                    scope.currentPage = scope.total - 1;
                     scope.jumpPageList();
                 }
 
-                scope.prevPage = function () {
-                    if(scope.prevPageDisabled()){
+                scope.prevPage = function() {
+                    if (scope.prevPageDisabled()) {
                         return;
                     }
                     if (scope.currentPage > 0) {
@@ -79,12 +97,12 @@ music.directive('pagination', ['$interval', function ($interval){
                     scope.jumpPageList();
                 };
 
-                scope.prevPageDisabled = function () {
-                    return scope.currentPage +1 == 1;
+                scope.prevPageDisabled = function() {
+                    return scope.currentPage + 1 == 1;
                 };
 
-                scope.nextPage = function () {
-                    if(scope.nextPageDisabled()){
+                scope.nextPage = function() {
+                    if (scope.nextPageDisabled()) {
                         return;
                     }
                     if (scope.currentPage < scope.pageCount()) {
@@ -93,10 +111,23 @@ music.directive('pagination', ['$interval', function ($interval){
                     scope.jumpPageList();
                 };
 
-                scope.nextPageDisabled = function () {
-                    return (scope.currentPage +1) == scope.total;
+                scope.nextPageDisabled = function() {
+                    return (scope.currentPage + 1) == scope.total;
                 };
-            };
+            }
         }
     }
-}]);
+});
+
+//Filters
+angular.module('pagination.filters', []);
+app.filter('offset', function() {
+    return function(input, start) {
+        if (input) {
+            start = parseInt(start, 10);
+            return input.slice(start);
+        } else {
+            return [];
+        }
+    };
+});
