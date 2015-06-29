@@ -42,8 +42,8 @@
 				</li>
 			</ul>
 			<div class="search-container">
-				<form class="site-search" ng-submit="search()">
-					<input type="search" placeholder="找到好音乐"class="search-input" >
+				<form name="searchName"class="site-search" ng-submit="search(searchKey)">
+					<input type="search" ng-model="searchKey" placeholder="找到好音乐"class="search-input" required>
 					<input type="submit" class="submit-input">
 				</form>
 			</div>

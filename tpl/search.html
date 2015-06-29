@@ -1,13 +1,14 @@
 <div id="main" ng-controller="SearchCtrl">
     <div class="banner bg"></div>
     <form class="search" ng-submit="">
-        <input class="search-input" type="text" ng-model="music.name" placeholder="红尘客栈">
-        <button class="search-icon" type="submit"></button>
+        <input class="search-input" type="text" ng-model="music.name" placeholder="在结果中查找">
+        <!-- <button class="search-icon" type="submit"></button> -->
     </form>
 
     <div class="container">
         <div class="content">
             <p class="search-result">搜索结果</p>
+            <p class="search-no" ng-hide="result">小伙伴，你要找的歌我没听过啊，，，</p>
             <ul>
                 <li class="music-pic" ng-repeat="music in musicResult |
                     offset: currentPage*itemsPerPage |
@@ -23,7 +24,7 @@
                     </div>
                 </li>
             </ul>
-            <div class="paging">
+            <div class="paging" ng-show="result">
                 <pagination currentPage="0" itemsPerPage="8" itemsList="musicResult" pageList="3"></pagination>
             </div>
         </div>

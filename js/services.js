@@ -139,8 +139,8 @@ music.factory('talkService', ['$rootScope', '$http', function ($rootScope, $http
 music.factory('searchService', ['$rootScope', '$http', function ($rootScope, $http){
     var service = {};
 
-    service.getSearchList = function (){
-        var url = $rootScope.apiHost + 'lastmood';
+    service.getSearchList = function (key){
+        var url = $rootScope.apiHost + 'search/'+key;
         return $http.get(url).then(function (resp){
             return resp.data;
         });

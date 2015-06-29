@@ -4,7 +4,7 @@
 
 angular.module('pagination.directives', []);
 
-music.directive('pagination', ['$interval', function ($interval){
+music.directive('pagination', function ($interval){
     return {
         restrict: 'AE',
         replace: true,
@@ -31,9 +31,8 @@ music.directive('pagination', ['$interval', function ($interval){
                 scope.itemsPerPage = attrs.itemsperpage;
                 scope.itemsList = scope[attrs.itemslist];
                 scope.pageList = attrs.pagelist;
-                console.log(scope.itemsList);
 
-                // scope.itemsList = scope.$eval(scope.itemsList);
+                console.log(scope.itemsList);
 
                 scope.pageCount = function () {
                     if (scope.itemsList) {
@@ -99,4 +98,4 @@ music.directive('pagination', ['$interval', function ($interval){
             };
         }
     }
-}]);
+});

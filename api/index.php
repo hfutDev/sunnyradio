@@ -15,6 +15,8 @@
 	$app->get('/lastmood', 'lastMood');
 	$app->get('/lastmusic', 'lastMusic');
 
+	//search.html       searchResult
+	$app->get('/search/:key', 'searchResult');
 
 	$app->run();
 
@@ -287,6 +289,47 @@
 	        };
 	        $db = null;
 			echo  json_encode($fybbg);
+		} catch(PDOException $e) {
+			echo '{"error":{"text":'. $e->getMessage() .'}}';
+		}
+	}
+
+	//搜索结果
+	function searchResult($key){
+		if(!$key){
+			exit();
+		}
+		$sql = "SELECT id,filepath,filename,singer,
+				realname,imgid,playtimes FROM radio_song WHERE filename LIKE '%".$key."%' ORDER BY playtimes DESC LIMIT 10";
+		try {
+			$db = getConnection();
+			$stmt = $db->query($sql);
+			$fybtype = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+			// echo  json_encode($fybtype);
+
+			for ($i=0; $i < count($fybtype); $i++) {
+				$fybtype[$i]->name = $fybtype[$i]->filename;
+				$fybtype[$i]->url = $fybtype[$i]->filepath.$fybtype[$i]->realname;
+
+				//查询图片路径
+				$queryImgid = "SELECT path,name FROM radio_img WHERE id=" .$fybtype[$i]->imgid;
+				$stmt = $db->query($queryImgid);
+				$src = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+				//如果没有图片,src为空
+				if(!empty($src[0])){
+					$fybtype[$i]->src = $src[0]->path.$src[0]->name;
+				}else{
+					$fybtype[$i]->src = "images/search.jpg";
+				}
+
+				//删除多余字段
+				unset($fybtype[$i]->filepath,$fybtype[$i]->realname,$fybtype[$i]->filename,$fybtype[$i]->imgid,$fybtype[$i]->playtimes);
+			};
+			$db = null;
+
+			echo  json_encode($fybtype);
 		} catch(PDOException $e) {
 			echo '{"error":{"text":'. $e->getMessage() .'}}';
 		}

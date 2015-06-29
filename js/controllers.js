@@ -4,7 +4,7 @@
 
 angular.module('music.controllers', []);
 
-music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', '$location', 'audioService',   function ($scope, $rootScope, $interval, $location, audioService){
+music.controller('MusicCtrl', ['$scope', '$rootScope', 'searchService', '$route','$location', 'audioService',   function ($scope, $rootScope, searchService, $route, $location, audioService){
     $rootScope.musicPlay = {
         'state': false,
         'music':{
@@ -22,10 +22,14 @@ music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', '$location',
         }
     };
 
-    $scope.search = function(){
-        $location.path('/search');
+    $scope.search = function(key){
+        searchService.getSearchList(key).then(function (data){
+            $scope.musicResult = data;
+            $route.reload();
+            $scope.$broadcast('musicResult');
+            $location.path('/search');
+        });
     }
-
     $scope.categorys = [
         {
             cate:'小清新兆赫'
@@ -37,7 +41,18 @@ music.controller('MusicCtrl', ['$scope', '$rootScope', '$interval', '$location',
             cate:'流行日语兆赫'
         }
     ];
+}]);
 
+music.controller('SearchCtrl', ['$scope', 'searchService', function ($scope, searchService){
+
+    searchService.getSearchList($scope.searchKey).then(function (data){
+        $scope.musicResult = data;
+        $scope.$broadcast('musicResult');
+    });
+    $scope.result = true;
+    if ($scope.musicResult.length == 0) {
+        $scope.result = false;
+    };
 }]);
 
 music.controller('UploadCtrl', ['$scope', function ($scope){
@@ -199,74 +214,3 @@ music.controller('RankCtrl', ['$scope', 'audioService', 'rankService', '$interva
 
 }]);
 
-music.controller('SearchCtrl', ['$scope', 'searchService', function ($scope, searchService){
-    // $scope.musicResult = [
-    //     {
-    //         'id': '01',
-    //         'name': '红尘客栈',
-    //         'songer':'周杰伦',
-    //         'url': 'songs/Nice.mp3',
-    //         'img': 'search.jpg'
-    //     },
-
-    //     {
-    //         'id': '02',
-    //         'name': '龙卷风',
-    //         'songer':'周杰伦',
-    //         'url': 'songs/Nice.mp3',
-    //         'img': 'search.jpg'
-    //     },
-
-    //     {
-    //         'id': '03',
-    //         'name': '红尘客栈',
-    //         'songer':'周杰伦',
-    //         'url': 'songs/Nice.mp3',
-    //         'img': 'search.jpg'
-    //     },
-
-    //     {
-    //         'id': '04',
-    //         'name': '红尘客栈',
-    //         'songer':'周杰伦',
-    //         'url': 'songs/Nice.mp3',
-    //         'img': 'search.jpg'
-    //     },
-
-    //     {
-    //         'id': '05',
-    //         'name': '红尘客栈',
-    //         'songer':'周杰伦',
-    //         'url': 'songs/Nice.mp3',
-    //         'img': 'search.jpg'
-    //     },
-
-    //     {
-    //         'id': '06',
-    //         'name': '红尘客栈',
-    //         'songer':'周杰伦',
-    //         'url': 'songs/Nice.mp3',
-    //         'img': 'search.jpg'
-    //     },
-
-    //     {
-    //         'id': '07',
-    //         'name': '红尘客栈',
-    //         'songer':'周杰伦',
-    //         'url': 'songs/Nice.mp3',
-    //         'img': 'search.jpg'
-    //     },
-
-    //     {
-    //         'id': '08',
-    //         'name': '红尘客栈',
-    //         'songer':'周杰伦',
-    //         'url': 'songs/Nice.mp3',
-    //         'img': 'search.jpg'
-    //     }
-    // ];
-    searchService.getSearchList().then(function (data){
-        $scope.musicResult = data;
-        $scope.$broadcast('musicResult');
-    });
-}]);
