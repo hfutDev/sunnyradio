@@ -148,3 +148,17 @@ music.factory('searchService', ['$rootScope', '$http', function ($rootScope, $ht
 
     return service;
 }]);
+
+music.factory('uploadService', ['$rootScope', '$http', function ($rootScope, $http){
+    var service = {};
+
+    service.upload = function (file){
+        var url = $rootScope.apiHost + 'upload';
+        return $http.post(url, file).then(function (resp){
+            console.log(resp.data);
+            return resp.data;
+        });
+    };
+
+    return service;
+}]);

@@ -18,6 +18,10 @@
 	//search.html       searchResult
 	$app->get('/search/:key', 'searchResult');
 
+
+	//upload
+	$app->post('/upload', 'upload');
+
 	$app->run();
 
 	function getConnection() {
@@ -332,6 +336,16 @@
 			echo  json_encode($fybtype);
 		} catch(PDOException $e) {
 			echo '{"error":{"text":'. $e->getMessage() .'}}';
+		}
+	}
+
+	//上传歌曲
+	function upload(){
+		if (!empty($_FILES)) {
+			echo  json_encode($_FILES);
+			// $tempPath = $_FILES['file']['tmp_name'];
+        	// $filename = $_FILES['file']['name'];
+
 		}
 	}
 ?>

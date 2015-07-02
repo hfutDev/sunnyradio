@@ -24,5 +24,27 @@ http://sunnyradio.hfutonline.net/new/search.php
 用Post发送搜索数据，参数名是Key (暂定)
 
 
+function photo()
+{
+    if (isset($_SESSION['uid']) && !empty($_FILES)) {
+        //用户已登陆
+        $tempPath = $_FILES['file']['tmp_name'];
+        $filename = $_FILES['file']['name'];
+        $ext = substr(strrchr($filename, '.'), 1);
+        $photoInfo = $_SESSION['uid'] . '.' . $ext;
+        $uploadPath = '../../upload/temp/' . $photoInfo;
+
+        move_uploaded_file($tempPath, $uploadPath);
+
+        $result0 = array("type" => $ext);
+        $result = '{"meta": {"code": 201, "message": "上传成功"},"data": ' . json_encode($result0) . '}';
+        echo $result;
+    } else {
+
+        $result = '{"meta": {"code": 202, "message": "未登录"},"data": ""}';
+        echo $result;
+    }
+}
+
 
 

@@ -55,24 +55,30 @@ music.controller('SearchCtrl', ['$scope', 'searchService', function ($scope, sea
     };
 }]);
 
-music.controller('UploadCtrl', ['$scope', function ($scope){
+music.controller('UploadCtrl', ['$scope', 'uploadService', function ($scope, uploadService){
     $scope.music = {};
     $scope.upload = function (music){
         $scope.music.category = $scope.music.category.cate;
         console.log(music);
-        // console.log($scope.musicUpload);
-    }
+        console.log($scope.musicUpload);
+    };
 
     $scope.change = function (element){
         var file = element.files[0];
-        var pos = file.name.lastIndexOf(".");
-        console.log(file.name);
+        var pos = file.type.lastIndexOf("/");
+        var fileType = file.type.slice(0,pos);
+        console.log(file);
+        console.log($scope.music.type);
         //用$apply更新$scope
-        $scope.$apply(function(){
+        if (fileType == 'audio') {
             $scope.music.name = file.name;
-            $scope.music.type = file.name.substring(pos + 1);
+            $scope.$apply();
+        };
+
+        uploadService.upload(file).then(function(data){
+            console.log('上传成功');
         });
-    }
+    };
 }]);
 
 music.controller('HomeCtrl', ['$scope', 'audioService', 'homeService', function ($scope, audioService, homeService){
