@@ -81,14 +81,14 @@ music.factory('homeService', ['$rootScope', '$http', function ($rootScope, $http
     var service = {};
 
     service.getMusicList = function (){
-        var url = $rootScope.apiHost + '/musicmood';
+        var url = $rootScope.apiHost + 'musicmood';
         return $http.get(url).then(function (resp){
             return resp.data;
         });
     };
 
     service.getRankFour = function (){
-        var url = $rootScope.apiHost + '/rankfour';
+        var url = $rootScope.apiHost + 'rankfour';
         return $http.get(url).then(function (resp){
             return resp.data;
         });
